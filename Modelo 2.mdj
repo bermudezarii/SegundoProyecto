@@ -33072,7 +33072,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+createResolution(FrResolution): void",
+											"text": "+createResolution(FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33130,7 +33130,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+createRequest(frrequest: FrRequest): void",
+											"text": "+createRequest(frmain: FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33159,7 +33159,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+CancelRequest(frviewrequest: FrViewRequest): void",
+											"text": "+CancelRequest(frmain: FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33246,7 +33246,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getRequest(frstadistics: FrStadistics)",
+											"text": "+getRequest(frmain: FrMain)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33275,7 +33275,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getResolution(FrResolution frResolution): void",
+											"text": "+getResolution(FrMain frMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33333,7 +33333,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+processedRequestsInDateRange(frstadistics: FrStadistics): void",
+											"text": "+processedRequestsInDateRange(frmain: FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33420,7 +33420,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+setRequest(frviewrequest FrViewRequest): void",
+											"text": "+setRequest(frmain FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33449,7 +33449,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+setallCourses(frrequest: FrRequest): void",
+											"text": "+setallCourses(frmain: FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33478,7 +33478,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+setallGroups(frrequest: FrRequest): void",
+											"text": "+setallGroups(frmain: FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33507,7 +33507,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+setallPeriods(frrequest: FrRequest): void",
+											"text": "+setallPeriods(frmain: FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33536,7 +33536,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+setallRequest(frrequest: FrRequest): void",
+											"text": "+setallRequest(frmain: FrMain): void",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -33594,7 +33594,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+top5CoursesResolutionsByPeriod(frstadistics: FrStadistics): DefaultCategoryDataset",
+											"text": "+top5CoursesResolutionsByPeriod(frmain: FrMain): DefaultCategoryDataset",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -52548,11 +52548,10 @@
 											"_parent": {
 												"$ref": "AAAAAAFck1wBC4govOo="
 											},
-											"name": "FrResolution",
+											"name": "FrMain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
-											"type": "",
 											"isReadOnly": false,
 											"isOrdered": false,
 											"isUnique": false,
@@ -52657,12 +52656,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFbY/DEctGeMjY="
 											},
-											"name": "frrequest",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW77JrJO/TTk="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
@@ -52691,11 +52690,13 @@
 											"_parent": {
 												"$ref": "AAAAAAFbiMKnQDNzyUQ="
 											},
-											"name": "frviewrequest",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
-											"type": "FrViewRequest",
+											"type": {
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
+											},
 											"isReadOnly": false,
 											"isOrdered": false,
 											"isUnique": false,
@@ -52804,12 +52805,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFck2UZ+3exqbM="
 											},
-											"name": "frstadistics",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW791LpjDIiA="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
@@ -52838,11 +52839,10 @@
 											"_parent": {
 												"$ref": "AAAAAAFck15xrdFA4Y8="
 											},
-											"name": "FrResolution frResolution",
+											"name": "FrMain frMain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
-											"type": "",
 											"isReadOnly": false,
 											"isOrdered": false,
 											"isUnique": false,
@@ -52916,12 +52916,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFck2ZsDKNU5WQ="
 											},
-											"name": "frstadistics",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW791LpjDIiA="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
@@ -53061,11 +53061,10 @@
 											"_parent": {
 												"$ref": "AAAAAAFbiMm23Ely32A="
 											},
-											"name": "frviewrequest FrViewRequest",
+											"name": "frmain FrMain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
-											"type": "",
 											"isReadOnly": false,
 											"isOrdered": false,
 											"isUnique": false,
@@ -53108,12 +53107,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFbiMoi2UwdJsk="
 											},
-											"name": "frrequest",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW77JrJO/TTk="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
@@ -53157,12 +53156,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFbiMrnIFLpxDQ="
 											},
-											"name": "frrequest",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW77JrJO/TTk="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
@@ -53206,12 +53205,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFbiMuy31ZV4K8="
 											},
-											"name": "frrequest",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW77JrJO/TTk="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
@@ -53255,12 +53254,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFbiMzdbFkAMKE="
 											},
-											"name": "frrequest",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW77JrJO/TTk="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
@@ -53335,12 +53334,12 @@
 											"_parent": {
 												"$ref": "AAAAAAFck2dxmsJHS2g="
 											},
-											"name": "frstadistics",
+											"name": "frmain",
 											"visibility": "public",
 											"isStatic": false,
 											"isLeaf": false,
 											"type": {
-												"$ref": "AAAAAAFbW791LpjDIiA="
+												"$ref": "AAAAAAFcj1v3DgHL9AY="
 											},
 											"isReadOnly": false,
 											"isOrdered": false,
