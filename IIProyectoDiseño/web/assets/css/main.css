@@ -15,15 +15,6 @@ section{
 	position: relative;
 	margin-bottom: 60px;
 }
-.title-box:after{
-	content: '';
-	width: 50px;
-	height: 3px;
-	position: absolute;
-	bottom: -20px;
-	left: calc(50% - 25px);
-	background-color: #30ADDD;
-}
 .section-title{
 	margin-top: 0;
 }
@@ -124,7 +115,7 @@ section{
 .intro h1{
 	position: relative;
 	color: #fff;
-	font-size: 90px;
+	font-size: 50px;
 	text-transform: uppercase;
 	line-height: 1;
 }
@@ -137,10 +128,10 @@ section{
 	background-color: #fff;
 }
 .intro h1:after{
-	bottom: 0;
+	bottom: -15px;
 }
 .intro h1:before{
-	top: 0;
+	top: -15px;
 }
 .btn-header{
 	position: absolute;
@@ -449,7 +440,7 @@ section{
 		FAQ
 **********************/
 .faq{
-	background-image: url(../images/faq.jpg);
+	background-image: url(../images/faq.png);
 }
 .faq .panel-group .panel{
 	margin-bottom: 20px;
@@ -461,12 +452,19 @@ section{
 	background-color: #5B6B8D;
 	color: #bcbcbc;
 }
-.faq .panel-default>.panel-heading a{
+.faq .panel-default>.panel-heading h4{
 	color: #fff;
 	text-transform: uppercase;
 }
 .faq .panel-heading, .faq .panel-body, .faq .panel-group .panel{
 	border-radius: 0;
+}
+
+.form-overlap{
+    background-color: #31436b;
+    padding: 10px;
+    border-radius: 25px;
+    color: #fff;
 }
 
 
