@@ -9,9 +9,25 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ServletConsultUI</servlet-name>
+        <servlet-class>controller.ServletConsultUI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletFormUI</servlet-name>
+        <servlet-class>controller.ServletFormUI</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletConsultUI</servlet-name>
+        <url-pattern>/ServletConsultUI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletFormUI</servlet-name>
+        <url-pattern>/ServletFormUI</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

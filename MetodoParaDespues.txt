@@ -1,0 +1,11 @@
+        School.getInstance();
+      
+               
+        
+      
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                School.getInstance().saveRequest();
+            }
+        });
