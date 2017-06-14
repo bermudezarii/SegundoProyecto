@@ -128,7 +128,7 @@ public class DAOData {
     } 
      
   
-    private EEmployeeRol identifyEEmployeeRol(String rol) { 
+    public EEmployeeRol identifyEEmployeeRol(String rol) { 
         switch (rol) { 
             case "DIRECTOR": 
                 return EEmployeeRol.HEADMASTER; 

@@ -5,6 +5,12 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Usuario
@@ -18,6 +24,71 @@ public class FrSuperUser extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getButtonAddUser() {
+        return ButtonAddUser;
+    }
+
+    public void setButtonAddUser(JButton ButtonAddUser) {
+        this.ButtonAddUser = ButtonAddUser;
+    }
+
+    public JComboBox<String> getComboBoxRol() {
+        return ComboBoxRol;
+    }
+
+    public void setComboBoxRol(JComboBox<String> ComboBoxRol) {
+        this.ComboBoxRol = ComboBoxRol;
+    }
+
+    public JPasswordField getPasswordFieldAddPassword() {
+        return PasswordFieldAddPassword;
+    }
+
+    public void setPasswordFieldAddPassword(JPasswordField PasswordFieldAddPassword) {
+        this.PasswordFieldAddPassword = PasswordFieldAddPassword;
+    }
+
+    public JTextField getTextFieldAddEmail() {
+        return TextFieldAddEmail;
+    }
+
+    public void setTextFieldAddEmail(JTextField TextFieldAddEmail) {
+        this.TextFieldAddEmail = TextFieldAddEmail;
+    }
+
+    public JTextField getTextFieldAddName() {
+        return TextFieldAddName;
+    }
+
+    public void setTextFieldAddName(JTextField TextFieldAddName) {
+        this.TextFieldAddName = TextFieldAddName;
+    }
+
+    public JTextField getTextFieldAddPhone() {
+        return TextFieldAddPhone;
+    }
+
+    public void setTextFieldAddPhone(JTextField TextFieldAddPhone) {
+        this.TextFieldAddPhone = TextFieldAddPhone;
+    }
+
+    public JTextField getTextFieldAddUsername() {
+        return TextFieldAddUsername;
+    }
+
+    public void setTextFieldAddUsername(JTextField TextFieldAddUsername) {
+        this.TextFieldAddUsername = TextFieldAddUsername;
+    }
+
+    public JTabbedPane getjTabbedPane1() {
+        return jTabbedPane1;
+    }
+
+    public void setjTabbedPane1(JTabbedPane jTabbedPane1) {
+        this.jTabbedPane1 = jTabbedPane1;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,21 +98,148 @@ public class FrSuperUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        TextFieldAddUsername = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        TextFieldAddName = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        TextFieldAddPhone = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        TextFieldAddEmail = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        PasswordFieldAddPassword = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
+        ComboBoxRol = new javax.swing.JComboBox<>();
+        ButtonAddUser = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1899, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Modificar", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1899, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 900, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab3", jPanel3);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        jLabel1.setText("Agregar Usuarios");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel2.setText("_______________");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel3.setText("_______________");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
+
+        jLabel4.setText("En esta sección usted puede agregar usuarios que posteriormente podrán hacer uso del programa ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, -1, -1));
+
+        jLabel5.setText("Usuario");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, -1, -1));
+
+        TextFieldAddUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldAddUsernameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(TextFieldAddUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 270, 280, -1));
+
+        jLabel6.setText("Nombre ");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, -1, -1));
+        jPanel1.add(TextFieldAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 340, 280, -1));
+
+        jLabel7.setText("Correo");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
+
+        TextFieldAddPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldAddPhoneActionPerformed(evt);
+            }
+        });
+        jPanel1.add(TextFieldAddPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, 280, -1));
+
+        jLabel8.setText("Teléfono");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 460, -1, -1));
+        jPanel1.add(TextFieldAddEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, 280, -1));
+
+        jLabel9.setText("Contraseña");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, -1, -1));
+        jPanel1.add(PasswordFieldAddPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 550, 280, -1));
+
+        jLabel10.setText("Rol");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 600, -1, -1));
+
+        ComboBoxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Director", "Coordinador", "Profesor", "Asistente", "Superusuario" }));
+        ComboBoxRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxRolActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ComboBoxRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 630, 270, -1));
+
+        ButtonAddUser.setText("Listo");
+        jPanel1.add(ButtonAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 700, -1, 30));
+
+        jTabbedPane1.addTab("Agregar", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1904, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void TextFieldAddUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldAddUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldAddUsernameActionPerformed
+
+    private void TextFieldAddPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextFieldAddPhoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldAddPhoneActionPerformed
+
+    private void ComboBoxRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxRolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxRolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +277,26 @@ public class FrSuperUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonAddUser;
+    private javax.swing.JComboBox<String> ComboBoxRol;
+    private javax.swing.JPasswordField PasswordFieldAddPassword;
+    private javax.swing.JTextField TextFieldAddEmail;
+    private javax.swing.JTextField TextFieldAddName;
+    private javax.swing.JTextField TextFieldAddPhone;
+    private javax.swing.JTextField TextFieldAddUsername;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }

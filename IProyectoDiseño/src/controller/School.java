@@ -82,18 +82,34 @@ public class School  {
         requestsManager.insert(req);
     }
     
+   public void insertEmployee(DTOEmployee dto){
+       employeesManager.insert(dto);
+   }
+    
     public void editRequest(DTORequest req) {
         requestsManager.edit(req);
     }
     
+    public void editEmployee(DTORequest dto){
+        employeesManager.edit(dto);
+    }
+           
     public void deleteRequest(String id) {
         requestsManager.delete(id);
+    }
+    
+    public void deleteEmployee(String id){
+        employeesManager.delete(id);
     }
     
     public Request selectRequest(String id) {
         return (Request) requestsManager.select(id);
     }
     
+    public Employee selectEmployee(String id){
+        return (Employee) employeesManager.select(id); 
+    }
+   
     public ArrayList<Object> selectPendingRequests() {
         return requestsManager.selectPendings();
     }
@@ -110,7 +126,9 @@ public class School  {
         return requestsManager.selectAll();
     }
     
-
+    public ArrayList<Object> selectAllEmployee(){
+        return employeesManager.selectAll(); 
+    }
     
     public ArrayList<Object> viewEmployees(){
         return employeesManager.elements; 
