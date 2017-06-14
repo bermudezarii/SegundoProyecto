@@ -94,7 +94,7 @@ public class FrLogin extends javax.swing.JFrame {
         });
         jPanel1.add(ButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Pictures\\2017 - TEC\\I semestre\\Diseño\\Modern-workplace\\331azul.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/331azul.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
