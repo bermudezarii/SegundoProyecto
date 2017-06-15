@@ -163,7 +163,7 @@ public class School  {
     }
     
     
-    
+   
     
     public Resolution getResolution(){
         return requestsManager.getResolution();
