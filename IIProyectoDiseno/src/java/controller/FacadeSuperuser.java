@@ -35,8 +35,10 @@ public class FacadeSuperuser {
         System.out.println("modificado: " + school.selectAllEmployee().toString());
     }
 
-    void deleteEmployee(String id) {
+    public void deleteEmployee(String id) {
         school.deleteEmployee(id);
         System.out.println("borrado: " + school.selectAllEmployee().toString());
     }
+    
+     
 }
