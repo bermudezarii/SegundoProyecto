@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 15/06/2017, 02:36:50 PM
+    Author     : epikhdez
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -63,9 +70,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="main-navbar">
                   <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#header">Inicio <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#clients">Formulario</a></li>
-                    <li><a href="#faq">Consultar</a></li>
+                    <li class="active"><a href="#home">Inicio <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#form">Formulario</a></li>
+                    <li><a href="#consult">Consultar</a></li>
                     <li><a href="#contact">Contáctenos</a></li>
                   </ul>
                 </div><!-- /.navbar-collapse -->
@@ -73,7 +80,7 @@
                 </nav>
 
         <!-- Header Section -->
-            <header id="header" class="header overlay-dark">
+            <header id="home" class="header overlay-dark">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
@@ -92,8 +99,8 @@
 
       
    
-        <!-- Clients -->
-            <section id="clients" class="clients">
+        <!-- Form -->
+            <section id="form" class="clients">
                 	<!-- Contact Form -->
 		<div class="c-form-container section-container section-container-image-bg">
 	        <div class="container">
@@ -155,7 +162,7 @@
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
-		                    			<span class="label-text">Grupo:</span> 
+		                    			<span class="label-text">Periodo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
 		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
@@ -169,7 +176,7 @@
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
-		                    			<span class="label-text">Periodo:</span> 
+		                    			<span class="label-text">Grupo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
 		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
@@ -194,8 +201,8 @@
         </div>
             </section>
 
-        <!-- FAQ -->
-            <section id="faq" class="faq overlay-light">
+        <!-- Consult -->
+            <section id="consult" class="faq overlay-light">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -208,15 +215,15 @@
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-4 c-form-box wow fadeInUp">
                             <div class="c-form-bottom form-overlap">
-                                <form role="form" action="assets/contact.php" method="post">
+                                <form role="form" action="ServletConsultUI" method="get">
                                     <div class="form-group">
                                         <label for="c-form-name">
                                             <h3>Número de solicitud:</h3> 
                                             <span class="contact-error"></span>
                                         </label>
-                                        <input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+                                        <input type="text" name="request" placeholder="" class="c-form-name form-control" id="id-request">
                                     </div>
-                                    <button type="submit" class="btn">Enviar</button>
+                                    <button type="submit" class="btn">Consultar</button>
                                 </form>
                             </div>
                         </div>
@@ -234,7 +241,7 @@
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
-                                        Presione enviar para mostrar el estado de la solicitud.
+                                            ${empty state ? "Presione consultar para mostrar el estado de la solicitud." : state}
                                         </div>
                                     </div>
                                 </div>
