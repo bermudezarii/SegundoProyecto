@@ -63,13 +63,14 @@ public final class EmployeesManager extends Manager {
 
     @Override
     public void delete(String id) {    
-       
+       ArrayList<Object> objects = new ArrayList(); 
         for(Object r : elements) {
             Employee temp = (Employee) r; 
-            if(temp.getId() == id){
-                elements.remove(r); 
+            if(temp.getId() != id){
+                objects.add(r); 
             }
         }
+        elements = objects; 
     }
 
     @Override

@@ -92,7 +92,7 @@ public class School  {
         requestsManager.edit(req);
     }
     
-    public void editEmployee(DTORequest dto){
+    public void editEmployee(DTOEmployee dto){
         employeesManager.edit(dto);
     }
            

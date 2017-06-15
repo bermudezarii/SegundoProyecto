@@ -5,6 +5,9 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import model.Employee;
+
 /**
  *
  * @author Usuario
@@ -17,10 +20,23 @@ public class FacadeSuperuser {
     }
     
     public void insertEmployee(DTOEmployee dto) {
-        System.out.println("entro hasta el facade");
         school.insertEmployee(dto);
-        System.out.println(school.selectAllEmployee().toString());
+        System.out.println("agregado: " + school.selectAllEmployee().toString());
         
     }
     
+    
+    public ArrayList<Object> selectAllEmployees(){
+        return school.selectAllEmployee(); 
+    }
+    
+    public void editEmployee(DTOEmployee dto){
+        school.editEmployee(dto);
+        System.out.println("modificado: " + school.selectAllEmployee().toString());
+    }
+
+    void deleteEmployee(String id) {
+        school.deleteEmployee(id);
+        System.out.println("borrado: " + school.selectAllEmployee().toString());
+    }
 }
