@@ -10,15 +10,17 @@ package controller;
  * @author Ximena
  */
 public class TemplateResolution {
-    public void templateMethod(){
+    public void templateMethod(String intro,String consider,String notify,String result){
     }
-    public void buildIntro(){
+    public void buildIntro(String intro){
     }
-    public void buildResult(){
+    public void buildResult(String result){
     }
-    public void buildConsider(){
+    public void buildConsider(String consider){
     }
-    public void buildNotify(){
+    public void buildNotify(String notify){
     }
+
+  
 
 }
