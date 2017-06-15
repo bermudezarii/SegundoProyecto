@@ -5,8 +5,10 @@
  */
 package view;
 
+import controller.UISuperUser;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -17,9 +19,8 @@ import javax.swing.JTextField;
  */
 public class FrSuperUser extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrSuperUser
-     */
+    private UISuperUser uiSuperuser = new UISuperUser(); 
+    
     public FrSuperUser() {
         initComponents();
     }
@@ -209,6 +210,11 @@ public class FrSuperUser extends javax.swing.JFrame {
         jPanel1.add(ComboBoxRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 630, 270, -1));
 
         ButtonAddUser.setText("Listo");
+        ButtonAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAddUserActionPerformed(evt);
+            }
+        });
         jPanel1.add(ButtonAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 700, -1, 30));
 
         jTabbedPane1.addTab("Agregar", jPanel1);
@@ -240,6 +246,19 @@ public class FrSuperUser extends javax.swing.JFrame {
     private void ComboBoxRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxRolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxRolActionPerformed
+
+    private void ButtonAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAddUserActionPerformed
+        // TODO add your handling code here:
+        if(!TextFieldAddName.getText().equals("")&&!TextFieldAddEmail.getText().equals("")&&!TextFieldAddPhone.getText().equals("")&&!TextFieldAddUsername.getText().equals("") 
+           &&!PasswordFieldAddPassword.getText().equals(""))  { 
+            System.out.println("aqui 2");
+            uiSuperuser.createEmployee(this);
+            System.out.println("aqui 3");
+    }
+        else{ 
+            JOptionPane.showMessageDialog(this,"Tiene que llenar todos los espacios establecidos."); 
+    } 
+    }//GEN-LAST:event_ButtonAddUserActionPerformed
 
     /**
      * @param args the command line arguments

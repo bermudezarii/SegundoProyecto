@@ -7,6 +7,7 @@ package controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,9 +31,10 @@ public class School  {
     
     private DAOData getDataFile() {
         try {
-            FileInputStream fis = new FileInputStream(new File("src//files//DatosProyecto1.xlsx"));
+            InputStream fis = getClass().getResourceAsStream("/files/DatosProyecto1.xlsx"); 
             return new DAOData(fis);
         } catch(Exception ex) {
+            System.out.println("here");
             System.out.println(ex.getMessage());
         }
         
@@ -42,7 +44,7 @@ public class School  {
     
     private DAORequest getRequestsFile(String path) {
         try {
-            FileInputStream fis = new FileInputStream(new File(path));
+            InputStream fis = getClass().getResourceAsStream(path); 
             return new DAORequest(fis);
         } catch(Exception ex) {
             System.out.println("Error from getRequest file");
@@ -64,7 +66,7 @@ public class School  {
     
     private void loadData() {
         DAOData data = getDataFile();
-        DAORequest req = getRequestsFile("src//files//DatosFormulario.xlsx"); 
+        DAORequest req = getRequestsFile("/files/DatosFormulario.xlsx"); 
         employeesManager = new EmployeesManager(data);
         plansManager = new PlansManager(data);
         groupsManager = new GroupsManager(data);

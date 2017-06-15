@@ -7,6 +7,7 @@ package controller;
 
 import java.io.FileInputStream; 
 import java.io.IOException; 
+import java.io.InputStream;
 import java.sql.Time; 
 import java.util.ArrayList; 
 import model.Course; 
@@ -28,10 +29,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author Usuario 
  */ 
 public class DAOData { 
-    FileInputStream FIS; 
+    InputStream FIS; 
     XSSFWorkbook workbook;  
  
-    public DAOData(FileInputStream FIS) throws IOException { 
+    public DAOData(InputStream FIS) throws IOException { 
         this.FIS = FIS; 
         this.workbook = new XSSFWorkbook(FIS);  
     } 

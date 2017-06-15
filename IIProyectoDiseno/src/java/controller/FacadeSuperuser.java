@@ -10,5 +10,17 @@ package controller;
  * @author Usuario
  */
 public class FacadeSuperuser {
+    private School school; 
+
+    public FacadeSuperuser() {
+        school= School.getInstance();
+    }
+    
+    public void insertEmployee(DTOEmployee dto) {
+        System.out.println("entro hasta el facade");
+        school.insertEmployee(dto);
+        System.out.println(school.selectAllEmployee().toString());
+        
+    }
     
 }

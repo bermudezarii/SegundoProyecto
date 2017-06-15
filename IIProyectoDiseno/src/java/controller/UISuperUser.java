@@ -6,6 +6,7 @@
 package controller;
 
 import javax.swing.JOptionPane;
+import model.EEmployeeRol;
 import org.apache.commons.validator.routines.EmailValidator;
 import view.FrSuperUser;
 
@@ -39,7 +40,8 @@ public class UISuperUser {
         this.dto = dto;
     }
     
-    public void createRequest(FrSuperUser frsuper){
+    public void createEmployee(FrSuperUser frsuper){
+        System.out.println("aqui 1");
         dto =new DTOEmployee();
         String id = frsuper.getTextFieldAddUsername().getText(); 
         String name = frsuper.getTextFieldAddName().getText(); 
@@ -55,10 +57,11 @@ public class UISuperUser {
             dto.setName(name);
             dto.setPhone(phone);
             dto.setEmail(email);
-       
             dto.setRol(data.identifyEEmployeeRol(rol));
-        //facadeSuperuser.create(dto);
-        JOptionPane.showMessageDialog(frsuper, "Se ha Creado Una Solicitud con Éxito.");
+            dto.setRol(EEmployeeRol.PROFESSOR);
+            dto.setPassword(password);
+        facadeSuperuser.insertEmployee(dto);
+        JOptionPane.showMessageDialog(frsuper, "Se ha Creado Una Empleado con Éxito.");
         FrSuperUser fr=new FrSuperUser();
         fr.setVisible(true);
         frsuper.setVisible(false);

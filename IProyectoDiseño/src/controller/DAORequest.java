@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -33,10 +34,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author Usuario
  */
 public class DAORequest {
-    FileInputStream FIS;
+    InputStream FIS;
     XSSFWorkbook workbook; 
 
-    public DAORequest(FileInputStream FIS) throws IOException {
+    public DAORequest(InputStream FIS) throws IOException {
         this.FIS = FIS;
         this.workbook = new XSSFWorkbook(FIS); 
         
