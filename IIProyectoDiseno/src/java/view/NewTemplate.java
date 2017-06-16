@@ -5,17 +5,63 @@
  */
 package view;
 
+import controller.UICoordinator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author Ximena
  */
 public class NewTemplate extends javax.swing.JFrame {
-
+    private UICoordinator ui;
     /**
      * Creates new form NewTemplate
      */
     public NewTemplate() {
         initComponents();
+    }
+
+    public JTextArea getTxtconsider() {
+        return txtconsider;
+    }
+
+    public void setTxtconsider(JTextArea txtconsider) {
+        this.txtconsider = txtconsider;
+    }
+
+    public JTextArea getTxtintro() {
+        return txtintro;
+    }
+
+    public void setTxtintro(JTextArea txtintro) {
+        this.txtintro = txtintro;
+    }
+
+    public JTextArea getTxtnotify() {
+        return txtnotify;
+    }
+
+    public void setTxtnotify(JTextArea txtnotify) {
+        this.txtnotify = txtnotify;
+    }
+
+    public JTextArea getTxtresolve() {
+        return txtresolve;
+    }
+
+    public void setTxtresolve(JTextArea txtresolve) {
+        this.txtresolve = txtresolve;
+    }
+
+    public JTextArea getTxtresult() {
+        return txtresult;
+    }
+
+    public void setTxtresult(JTextArea txtresult) {
+        this.txtresult = txtresult;
     }
 
     /**
@@ -39,22 +85,24 @@ public class NewTemplate extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtnotify = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtintro = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        txtresult = new javax.swing.JTextArea();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        txtconsider = new javax.swing.JTextArea();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
+        txtresolve = new javax.swing.JTextArea();
+        cbtype = new javax.swing.JComboBox<>();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         btnNewTemplate = new javax.swing.JMenuItem();
+        btnsaveTemplate = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnViewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -110,9 +158,9 @@ public class NewTemplate extends javax.swing.JFrame {
         jLabel1.setText("Introducción ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        txtnotify.setColumns(20);
+        txtnotify.setRows(5);
+        jScrollPane3.setViewportView(txtnotify);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 840, 710, 150));
 
@@ -128,29 +176,37 @@ public class NewTemplate extends javax.swing.JFrame {
         jLabel5.setText("Notifíquese");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 820, -1, -1));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
+        txtintro.setColumns(20);
+        txtintro.setRows(5);
+        jScrollPane4.setViewportView(txtintro);
 
         jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 710, 150));
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane5.setViewportView(jTextArea3);
+        txtresult.setColumns(20);
+        txtresult.setRows(5);
+        jScrollPane5.setViewportView(txtresult);
 
         jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 710, 150));
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane6.setViewportView(jTextArea4);
+        txtconsider.setColumns(20);
+        txtconsider.setRows(5);
+        jScrollPane6.setViewportView(txtconsider);
 
         jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 710, 150));
 
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane7.setViewportView(jTextArea5);
+        txtresolve.setColumns(20);
+        txtresolve.setRows(5);
+        jScrollPane7.setViewportView(txtresolve);
 
         jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 710, 150));
+
+        cbtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inclusión", "Exclusión", "Error de Nota" }));
+        cbtype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbtypeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, -1, -1));
 
         jScrollPane2.setViewportView(jPanel1);
 
@@ -165,6 +221,14 @@ public class NewTemplate extends javax.swing.JFrame {
             }
         });
         jMenu3.add(btnNewTemplate);
+
+        btnsaveTemplate.setText("Guardar Plantilla...");
+        btnsaveTemplate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveTemplateActionPerformed(evt);
+            }
+        });
+        jMenu3.add(btnsaveTemplate);
 
         jMenuBar2.add(jMenu3);
 
@@ -203,7 +267,7 @@ public class NewTemplate extends javax.swing.JFrame {
 
     private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
+        NewTemplate fr=new NewTemplate();
         fr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNewTemplateActionPerformed
@@ -251,6 +315,31 @@ public class NewTemplate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewResolution1ActionPerformed
 
+    private void cbtypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbtypeActionPerformed
+
+    private void btnsaveTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveTemplateActionPerformed
+        try {
+            // TODO add your handling code here:
+            ui.createTemplate(this);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnsaveTemplateActionPerformed
+
+    public JComboBox<String> getCbtype() {
+        return cbtype;
+    }
+
+    public void setCbtype(JComboBox<String> cbtype) {
+        this.cbtype = cbtype;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -293,8 +382,10 @@ public class NewTemplate extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnViewRequest1;
     private javax.swing.JMenuItem btnViewResolution;
     private javax.swing.JMenuItem btnViewResolution1;
+    private javax.swing.JMenuItem btnsaveTemplate;
     private javax.swing.JMenuItem btnviewStadistics;
     private javax.swing.JMenuItem btnviewStadistics1;
+    private javax.swing.JComboBox<String> cbtype;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -314,10 +405,10 @@ public class NewTemplate extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea txtconsider;
+    private javax.swing.JTextArea txtintro;
+    private javax.swing.JTextArea txtnotify;
+    private javax.swing.JTextArea txtresolve;
+    private javax.swing.JTextArea txtresult;
     // End of variables declaration//GEN-END:variables
 }
