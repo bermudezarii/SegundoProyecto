@@ -1,24 +1,25 @@
+package controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ERequestState;
-import model.Request;
+import model.Group;
 
 /**
  *
- * @author Ximena
+ * @author epikhdez
  */
-public class ServletConsultUI extends HttpServlet {
+public class ServletPeriods extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,25 +32,26 @@ public class ServletConsultUI extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ArrayList<Object> groups = School.getInstance().selectAllGroups();
+        ArrayList<String> periods = new ArrayList();
+        String res = "<option></option>";
+        Group g;
+        
+        for(Object o : groups) {
+            g = (Group) o;
+            
+            if(!periods.contains(g.getPeriod())) {
+                periods.add(g.getPeriod());
+                res += "<option>" + g.getPeriod() + "</option>";
+            }
+        }
+            
+        
         response.setContentType("text/html;charset=UTF-8");
         response.setStatus(200);
         
         try (PrintWriter out = response.getWriter()) {
-            String reqid = request.getParameter("request");
-            out.print("<p>");
-         
-            if(!reqid.isEmpty()) { 
-                Request res = School.getInstance().selectRequest(reqid); 
-
-                if(res == null) 
-                    out.print("La solicitud con dicho ID no existe."); 
-                else 
-                    out.print(stateAsString(res.getRequestState())); 
-            } else { 
-                out.print("Ingrese un ID para buscar."); 
-            }
-            
-            out.print("</p>");
+            out.print(res);
             out.close();
         }
     }
@@ -92,19 +94,5 @@ public class ServletConsultUI extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    private String stateAsString(ERequestState state) {
-        switch(state) {
-            case CANCELED:
-                return "Cancelada.";
-            
-            case PENDING:
-                return "Pendiente.";
-                
-            case PROCESSED:
-                return "Tramitada.";
-        }
-        
-        return "";
-    }
+
 }

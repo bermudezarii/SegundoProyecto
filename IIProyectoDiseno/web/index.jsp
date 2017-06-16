@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 15/06/2017, 02:36:50 PM
+    Author     : epikhdez
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -63,9 +70,9 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="main-navbar">
                   <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#header">Inicio <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#clients">Formulario</a></li>
-                    <li><a href="#faq">Consultar</a></li>
+                    <li class="active"><a href="#home">Inicio <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#form">Formulario</a></li>
+                    <li><a href="#consult">Consultar</a></li>
                     <li><a href="#contact">Contáctenos</a></li>
                   </ul>
                 </div><!-- /.navbar-collapse -->
@@ -73,7 +80,7 @@
                 </nav>
 
         <!-- Header Section -->
-            <header id="header" class="header overlay-dark">
+            <header id="home" class="header overlay-dark">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
@@ -92,8 +99,8 @@
 
       
    
-        <!-- Clients -->
-            <section id="clients" class="clients">
+        <!-- Form -->
+            <section id="form" class="clients">
                 	<!-- Contact Form -->
 		<div class="c-form-container section-container section-container-image-bg">
 	        <div class="container">
@@ -110,76 +117,79 @@
 	            		
 	                    
                         <div class="c-form-bottom">
-		                    <form role="form" action="assets/contact.php" method="post">
+		                    <form role="form" id="request-form">
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">ID/Carné solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="requesterid" placeholder="" class="c-form-name form-control" id="requesterid">
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-name">
-		                    			<span class="label-text">Nombre:</span> 
+		                    			<span class="label-text">Nombre solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="requestername" placeholder="" class="c-form-name form-control" id="requestername">
 		                        </div>
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Carné estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="studentid" placeholder="" class="c-form-name form-control" id="studentid">
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Nombre del Estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="studentname" placeholder="" class="c-form-name form-control" id="studentname">
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-email">
 		                    			<span class="label-text">Correo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="email" placeholder="" class="c-form-email form-control" id="c-form-email">
+		                        	<input type="text" name="email" placeholder="" class="c-form-email form-control" id="email">
 		                        </div>
 		                        <div class="form-group">
 		                        	<label for="c-form-subject">
 		                    			<span class="label-text">Teléfono:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="subject" placeholder="" class="c-form-subject form-control" id="c-form-subject">
-		                        </div>
-                                        	<div class="form-group">
-		                    		<label for="c-form-name">
-		                    			<span class="label-text">Grupo:</span> 
-		                    			<span class="contact-error"></span>
-		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
-		                        </div>
-                                        <div class="form-group">
-		                    		<label for="c-form-name">
-		                    			<span class="label-text">Curso:</span> 
-		                    			<span class="contact-error"></span>
-		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="phone" placeholder="" class="c-form-subject form-control" id="phone">
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Periodo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+                                                <select class="c-form-name form-control" id="periods">
+                                                </select>
+                                        </div>
+                                        <div class="form-group">
+		                    		<label for="c-form-name">
+		                    			<span class="label-text">Curso:</span> 
+		                    			<span class="contact-error"></span>
+		                    		</label>
+                                                <select class="c-form-name form-control" id="courses">
+                                                </select>
+		                        </div>
+                                        	<div class="form-group">
+		                    		<label for="c-form-name">
+		                    			<span class="label-text">Grupo:</span> 
+		                    			<span class="contact-error"></span>
+		                    		</label>
+                                                <select class="c-form-name form-control" id="groups">
+                                                </select>
 		                        </div>
 		                        <div class="form-group">
 		                        	<label for="c-form-message">
 		                    			<span class="label-text">Detalle de la Solicitud:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<textarea name="message" placeholder="" class="c-form-message form-control" id="c-form-message"></textarea>
+		                        	<textarea name="details" placeholder="" class="c-form-message form-control" id="details"></textarea>
 		                        </div>
 		                        <button type="submit" class="btn">Enviar</button>
 		                    </form>
@@ -194,8 +204,8 @@
         </div>
             </section>
 
-        <!-- FAQ -->
-            <section id="faq" class="faq overlay-light">
+        <!-- Consult -->
+            <section id="consult" class="faq overlay-light">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -208,15 +218,15 @@
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-4 c-form-box wow fadeInUp">
                             <div class="c-form-bottom form-overlap">
-                                <form role="form" action="assets/contact.php" method="post">
+                                <form id="consult-form" role="form">
                                     <div class="form-group">
                                         <label for="c-form-name">
                                             <h3>Número de solicitud:</h3> 
                                             <span class="contact-error"></span>
                                         </label>
-                                        <input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+                                        <input type="text" name="request" placeholder="" class="c-form-name form-control" id="id-request">
                                     </div>
-                                    <button type="submit" class="btn">Enviar</button>
+                                    <button type="submit" class="btn">Consultar</button>
                                 </form>
                             </div>
                         </div>
@@ -234,7 +244,7 @@
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
-                                        Presione enviar para mostrar el estado de la solicitud.
+                                            <p id="consult-response">Presione consultar para mostrar el estado de la solicitud.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -282,10 +292,10 @@
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/services.js"></script>
     </body>
 </html>

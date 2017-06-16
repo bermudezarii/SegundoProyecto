@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
 
+import controller.School;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ERequestState;
-import model.Request;
+import model.Group;
 
 /**
  *
- * @author Ximena
+ * @author epikhdez
  */
-public class ServletConsultUI extends HttpServlet {
+public class ServletGroups extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,25 +31,25 @@ public class ServletConsultUI extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        response.setStatus(200);
+        ArrayList<Object> groupsA = School.getInstance().selectAllGroups();
+        String res = "<option></option>";
+        String course = request.getParameter("course").split(" ")[0];
+        String period = request.getParameter("period");
+        Group g;
         
-        try (PrintWriter out = response.getWriter()) {
-            String reqid = request.getParameter("request");
-            out.print("<p>");
-         
-            if(!reqid.isEmpty()) { 
-                Request res = School.getInstance().selectRequest(reqid); 
+        if(!course.isEmpty() && !period.isEmpty()) {
+            for(Object o : groupsA) {
+                g = (Group) o;
 
-                if(res == null) 
-                    out.print("La solicitud con dicho ID no existe."); 
-                else 
-                    out.print(stateAsString(res.getRequestState())); 
-            } else { 
-                out.print("Ingrese un ID para buscar."); 
+                if(g.getPeriod().equals(period) && g.getCourse().getCode().equals(course)) {
+                        res += "<option>" + g.getNumber() + "</option>";
+                }
             }
-            
-            out.print("</p>");
+        }
+        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            out.print(res);
             out.close();
         }
     }
@@ -92,19 +92,5 @@ public class ServletConsultUI extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    private String stateAsString(ERequestState state) {
-        switch(state) {
-            case CANCELED:
-                return "Cancelada.";
-            
-            case PENDING:
-                return "Pendiente.";
-                
-            case PROCESSED:
-                return "Tramitada.";
-        }
-        
-        return "";
-    }
+
 }

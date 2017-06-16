@@ -7,18 +7,18 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ERequestState;
-import model.Request;
-
+import model.Course;
+import model.Group;
 /**
  *
- * @author Ximena
+ * @author epikhdez
  */
-public class ServletConsultUI extends HttpServlet {
+public class ServletCourses extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,25 +31,29 @@ public class ServletConsultUI extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        response.setStatus(200);
+        ArrayList<Object> groups = School.getInstance().selectAllGroups();
+        ArrayList<String> courses = new ArrayList();
+        String res = "<option></option>";
+        String period = request.getParameter("period");
+        Group g;
         
-        try (PrintWriter out = response.getWriter()) {
-            String reqid = request.getParameter("request");
-            out.print("<p>");
-         
-            if(!reqid.isEmpty()) { 
-                Request res = School.getInstance().selectRequest(reqid); 
+        if(!period.isEmpty()) {
+            for(Object o : groups) {
+                g = (Group) o;
 
-                if(res == null) 
-                    out.print("La solicitud con dicho ID no existe."); 
-                else 
-                    out.print(stateAsString(res.getRequestState())); 
-            } else { 
-                out.print("Ingrese un ID para buscar."); 
+                if(g.getPeriod().equals(period)) {
+                    if(!courses.contains(g.getCourse().getCode())) {
+                        courses.add(g.getCourse().getCode());
+                        res += "<option>" + g.getCourse().getCode() + " - " + 
+                                g.getCourse().getName() + "</option>";
+                    }
+                }
             }
-            
-            out.print("</p>");
+        }
+        
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            out.print(res);
             out.close();
         }
     }
@@ -92,19 +96,5 @@ public class ServletConsultUI extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    private String stateAsString(ERequestState state) {
-        switch(state) {
-            case CANCELED:
-                return "Cancelada.";
-            
-            case PENDING:
-                return "Pendiente.";
-                
-            case PROCESSED:
-                return "Tramitada.";
-        }
-        
-        return "";
-    }
+
 }

@@ -17,6 +17,18 @@
         <servlet-name>ServletFormUI</servlet-name>
         <servlet-class>controller.ServletFormUI</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletPeriods</servlet-name>
+        <servlet-class>controller.ServletPeriods</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletCourses</servlet-name>
+        <servlet-class>controller.ServletCourses</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletGroups</servlet-name>
+        <servlet-class>ServletGroups</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -29,12 +41,24 @@
         <servlet-name>ServletFormUI</servlet-name>
         <url-pattern>/ServletFormUI</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPeriods</servlet-name>
+        <url-pattern>/ServletPeriods</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCourses</servlet-name>
+        <url-pattern>/ServletCourses</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletGroups</servlet-name>
+        <url-pattern>/ServletGroups</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.html</welcome-file>
+        <welcome-file>faces/index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
