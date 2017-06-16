@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Ximena
@@ -27,21 +29,96 @@ public class FrTemplate extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        cbtemplate = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        btnNewTemplate = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        btnViewRequest = new javax.swing.JMenuItem();
+        btnviewStadistics = new javax.swing.JMenuItem();
+        btnViewResolution = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        getContentPane().add(cbtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 140, 20));
+
+        jButton1.setText("Seleccionar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, -1, -1));
+
+        jMenu3.setText("Archivo");
+
+        btnNewTemplate.setText("Nueva Plantilla...");
+        btnNewTemplate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewTemplateActionPerformed(evt);
+            }
+        });
+        jMenu3.add(btnNewTemplate);
+
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Ver ");
+
+        btnViewRequest.setText("Ver Solicitudes");
+        btnViewRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewRequestActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnViewRequest);
+
+        btnviewStadistics.setText("Ver Estadísticas");
+        btnviewStadistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnviewStadisticsActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnviewStadistics);
+
+        btnViewResolution.setText("Ver Resoluciones");
+        btnViewResolution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewResolutionActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnViewResolution);
+
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
+        // TODO add your handling code here:
+        FrRequest fr=new FrRequest();
+        fr.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnNewTemplateActionPerformed
+
+    private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
+        // TODO add your handling code here:
+        FrViewRequest fvr=new FrViewRequest();
+        fvr.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnViewRequestActionPerformed
+
+    private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
+        // TODO add your handling code here:
+        FrStadistics frstadistics= new FrStadistics();
+        frstadistics.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnviewStadisticsActionPerformed
+
+    private void btnViewResolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolutionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewResolutionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +156,14 @@ public class FrTemplate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnNewTemplate;
+    private javax.swing.JMenuItem btnViewRequest;
+    private javax.swing.JMenuItem btnViewResolution;
+    private javax.swing.JMenuItem btnviewStadistics;
+    private javax.swing.JComboBox<String> cbtemplate;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
     // End of variables declaration//GEN-END:variables
 }
