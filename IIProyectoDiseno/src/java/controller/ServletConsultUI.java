@@ -31,20 +31,23 @@ public class ServletConsultUI extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String reqid = request.getParameter("request");
+        response.setContentType("application/json;charset=UTF-8");
+        response.setStatus(200);
         
-        if(!reqid.isEmpty()) {
-            Request res = School.getInstance().selectRequest(reqid);
+        try (PrintWriter out = response.getWriter()) {
+            String reqid = request.getParameter("request"); 
+         
+            if(!reqid.isEmpty()) { 
+                Request res = School.getInstance().selectRequest(reqid); 
 
-            if(res == null)
-                request.setAttribute("state", "La solicitud con dicho ID no existe.");
-            else
-                request.setAttribute("state", stateAsString(res.getRequestState()));
-        } else {
-            request.setAttribute("state", "Ingrese un ID para buscar.");
+                if(res == null) 
+                    out.print("La solicitud con dicho ID no existe."); 
+                else 
+                    out.print(stateAsString(res.getRequestState())); 
+            } else { 
+                out.print("Ingrese un ID para buscar."); 
+            }
         }
-        
-        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

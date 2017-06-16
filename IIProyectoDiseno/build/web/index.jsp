@@ -117,34 +117,34 @@
 	            		
 	                    
                         <div class="c-form-bottom">
-		                    <form role="form" action="assets/contact.php" method="post">
+		                    <form role="form" action="/ServletFormUI" method="post">
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">ID/Carné solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="requesterid" placeholder="" class="c-form-name form-control" id="c-form-name">
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-name">
-		                    			<span class="label-text">Nombre:</span> 
+		                    			<span class="label-text">Nombre solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="requestername" placeholder="" class="c-form-name form-control" id="c-form-name">
 		                        </div>
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Carné estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="studentid" placeholder="" class="c-form-name form-control" id="c-form-name">
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Nombre del Estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="studentname" placeholder="" class="c-form-name form-control" id="c-form-name">
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-email">
@@ -158,35 +158,41 @@
 		                    			<span class="label-text">Teléfono:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="subject" placeholder="" class="c-form-subject form-control" id="c-form-subject">
+		                        	<input type="text" name="phone" placeholder="" class="c-form-subject form-control" id="c-form-subject">
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Periodo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
-		                        </div>
+                                                <select class="c-form-name form-control">
+                                                    <option></option>
+                                                </select>
+                                        </div>
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Curso:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+                                                <select class="c-form-name form-control">
+                                                    <option></option>
+                                                </select>
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Grupo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="name" placeholder="" class="c-form-name form-control" id="c-form-name">
+                                                <select class="c-form-name form-control">
+                                                    <option></option>
+                                                </select>
 		                        </div>
 		                        <div class="form-group">
 		                        	<label for="c-form-message">
 		                    			<span class="label-text">Detalle de la Solicitud:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<textarea name="message" placeholder="" class="c-form-message form-control" id="c-form-message"></textarea>
+		                        	<textarea name="details" placeholder="" class="c-form-message form-control" id="c-form-message"></textarea>
 		                        </div>
 		                        <button type="submit" class="btn">Enviar</button>
 		                    </form>
@@ -215,7 +221,7 @@
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-4 c-form-box wow fadeInUp">
                             <div class="c-form-bottom form-overlap">
-                                <form role="form" action="ServletConsultUI" method="get">
+                                <form id="consult-form" role="form">
                                     <div class="form-group">
                                         <label for="c-form-name">
                                             <h3>Número de solicitud:</h3> 
@@ -241,7 +247,7 @@
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
-                                            ${empty state ? "Presione consultar para mostrar el estado de la solicitud." : state}
+                                            <p id="consult-response">Presione consultar para mostrar el estado de la solicitud.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -289,10 +295,10 @@
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
-        <script src="assets/js/script.js"></script>
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/services.js"></script>
     </body>
 </html>
