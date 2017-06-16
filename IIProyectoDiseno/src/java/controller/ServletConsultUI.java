@@ -36,7 +36,7 @@ public class ServletConsultUI extends HttpServlet {
         
         try (PrintWriter out = response.getWriter()) {
             String reqid = request.getParameter("request");
-            out.print("<p>");
+            out.print("<h3>");
          
             if(!reqid.isEmpty()) { 
                 Request res = School.getInstance().selectRequest(reqid); 
@@ -49,7 +49,7 @@ public class ServletConsultUI extends HttpServlet {
                 out.print("Ingrese un ID para buscar."); 
             }
             
-            out.print("</p>");
+            out.print("</h3>");
             out.close();
         }
     }
@@ -96,13 +96,13 @@ public class ServletConsultUI extends HttpServlet {
     private String stateAsString(ERequestState state) {
         switch(state) {
             case CANCELED:
-                return "Cancelada.";
+                return "<font color=\"red\">Cancelada.</font>";
             
             case PENDING:
-                return "Pendiente.";
+                return "<font color=\"yellow\">Pendiente.</font>";
                 
             case PROCESSED:
-                return "Tramitada.";
+                return "<font color=\"green\">Tramitada.</font>";
         }
         
         return "";

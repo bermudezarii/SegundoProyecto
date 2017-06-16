@@ -123,49 +123,49 @@
 		                    			<span class="label-text">ID/Carné solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="requesterid" placeholder="" class="c-form-name form-control" id="requesterid">
+		                        	<input type="text" name="requesterid" class="c-form-name form-control" id="requesterid" required>
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Nombre solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="requestername" placeholder="" class="c-form-name form-control" id="requestername">
+		                        	<input type="text" name="requestername" class="c-form-name form-control" id="requestername" required>
 		                        </div>
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Carné estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="studentid" placeholder="" class="c-form-name form-control" id="studentid">
+                                            <input type="text" name="studentid" class="c-form-name form-control" id="studentid" required>
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Nombre del Estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="studentname" placeholder="" class="c-form-name form-control" id="studentname">
+		                        	<input type="text" name="studentname" placeholder="" class="c-form-name form-control" id="studentname" required>
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-email">
 		                    			<span class="label-text">Correo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="email" placeholder="" class="c-form-email form-control" id="email">
+                                            <input type="email" name="email" placeholder="" class="c-form-email form-control" id="email" required>
 		                        </div>
 		                        <div class="form-group">
 		                        	<label for="c-form-subject">
 		                    			<span class="label-text">Teléfono:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="phone" placeholder="" class="c-form-subject form-control" id="phone">
+                                            <input type="tel" name="phone" placeholder="" class="c-form-subject form-control" id="phone" required>
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Periodo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-                                                <select class="c-form-name form-control" id="periods">
+                                                <select class="c-form-name form-control" id="periods" required>
                                                 </select>
                                         </div>
                                         <div class="form-group">
@@ -173,7 +173,7 @@
 		                    			<span class="label-text">Curso:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-                                                <select class="c-form-name form-control" id="courses">
+                                                <select class="c-form-name form-control" id="courses" required>
                                                 </select>
 		                        </div>
                                         	<div class="form-group">
@@ -181,7 +181,7 @@
 		                    			<span class="label-text">Grupo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-                                                <select class="c-form-name form-control" id="groups">
+                                                <select class="c-form-name form-control" id="groups" required>
                                                 </select>
 		                        </div>
 		                        <div class="form-group">
@@ -189,7 +189,7 @@
 		                    			<span class="label-text">Detalle de la Solicitud:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<textarea name="details" placeholder="" class="c-form-message form-control" id="details"></textarea>
+		                        	<textarea name="details" placeholder="" class="c-form-message form-control" id="details" required></textarea>
 		                        </div>
 		                        <button type="submit" class="btn">Enviar</button>
 		                    </form>
@@ -244,7 +244,7 @@
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
-                                            <p id="consult-response">Presione consultar para mostrar el estado de la solicitud.</p>
+                                            <h4 id="consult-response">Presione consultar para mostrar el estado de la solicitud.</h4>
                                         </div>
                                     </div>
                                 </div>

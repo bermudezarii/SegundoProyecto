@@ -39,7 +39,39 @@ $('#consult-form').submit(function(e) {
             response.html(result);
         },
         error: function(){
-            response.html("<p>Error: No se ha podido realizar la solicitud.</p>")
+            response.html("<p>Error: No se ha podido realizar la consulta.</p>")
+        }
+    });
+});
+
+$('#request-form').submit(function(e) {
+    e.preventDefault();
+    
+    console.log($('#courses').val());
+
+    $.ajax({
+        type: 'GET',
+        url: 'ServletFormUI',
+        dataType: 'text',
+        contentType: "text/html; charset=utf-8",
+        data: {
+            requesterid: $('#requesterid').val(),
+            requestername: $('#requestername').val(),
+            studentid: $('#studentid').val(),
+            studentname: $('#studentname').val(),
+            email: $('#email').val(),
+            phone: $('#phone').val(),
+            period: $('#periods').val(),
+            course: $('#courses').val(),
+            group: $('#groups').val(),
+            details: $('#details').val()
+        },
+        cache: false,
+        success: function(result) {
+            alert(result);
+        },
+        error: function(){
+            alert("Error: No se ha podido realizar la solicitud.")
         }
     });
 });

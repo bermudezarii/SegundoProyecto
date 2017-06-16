@@ -10,5 +10,5 @@ package model;
  * @author Usuario
  */
 public enum EInconsistencie {
-    GradeError, RecordExclusion, RecordInclusion;
+    RecordModification, GradeError, RecordExclusion, RecordInclusion;
 }

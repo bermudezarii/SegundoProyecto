@@ -43,6 +43,7 @@ public class Request {
         this.affected = affected;
         this.requester = requester;
         this.group = group;
+        Parameter.getInstance().setParameter("request_serial", String.valueOf(id));
     }
 
     public int getId() {
