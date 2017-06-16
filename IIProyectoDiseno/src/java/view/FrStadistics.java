@@ -6,7 +6,7 @@
 package view;
 
 import controller.School;
-import controller.UIStadistics;
+import controller.UICoordinator;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
@@ -41,7 +41,7 @@ import org.jfree.util.Rotation;
 
 
 public class FrStadistics extends javax.swing.JFrame {
-    private UIStadistics uiStadistics; 
+    private UICoordinator uiStadistics; 
 
     public JComboBox<String> getCbResolutions() {
         return cbResolutions;
@@ -132,7 +132,7 @@ public class FrStadistics extends javax.swing.JFrame {
     }
 
     public FrStadistics() {
-        uiStadistics=new UIStadistics();
+        uiStadistics=new UICoordinator();
         initComponents();
         DefaultCategoryDataset dataset= new DefaultCategoryDataset();
         dataset=uiStadistics.top3ProfessorsResolutions();

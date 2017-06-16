@@ -6,7 +6,7 @@
 package view;
 
 import controller.School;
-import controller.UIRequest;
+import controller.UICoordinator;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
@@ -124,9 +124,9 @@ public class FrRequest extends javax.swing.JFrame {
   
 
     
-    private UIRequest uiRequest; 
+    private UICoordinator uiRequest; 
     public FrRequest() {
-        uiRequest=new UIRequest();
+        uiRequest=new  UICoordinator();
         initComponents();
         uiRequest.setallPeriods(this);
         cbperiod.setSelectedIndex(0);

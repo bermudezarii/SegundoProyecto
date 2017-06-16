@@ -22,12 +22,12 @@ import model.Resolution;
  * @author Usuario
  */
 public class School  {
-    private static School INSTANCE;
-    private IDocumentGenerator docGenerator; 
-    private EmployeesManager employeesManager; 
-    private RequestsManager requestsManager; 
-    private PlansManager plansManager;
-    private GroupsManager groupsManager;
+    protected static School INSTANCE;
+    protected IDocumentGenerator docGenerator; 
+    protected EmployeesManager employeesManager; 
+    protected RequestsManager requestsManager; 
+    protected PlansManager plansManager;
+    protected GroupsManager groupsManager;
     
     private DAOData getDataFile() {
         try {

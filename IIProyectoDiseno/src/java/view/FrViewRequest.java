@@ -6,7 +6,8 @@
 package view;
 
 import controller.School;
-import controller.UIRequest;
+import controller.UICoordinator;
+
 import java.awt.Color;
 import static java.awt.Color.blue;
 import static java.awt.Color.green;
@@ -30,7 +31,7 @@ import javax.swing.JTextPane;
  * @author Ximena
  */
 public class FrViewRequest extends javax.swing.JFrame {
-    private UIRequest uiRequest;
+    private UICoordinator uiRequest;
 
     public JMenuItem getBtnNewResolution1() {
         return btnNewResolution1;
@@ -52,7 +53,7 @@ public class FrViewRequest extends javax.swing.JFrame {
      * Creates new form FrViewRequest
      */
     public FrViewRequest() {
-        uiRequest=new UIRequest();
+        uiRequest=new UICoordinator();
         initComponents();
         lbdescription.setEditable(false);
 

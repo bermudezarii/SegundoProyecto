@@ -7,7 +7,7 @@ package view;
 
 import controller.EDocType;
 import controller.School;
-import controller.UIResolution;
+import controller.UICoordinator;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
@@ -23,12 +23,12 @@ import javax.swing.JTextPane;
  * @author Usuario
  */
 public class FrResolution extends javax.swing.JFrame {
-    private UIResolution uiResolution; 
+    private UICoordinator uiResolution; 
     /**
      * Creates new form FrResolution
      */
     public FrResolution() {
-        uiResolution= new UIResolution();
+        uiResolution= new UICoordinator();
         initComponents();
         getResolution();
     }

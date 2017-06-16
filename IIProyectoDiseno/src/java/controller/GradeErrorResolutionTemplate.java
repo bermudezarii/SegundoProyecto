@@ -14,11 +14,12 @@ import model.Parameter;
 public class GradeErrorResolutionTemplate extends TemplateResolution {
 
     @Override
-    public void templateMethod(String intro,String consider,String notify,String result) {
+    public void templateMethod(String intro,String consider,String notify,String result,String resolve) {
         this.buildConsider(consider);
         this.buildIntro(intro);
         this.buildNotify(notify);
         this.buildResult(result);
+        this.buildResolve(resolve);
         String num=Parameter.getInstance().getParameter("numTempl3");
         int sum = Integer.parseInt(num)+1;
         Parameter.getInstance().getParameter(Integer.toString(sum));
@@ -48,4 +49,10 @@ public class GradeErrorResolutionTemplate extends TemplateResolution {
         Parameter.getInstance().setParameter("resultGER"+Parameter.getInstance().getParameter("numTempl3"), result);
 
     }
+
+    @Override
+    public void buildResolve(String resolve) {
+          Parameter.getInstance().setParameter("resultGER"+Parameter.getInstance().getParameter("numTempl3"), resolve);
+    }
+    
 }

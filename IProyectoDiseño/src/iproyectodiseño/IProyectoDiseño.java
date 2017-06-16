@@ -8,7 +8,7 @@ package iproyectodiseño;
 import controller.School;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import view.FrMain;
+
 
 /**
  *
@@ -23,8 +23,7 @@ public class IProyectoDiseño {
         // TODO code application logic here
         School.getInstance();
       
-        FrMain fm= new FrMain();
-        fm.setVisible(true);
+  
         
         
       

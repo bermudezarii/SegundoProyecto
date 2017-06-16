@@ -13,12 +13,13 @@ import model.Parameter;
  */
 public class RecordInclusionResolutionTemplate extends TemplateResolution {
     @Override
-    public void templateMethod(String intro,String consider,String notify,String result) {
+    public void templateMethod(String intro,String consider,String notify,String result,String resolve) {
         
         this.buildConsider(consider);
         this.buildIntro(intro);
         this.buildNotify(notify);
         this.buildResult(result);
+        this.buildResolve(resolve);
         String num=Parameter.getInstance().getParameter("numTempl1");
         int sum = Integer.parseInt(num)+1;
         Parameter.getInstance().getParameter(Integer.toString(sum));
@@ -44,5 +45,9 @@ public class RecordInclusionResolutionTemplate extends TemplateResolution {
     public void buildResult(String result) {
         Parameter.getInstance().setParameter("considerIR"+Parameter.getInstance().getParameter("numTempl1"), result);
 
+    }
+    @Override
+    public void buildResolve(String resolve) {
+          Parameter.getInstance().setParameter("resultIR"+Parameter.getInstance().getParameter("numTempl1"), resolve);
     }
 }

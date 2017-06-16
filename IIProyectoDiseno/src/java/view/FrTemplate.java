@@ -94,7 +94,7 @@ public class FrTemplate extends javax.swing.JFrame {
 
     private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
+        NewTemplate fr=new NewTemplate();
         fr.setVisible(true);
         this.setVisible(false);
 
@@ -118,6 +118,9 @@ public class FrTemplate extends javax.swing.JFrame {
 
     private void btnViewResolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolutionActionPerformed
         // TODO add your handling code here:
+        FrResolution frResolution= new FrResolution();
+        frResolution.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnViewResolutionActionPerformed
 
     /**
