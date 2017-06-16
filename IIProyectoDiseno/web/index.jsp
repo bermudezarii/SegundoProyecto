@@ -117,56 +117,55 @@
 	            		
 	                    
                         <div class="c-form-bottom">
-		                    <form role="form" action="/ServletFormUI" method="post">
+		                    <form role="form" id="request-form">
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">ID/Carné solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="requesterid" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="requesterid" placeholder="" class="c-form-name form-control" id="requesterid">
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Nombre solicitante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="requestername" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="requestername" placeholder="" class="c-form-name form-control" id="requestername">
 		                        </div>
                                         <div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Carné estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="studentid" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="studentid" placeholder="" class="c-form-name form-control" id="studentid">
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Nombre del Estudiante:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="studentname" placeholder="" class="c-form-name form-control" id="c-form-name">
+		                        	<input type="text" name="studentname" placeholder="" class="c-form-name form-control" id="studentname">
 		                        </div>
 		                    	<div class="form-group">
 		                    		<label for="c-form-email">
 		                    			<span class="label-text">Correo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="email" placeholder="" class="c-form-email form-control" id="c-form-email">
+		                        	<input type="text" name="email" placeholder="" class="c-form-email form-control" id="email">
 		                        </div>
 		                        <div class="form-group">
 		                        	<label for="c-form-subject">
 		                    			<span class="label-text">Teléfono:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<input type="text" name="phone" placeholder="" class="c-form-subject form-control" id="c-form-subject">
+		                        	<input type="text" name="phone" placeholder="" class="c-form-subject form-control" id="phone">
 		                        </div>
                                         	<div class="form-group">
 		                    		<label for="c-form-name">
 		                    			<span class="label-text">Periodo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-                                                <select class="c-form-name form-control">
-                                                    <option></option>
+                                                <select class="c-form-name form-control" id="periods">
                                                 </select>
                                         </div>
                                         <div class="form-group">
@@ -174,8 +173,7 @@
 		                    			<span class="label-text">Curso:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-                                                <select class="c-form-name form-control">
-                                                    <option></option>
+                                                <select class="c-form-name form-control" id="courses">
                                                 </select>
 		                        </div>
                                         	<div class="form-group">
@@ -183,8 +181,7 @@
 		                    			<span class="label-text">Grupo:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-                                                <select class="c-form-name form-control">
-                                                    <option></option>
+                                                <select class="c-form-name form-control" id="groups">
                                                 </select>
 		                        </div>
 		                        <div class="form-group">
@@ -192,7 +189,7 @@
 		                    			<span class="label-text">Detalle de la Solicitud:</span> 
 		                    			<span class="contact-error"></span>
 		                    		</label>
-		                        	<textarea name="details" placeholder="" class="c-form-message form-control" id="c-form-message"></textarea>
+		                        	<textarea name="details" placeholder="" class="c-form-message form-control" id="details"></textarea>
 		                        </div>
 		                        <button type="submit" class="btn">Enviar</button>
 		                    </form>
