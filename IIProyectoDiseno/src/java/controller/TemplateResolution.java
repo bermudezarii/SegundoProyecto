@@ -5,14 +5,11 @@
  */
 package controller;
 
-import model.Template;
-
 /**
  *
  * @author Ximena
  */
 public class TemplateResolution {
-    protected Template template;
     public void templateMethod(String intro,String consider,String notify,String result,String resolve){
     }
     public void buildIntro(String intro){

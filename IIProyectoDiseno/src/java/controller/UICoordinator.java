@@ -25,8 +25,6 @@ import view.FrResolution;
 import view.FrStadistics;
 import view.FrViewRequest;
 import org.jfree.data.category.DefaultCategoryDataset;
-import view.FrTemplate;
-import view.NewTemplate;
 
 /**
  *
@@ -367,18 +365,5 @@ public class UICoordinator implements ObserverUI, UIBase{
     public void setFrame() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-     public void createTemplate(NewTemplate frtemplate) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
-         frtemplate.getCbtype().getSelectedIndex();
-         switch  (frtemplate.getCbtype().getSelectedIndex()){
-             case 0:
-                 facade.createTemplate("RecordInclusion",frtemplate.getTxtintro().getText() , frtemplate.getTxtconsider().getText(),
-                 frtemplate.getTxtnotify().getText(), frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
-             case 1:
-                 facade.createTemplate("RecordExclusion",frtemplate.getTxtintro().getText() , frtemplate.getTxtconsider().getText(),
-                 frtemplate.getTxtnotify().getText(), frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
-             default:
-                 facade.createTemplate("GradeError",frtemplate.getTxtintro().getText() , frtemplate.getTxtconsider().getText(),
-                 frtemplate.getTxtnotify().getText(), frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
-         
-     }}
+   
 }

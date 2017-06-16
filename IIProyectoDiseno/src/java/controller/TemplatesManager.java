@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package controller;
 
 /**
  *
  * @author Ximena
  */
-public class Template {
-    private String intro;
-    private String consult;
-    private String result;
-    private String resolve;
-    private String notify;
-      
+public class TemplatesManager {
+    
 }
