@@ -40,48 +40,48 @@ public class FrViewRequest extends javax.swing.JFrame {
    
         
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            btnNewResolution.setEnabled(false);
-            btnNewResolution1.setEnabled(false);
-            btnExel.setEnabled(false);
-            btnNewRequest.setEnabled(false);
-            btnNewRequest1.setEnabled(false);
-            btnViewRequest.setEnabled(true);
-            btnViewRequest1.setEnabled(true);
-            btnViewResolution.setEnabled(true);
-            btnviewStadistics.setEnabled(false);
+            btnNewResolution.setVisible(false);
+            btnNewResolution1.setVisible(false);
+            btnExel.setVisible(false);
+            btnNewRequest.setVisible(false);
+            btnNewRequest1.setVisible(false);
+            btnViewRequest.setVisible(true);
+            btnViewRequest1.setVisible(true);
+            btnViewResolution.setVisible(true);
+            btnviewStadistics.setVisible(false);
         }
         else if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            btnNewResolution.setEnabled(true);
-            btnNewResolution1.setEnabled(true);
-            btnExel.setEnabled(true);
-            btnNewRequest1.setEnabled(true);
-            btnNewRequest.setEnabled(true);
-            btnViewRequest.setEnabled(true);
-            btnViewRequest1.setEnabled(true);
-            btnViewResolution.setEnabled(true);
-            btnviewStadistics.setEnabled(true);
+            btnNewResolution.setVisible(true);
+            btnNewResolution1.setVisible(true);
+            btnExel.setVisible(true);
+            btnNewRequest1.setVisible(true);
+            btnNewRequest.setVisible(true);
+            btnViewRequest.setVisible(true);
+            btnViewRequest1.setVisible(true);
+            btnViewResolution.setVisible(true);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnNewResolution.setEnabled(false);
-            btnNewResolution1.setEnabled(false);
-            btnExel.setEnabled(false);
-            btnNewRequest.setEnabled(false);
-            btnNewRequest1.setEnabled(false);
-            btnViewRequest.setEnabled(false);
-            btnViewRequest1.setEnabled(false);
-            btnViewResolution.setEnabled(false);
-            btnviewStadistics.setEnabled(true);
+            btnNewResolution.setVisible(false);
+            btnNewResolution1.setVisible(false);
+            btnExel.setVisible(false);
+            btnNewRequest.setVisible(false);
+            btnNewRequest1.setVisible(false);
+            btnViewRequest.setVisible(false);
+            btnViewRequest1.setVisible(false);
+            btnViewResolution.setVisible(false);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnNewResolution.setEnabled(false);
-            btnNewResolution1.setEnabled(false);
-            btnExel.setEnabled(false);
-            btnNewRequest.setEnabled(true);
-            btnNewRequest1.setEnabled(true);
-            btnViewRequest.setEnabled(false);
-            btnViewRequest1.setEnabled(false);
-            btnViewResolution.setEnabled(false);
-            btnviewStadistics.setEnabled(false);
+            btnNewResolution.setVisible(false);
+            btnNewResolution1.setVisible(false);
+            btnExel.setVisible(false);
+            btnNewRequest.setVisible(true);
+            btnNewRequest1.setVisible(true);
+            btnViewRequest.setVisible(false);
+            btnViewRequest1.setVisible(false);
+            btnViewResolution.setVisible(false);
+            btnviewStadistics.setVisible(false);
         }
 
     }
@@ -813,17 +813,27 @@ public class FrViewRequest extends javax.swing.JFrame {
 
     private void btnNewResolution1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewResolution1ActionPerformed
         // TODO add your handling code here:
-         if(cdRequest.getSelectedItem()!=null){ 
-            FrResolution fr=new FrResolution(); 
-            fr.setEmployee(employee);
-            fr.setMenu();
-            fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-            fr.setVisible(true); 
-            this.setVisible(false); 
-        }else{ 
-            JOptionPane.showMessageDialog(this, "No se puede realizar una resolución, sin una solicitud seleccionada."); 
-        } 
-        
+        int i=JOptionPane.showConfirmDialog(this, "¿Quiere usar una plantilla personalizada?","",JOptionPane.YES_NO_OPTION);
+       
+        if(i==JOptionPane.YES_OPTION){
+            if(cdRequest.getSelectedItem()!=null){ 
+               FrTemplate fr=new FrTemplate(); 
+               fr.setEmployee(employee);
+               fr.setMenu();
+               fr.setVisible(true); 
+               this.setVisible(false); 
+           }
+        }else{
+            if(cdRequest.getSelectedItem()!=null){ 
+               FrResolution fr=new FrResolution(); 
+               fr.setEmployee(employee);
+               fr.setMenu();
+               fr.setVisible(true); 
+               this.setVisible(false); 
+           }else{ 
+               JOptionPane.showMessageDialog(this, "No se puede realizar una resolución, sin una solicitud seleccionada."); 
+           } 
+        }
     }//GEN-LAST:event_btnNewResolution1ActionPerformed
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed

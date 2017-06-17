@@ -35,6 +35,11 @@ public class FrResolution extends javax.swing.JFrame {
         initComponents();
         getResolution();
     }
+    public FrResolution(boolean template,int number, int type) {
+        uiResolution= new UICoordinator();
+        initComponents();
+        
+    }
     
        public Employee getEmployee() {
         return employee;
@@ -100,36 +105,36 @@ public class FrResolution extends javax.swing.JFrame {
    
         
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            btnExel.setEnabled(false);
-            btnSave.setEnabled(false);
-            btnSaveAs.setEnabled(false);
-            btnNewRequest.setEnabled(false);
-            btnViewRequest.setEnabled(true);
-            btnviewStadistics.setEnabled(false);
+            btnExel.setVisible(false);
+            btnSave.setVisible(false);
+            btnSaveAs.setVisible(false);
+            btnNewRequest.setVisible(false);
+            btnViewRequest.setVisible(true);
+            btnviewStadistics.setVisible(false);
         }
         else if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            btnExel.setEnabled(true);
-            btnSave.setEnabled(true);
-            btnSaveAs.setEnabled(true);
-            btnNewRequest.setEnabled(true);
-            btnViewRequest.setEnabled(true);
-            btnviewStadistics.setEnabled(true);
+            btnExel.setVisible(true);
+            btnSave.setVisible(true);
+            btnSaveAs.setVisible(true);
+            btnNewRequest.setVisible(true);
+            btnViewRequest.setVisible(true);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnExel.setEnabled(false);
-            btnSave.setEnabled(false);
-            btnSaveAs.setEnabled(false);
-            btnNewRequest.setEnabled(false);
-            btnViewRequest.setEnabled(false);
-            btnviewStadistics.setEnabled(true);
+            btnExel.setVisible(false);
+            btnSave.setVisible(false);
+            btnSaveAs.setVisible(false);
+            btnNewRequest.setVisible(false);
+            btnViewRequest.setVisible(false);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnExel.setEnabled(false);
-            btnSave.setEnabled(false);
-            btnSaveAs.setEnabled(false);
-            btnNewRequest.setEnabled(true);
-            btnViewRequest.setEnabled(false);
-            btnviewStadistics.setEnabled(false);
+            btnExel.setVisible(false);
+            btnSave.setVisible(false);
+            btnSaveAs.setVisible(false);
+            btnNewRequest.setVisible(true);
+            btnViewRequest.setVisible(false);
+            btnviewStadistics.setVisible(false);
         }
 
     }

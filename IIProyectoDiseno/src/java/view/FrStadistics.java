@@ -59,30 +59,30 @@ public class FrStadistics extends javax.swing.JFrame {
         
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
             
-            btnExel.setEnabled(false);
-            btnnewRequest.setEnabled(false);
+            btnExel.setVisible(false);
+            btnnewRequest.setVisible(false);
             
-            btnviewRequest.setEnabled(true);
-            btnviewStadistics.setEnabled(false);
+            btnviewRequest.setVisible(true);
+            btnviewStadistics.setVisible(false);
         }
         else if (employee.getRol() == EEmployeeRol.CORDINATOR){
             System.out.println("llega aqui 2");
-            btnExel.setEnabled(true);
-            btnnewRequest.setEnabled(true);
-            btnviewRequest.setEnabled(true);
-            btnviewStadistics.setEnabled(true);
+            btnExel.setVisible(true);
+            btnnewRequest.setVisible(true);
+            btnviewRequest.setVisible(true);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnExel.setEnabled(false);
-            btnnewRequest.setEnabled(false);
-            btnviewRequest.setEnabled(false);
-            btnviewStadistics.setEnabled(true);
+            btnExel.setVisible(false);
+            btnnewRequest.setVisible(false);
+            btnviewRequest.setVisible(false);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnExel.setEnabled(false);
-            btnnewRequest.setEnabled(true);
-            btnviewRequest.setEnabled(false);
-            btnviewStadistics.setEnabled(false);
+            btnExel.setVisible(false);
+            btnnewRequest.setVisible(true);
+            btnviewRequest.setVisible(false);
+            btnviewStadistics.setVisible(false);
         }
 
     }

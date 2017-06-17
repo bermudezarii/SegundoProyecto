@@ -9,6 +9,7 @@ import controller.UICoordinator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import model.EEmployeeRol;
@@ -364,15 +365,22 @@ public class NewTemplate extends javax.swing.JFrame {
     }//GEN-LAST:event_cbparamintroActionPerformed
 
     private void btnsavetemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsavetemplateActionPerformed
-        try {
-            // TODO add your handling code here:
-            ui.createTemplate(this);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
+                int i=JOptionPane.showConfirmDialog(this, "¿Seguro que desea Guardar la Plantilla?","",JOptionPane.YES_NO_OPTION);
+       
+        if(i==JOptionPane.YES_OPTION){
+            try {
+                // TODO add your handling code here:
+                ui.createTemplate(this);
+                FrTemplate frtemplate=new FrTemplate();
+                frtemplate.setVisible(true);
+                this.setVisible(false);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnsavetemplateActionPerformed
 

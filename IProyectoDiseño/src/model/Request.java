@@ -8,6 +8,8 @@ package model;
 import controller.DirectorResolution;
 import controller.ResolutionBuilder;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import static model.ERequestState.PENDING;
 
@@ -137,6 +139,21 @@ public class Request {
         prop.setParameter("courseName", this.group.getCourse().getName().toUpperCase());
         prop.setParameter("groupNumber", String.valueOf(this.group.getNumber()).toUpperCase());
         prop.setParameter("professor", this.group.getProfessor().getName().toUpperCase());
+        prop.setParameter("period", this.group.getPeriod().toString());
+        DateFormat dateFormat = new SimpleDateFormat("yyyy");
+        Date date = new Date();
+        prop.setParameter("year", dateFormat.format(date));
+        dateFormat = new SimpleDateFormat("HH:mm");
+        prop.setParameter("hour",dateFormat.format(date));
+        dateFormat = new SimpleDateFormat("MM");
+        prop.setParameter("month",dateFormat.format(date));
+        if(String.valueOf(this.group.getPeriod().toString().charAt(1))=="S"){
+            prop.setParameter("semester","primer");
+        } else{
+            prop.setParameter("semester","segundo");
+        }   
+        dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        prop.setParameter("date",dateFormat.format(date));
         
         prop.saveParameters();
     }

@@ -139,6 +139,7 @@ public class FrTemplate extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         btnNewTemplate = new javax.swing.JMenuItem();
+        btnCurrentTemplate = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnViewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -289,6 +290,14 @@ public class FrTemplate extends javax.swing.JFrame {
         });
         jMenu3.add(btnNewTemplate);
 
+        btnCurrentTemplate.setText("Seleccionar Plantilla Actual...");
+        btnCurrentTemplate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCurrentTemplateActionPerformed(evt);
+            }
+        });
+        jMenu3.add(btnCurrentTemplate);
+
         jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Ver ");
@@ -410,6 +419,14 @@ public class FrTemplate extends javax.swing.JFrame {
         ui.getTemplate(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnCurrentTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCurrentTemplateActionPerformed
+        // TODO add your handling code here:
+        FrResolution fr=new FrResolution(true, Integer.parseInt(cbnumtemplate.getSelectedItem().toString()), cbtemplate.getSelectedIndex());
+        fr.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnCurrentTemplateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -446,6 +463,7 @@ public class FrTemplate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnCurrentTemplate;
     private javax.swing.JMenuItem btnNewTemplate;
     private javax.swing.JMenuItem btnViewRequest;
     private javax.swing.JMenuItem btnViewResolution;

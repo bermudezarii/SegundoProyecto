@@ -286,7 +286,8 @@ public class UICoordinator implements ObserverUI, UIBase{
     }
   
     public void getResolution(FrResolution frResolution) {
-      r=facade.getResolution();
+      
+        r=facade.getResolution();
         if(r.isDefinitive()) {
             frResolution.getTxtintro().setEnabled(false);
             frResolution.getTxtnotify().setEnabled(false);

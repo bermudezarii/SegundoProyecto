@@ -152,33 +152,33 @@ public class FrRequest extends javax.swing.JFrame {
         
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
             
-            btnExel.setEnabled(false);
-            btnNewRequest.setEnabled(false);
-            btnViewRequest.setEnabled(true);
-            btnviewStadistics.setEnabled(false);
-            btnAddFile.setEnabled(false);
+            btnExel.setVisible(false);
+            btnNewRequest.setVisible(false);
+            btnViewRequest.setVisible(true);
+            btnviewStadistics.setVisible(false);
+            btnAddFile.setVisible(false);
         }
         else if (employee.getRol() == EEmployeeRol.CORDINATOR){
             System.out.println("llega aqui 2");
-            btnExel.setEnabled(true);
-            btnNewRequest.setEnabled(true);
-            btnViewRequest.setEnabled(true);
-            btnviewStadistics.setEnabled(true);
-            btnAddFile.setEnabled(true);
+            btnExel.setVisible(true);
+            btnNewRequest.setVisible(true);
+            btnViewRequest.setVisible(true);
+            btnviewStadistics.setVisible(true);
+            btnAddFile.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnExel.setEnabled(false);
-            btnNewRequest.setEnabled(false);
-            btnViewRequest.setEnabled(false);
-            btnviewStadistics.setEnabled(true);
-            btnAddFile.setEnabled(false);
+            btnExel.setVisible(false);
+            btnNewRequest.setVisible(false);
+            btnViewRequest.setVisible(false);
+            btnviewStadistics.setVisible(true);
+            btnAddFile.setVisible(false);
         }
         else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnExel.setEnabled(false);
-            btnNewRequest.setEnabled(true);
-            btnViewRequest.setEnabled(false);
-            btnviewStadistics.setEnabled(false);
-            btnAddFile.setEnabled(true);
+            btnExel.setVisible(false);
+            btnNewRequest.setVisible(true);
+            btnViewRequest.setVisible(false);
+            btnviewStadistics.setVisible(false);
+            btnAddFile.setVisible(true);
         }
 
     }
