@@ -5,13 +5,23 @@
  */
 package controller;
 
+import model.EInconsistencie;
 import model.Parameter;
+import model.Template;
 
 /**
  *
  * @author Ximena
  */
 public class GradeErrorResolutionTemplate extends TemplateResolution {
+
+    public GradeErrorResolutionTemplate() {
+        template=new Template();
+        String num=Parameter.getInstance().getParameter("numTempl3");
+        int sum = Integer.parseInt(num);
+        template.setId(sum);
+        template.setType(EInconsistencie.GradeError);
+    }
 
     @Override
     public void templateMethod(String intro,String consider,String notify,String result,String resolve) {
@@ -22,37 +32,41 @@ public class GradeErrorResolutionTemplate extends TemplateResolution {
         this.buildResolve(resolve);
         String num=Parameter.getInstance().getParameter("numTempl3");
         int sum = Integer.parseInt(num)+1;
-        Parameter.getInstance().getParameter(Integer.toString(sum));
+        Parameter.getInstance().setParameter("numTempl3",Integer.toString(sum));
+        Parameter.getInstance().saveParameters();
 
     }
 
     @Override
     public void buildIntro(String intro) {
         Parameter.getInstance().setParameter("introGER"+Parameter.getInstance().getParameter("numTempl3"), intro);
-
+        template.setIntro(intro);
     }
 
     @Override
     public void buildConsider(String consider) {
         Parameter.getInstance().setParameter("considerGER"+Parameter.getInstance().getParameter("numTempl3"), consider);
 
+        template.setConsider(consider);
     }
 
     @Override
     public void buildNotify(String notify) {
         Parameter.getInstance().setParameter("notifyGER"+Parameter.getInstance().getParameter("numTempl3"), notify);
-
+        template.setNotify(notify);
     }
 
     @Override
     public void buildResult(String result) {
         Parameter.getInstance().setParameter("resultGER"+Parameter.getInstance().getParameter("numTempl3"), result);
 
+        template.setResult(result);
     }
 
     @Override
     public void buildResolve(String resolve) {
           Parameter.getInstance().setParameter("resultGER"+Parameter.getInstance().getParameter("numTempl3"), resolve);
+          template.setResolve(resolve);
     }
     
 }

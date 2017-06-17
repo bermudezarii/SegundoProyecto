@@ -18,10 +18,12 @@ import model.Resolution;
  * @author Usuario
  */
 public class FacadeCoordinator {
-    private School school; 
+    private School school;
+    private ExtendedSchool extendedSchool;
 
     public FacadeCoordinator() {
         school= School.getInstance();
+        extendedSchool=ExtendedSchool.getInstance();
     }
     
     public void createRequest(DTORequest dtoRequest) {
@@ -79,5 +81,8 @@ public class FacadeCoordinator {
     }
     public void loadRequests(String path) {
         school.loadRequests(path);
+    }
+    public void createTemplate(String type,String intro,String consider,String notify,String result,String resolve) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+        extendedSchool.createTemplate(type, intro, consider, notify, result, resolve);
     }
 }
