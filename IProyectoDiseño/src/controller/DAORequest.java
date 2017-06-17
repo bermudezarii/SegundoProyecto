@@ -256,8 +256,8 @@ public class DAORequest {
        
         // Save to excel file 
         try{
-            
-            FileOutputStream out = new FileOutputStream(new File("src//files//DatosFormulario.xlsx"));
+            String filePath = getClass().getResource("/files/DatosFormulario.xlsx").getPath();
+            FileOutputStream out = new FileOutputStream(new File(filePath));
        
             workbook.write(out);
          
@@ -323,8 +323,8 @@ public class DAORequest {
        
         // Save to excel file 
         try{
-            
-            FileOutputStream out = new FileOutputStream(new File("src//files//DatosResolucion.xlsx"));
+            String filePath = getClass().getResource("/files/DatosResolucion.xlsx").getPath();
+            FileOutputStream out = new FileOutputStream(new File(filePath));
        
             reqWB.write(out);
          

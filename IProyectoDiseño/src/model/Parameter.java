@@ -34,8 +34,9 @@ public class Parameter {
 
     private boolean loadProperties() {
         try {
+            String filePath = getClass().getResource("/files/Parameters.properties").getPath();
             parameters = new XProperties();
-            parameters.load(new FileInputStream("src//files//Parameters.properties"));
+            parameters.load(new FileInputStream(filePath));
             return true;
         } catch (FileNotFoundException ex) {
             return false;
@@ -54,7 +55,7 @@ public class Parameter {
     
     public boolean saveParameters() {
         try {
-            parameters.store(new FileOutputStream("src//files//Parameters.properties"), "");
+            parameters.store(new FileOutputStream("src//java//files//Parameters.properties"), "");
             return true;
         } catch(Exception ex) {
             Logger.getLogger(Parameter.class.getName()).log(Level.SEVERE, null, ex);

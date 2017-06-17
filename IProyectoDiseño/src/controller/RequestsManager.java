@@ -47,6 +47,7 @@ public final class RequestsManager extends Manager {
                                      group);
         
         elements.add(currentRequest);
+        saveRequest();
     }
 
     @Override
@@ -146,6 +147,7 @@ public final class RequestsManager extends Manager {
         currentRequest.setRequestState(PROCESSED);
         res.setDefinitive(true);
         currentRequest.setResolution(res);
+        saveRequest();
         String subject="SOLICITUD "+ currentRequest.getInconsistencie()
              +currentRequest.getId()+": ACEPTADA";
       
@@ -168,6 +170,7 @@ public final class RequestsManager extends Manager {
     public void CancelRequest(String message){
       currentRequest.setRequestState(CANCELED);
       currentRequest.setNote(message);
+      saveRequest();
       String subject="SOLICITUD "+ currentRequest.getInconsistencie()
              +currentRequest.getId()+": NO ACEPTADA";
       String info="Saludos Cordiales,\nSe le informa, que se le ha denegado la solicitud sobre " +currentRequest.getInconsistencie()+"del alumno "+
@@ -273,13 +276,5 @@ public final class RequestsManager extends Manager {
 
         data.saveRequest();
 
-    }
-    
-    public void readSpreadSheet() {
-        DAOSpreadSheet dao = new DAOSpreadSheet();
-        ArrayList<Object> temp = dao.getSpreedSheetInfo();
-        
-        if(temp != null)
-            elements.addAll(temp);
     }
 }

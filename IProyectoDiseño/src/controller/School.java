@@ -71,7 +71,6 @@ public class School  {
         plansManager = new PlansManager(data);
         groupsManager = new GroupsManager(data);
         requestsManager = new RequestsManager(req);
-        requestsManager.readSpreadSheet();
     }
     
     public void loadRequests(String path) {
@@ -203,9 +202,5 @@ public class School  {
     
     public void saveRequest() {
         requestsManager.saveRequest();
-    }
-    
-    public void readSpreadSheet() {
-        requestsManager.readSpreadSheet();
     }
 }
