@@ -35,18 +35,24 @@ public final class RequestsManager extends Manager {
 
     @Override
     public void insert(Object parameter) {
+        System.out.println("insert de request manager, lo que le entra: "+ parameter.toString());
         DTORequest dto = (DTORequest) parameter;
+        System.out.println("lo que cambia a dto:" + dto.toString());
         Group group = School.getInstance().selectGroup(dto.getPeriod(), 
                         dto.getNumGroup(), dto.getCodCourse());
+        System.out.println("grupo que identifica: " + group.toString());
         Student student = new Student(dto.getIdStudent(), dto.getNameStudent(),
                                       dto.getEmail(), dto.getPhone());
+        System.out.println("estudiante que agarra: " + student.toString());
         Person requester = new Person(dto.getRequesterId(), dto.getRequesterName(), "", "");
-        
+        System.out.println("persona que solicita: " + requester.toString());
         currentRequest = new Request(dto.getDate(), dto.getDescription(), 
                                      dto.getInconsistence(), null, student, requester,
                                      group);
+        System.out.println("el nuevo request seria: " + currentRequest.toString());
         
         elements.add(currentRequest);
+        System.out.println("si lo anade");
         saveRequest();
     }
 

@@ -83,7 +83,12 @@ public class FacadeCoordinator {
         return school.top3ProfessorsResolutions();
     }
     public void loadRequests(String path) {
+        System.out.println("profes: " + school.selectAllEmployee().toString());
+        System.out.println("cursos" + school.selectAllCourses().toString());
+        System.out.println("grupos" + school.selectAllGroups().toString());
+        System.out.println("requests" + school.selectAllRequests().toString());
         school.loadRequests(path);
+   
     }
     public void createTemplate(String type,String intro,String consider,String result,String resolve) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         extendedSchool.createTemplate(type, intro, consider, result, resolve);
@@ -99,4 +104,7 @@ public class FacadeCoordinator {
         
         return extendedSchool.getTemplate(id, type);
     }
+    
+    
+    
 }

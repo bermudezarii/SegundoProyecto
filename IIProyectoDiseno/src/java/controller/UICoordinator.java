@@ -85,6 +85,8 @@ public class UICoordinator implements ObserverUI, UIBase{
         JOptionPane.showMessageDialog(frrequest, "Se ha Creado Una Solicitud con Éxito.");
         FrRequest fr=new FrRequest();
         fr.setVisible(true);
+        fr.setEmployee(frrequest.getEmployee());
+        fr.setMenu();
         frrequest.setVisible(false);
         }else{
          JOptionPane.showMessageDialog(frrequest, "Se ha Ingresado un Correo o Número de Teléfono Inválido.");

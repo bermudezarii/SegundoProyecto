@@ -206,6 +206,7 @@ public class DAORequest {
         sheet.getRow(0).createCell(12).setCellValue("Estado de solicitud");
         sheet.getRow(0).createCell(13).setCellValue("Num de Resolucion");
         int rowI = 1; 
+        System.out.println("requests en daoRequests:" + School.getInstance().selectAllRequests().toString());
         for(Object o: School.getInstance().selectAllRequests()){
         
           
@@ -254,6 +255,7 @@ public class DAORequest {
             
             
             rowI++; 
+            System.out.println("pasa el ++");
            
         }
        
