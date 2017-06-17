@@ -158,6 +158,8 @@ public class DAORequest {
                 return EInconsistencie.RecordExclusion;
             case "INCLUSION_ACTA":
                 return EInconsistencie.RecordInclusion;
+            case "MODIFICACIÓN_ACTA":
+                return EInconsistencie.RecordModification;
             default: 
                 break;
         }
@@ -174,6 +176,8 @@ public class DAORequest {
                 return "EXCLUSION_ACTA";
             case RecordInclusion:
                 return "INCLUSION_ACTA";
+            case RecordModification:
+                return "MODIFICACIÓN_ACTA";
             default:
                 break;
         }
