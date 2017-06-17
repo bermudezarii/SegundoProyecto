@@ -31,13 +31,7 @@ public class NewTemplate extends javax.swing.JFrame {
         ui=new UICoordinator();
     }
 
-    public JTextArea getTxtnotify() {
-        return txtnotify;
-    }
-
-    public void setTxtnotify(JTextArea txtnotify) {
-        this.txtnotify = txtnotify;
-    }
+   
 
     public JTextArea getTxtresolve() {
         return txtresolve;
@@ -95,7 +89,6 @@ public class NewTemplate extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -104,12 +97,8 @@ public class NewTemplate extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jComboBox5 = new javax.swing.JComboBox<>();
         jScrollPane8 = new javax.swing.JScrollPane();
         txtintro = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txtnotify = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
         txtresult = new javax.swing.JTextArea();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -147,9 +136,6 @@ public class NewTemplate extends javax.swing.JFrame {
         jLabel4.setText("Resuelvo");
         pn.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, -1, -1));
 
-        jLabel5.setText("Notifíquese");
-        pn.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 820, -1, -1));
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,23 +165,11 @@ public class NewTemplate extends javax.swing.JFrame {
         jButton4.setText("Insertar");
         pn.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
 
-        jButton5.setText("Insertar");
-        pn.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 810, -1, -1));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 810, 140, 30));
-
         txtintro.setColumns(20);
         txtintro.setRows(5);
         jScrollPane8.setViewportView(txtintro);
 
         pn.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 1000, 150));
-
-        txtnotify.setColumns(20);
-        txtnotify.setRows(5);
-        jScrollPane4.setViewportView(txtnotify);
-
-        pn.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 850, 1010, 138));
 
         txtresult.setColumns(20);
         txtresult.setRows(5);
@@ -363,17 +337,14 @@ public class NewTemplate extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
@@ -381,13 +352,11 @@ public class NewTemplate extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPanel pn;
     private javax.swing.JTextArea txtconsider;
     private javax.swing.JTextArea txtintro;
-    private javax.swing.JTextArea txtnotify;
     private javax.swing.JTextArea txtresolve;
     private javax.swing.JTextArea txtresult;
     // End of variables declaration//GEN-END:variables

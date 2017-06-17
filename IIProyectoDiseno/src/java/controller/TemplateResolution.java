@@ -13,7 +13,7 @@ import model.Template;
  */
 public class TemplateResolution {
     protected Template template;
-    public void templateMethod(String intro,String consider,String notify,String result,String resolve){
+    public void templateMethod(String intro,String consider,String result,String resolve){
     }
     public void buildIntro(String intro){
     }
@@ -21,8 +21,7 @@ public class TemplateResolution {
     }
     public void buildConsider(String consider){
     }
-    public void buildNotify(String notify){
-    }
+    
     public void buildResolve(String resolve){
     }
 

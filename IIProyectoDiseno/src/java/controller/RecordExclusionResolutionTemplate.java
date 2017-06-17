@@ -19,10 +19,9 @@ public class RecordExclusionResolutionTemplate extends TemplateResolution {
     
     
     @Override
-    public void templateMethod(String intro,String consider,String notify,String result,String resolve) {
+    public void templateMethod(String intro,String consider,String result,String resolve) {
         this.buildConsider(consider);
         this.buildIntro(intro);
-        this.buildNotify(notify);
         this.buildResult(result);
         this.buildResolve(resolve);
         String num=Parameter.getInstance().getParameter("numTempl2");
@@ -51,11 +50,7 @@ public class RecordExclusionResolutionTemplate extends TemplateResolution {
         template.setConsider(consider);
     }
 
-    @Override
-    public void buildNotify(String notify) {
-        Parameter.getInstance().setParameter("notifyER"+Parameter.getInstance().getParameter("numTempl2"), notify);
-        template.setNotify(notify);
-    }
+
 
     @Override
     public void buildResult(String result) {

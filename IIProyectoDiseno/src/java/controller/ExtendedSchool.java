@@ -23,11 +23,11 @@ public class ExtendedSchool {
     private void loadData() {
 
     }
-    public void createTemplate(String type,String intro,String consider,String notify,String result,String resolve) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+    public void createTemplate(String type,String intro,String consider,String result,String resolve) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         Package packagetr=TemplateResolution.class.getPackage();
         String trclass= packagetr.getName()+"."+type+"ResolutionTemplate";
         template= (TemplateResolution) Class.forName(trclass).newInstance();
-        template.templateMethod(intro, consider, notify, result, resolve);
+        template.templateMethod(intro, consider, result, resolve);
     }
     public void getTemplate(int id, String type){
         

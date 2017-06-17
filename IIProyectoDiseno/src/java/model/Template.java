@@ -15,7 +15,6 @@ public class Template {
     private String intro;
     private String result;
     private String resolve;
-    private String notify;
     private String consider;
 
     public int getId() {
@@ -66,13 +65,7 @@ public class Template {
         this.resolve = resolve;
     }
 
-    public String getNotify() {
-        return notify;
-    }
 
-    public void setNotify(String notify) {
-        this.notify = notify;
-    }
     
       
 }

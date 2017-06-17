@@ -82,7 +82,7 @@ public class FacadeCoordinator {
     public void loadRequests(String path) {
         school.loadRequests(path);
     }
-    public void createTemplate(String type,String intro,String consider,String notify,String result,String resolve) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
-        extendedSchool.createTemplate(type, intro, consider, notify, result, resolve);
+    public void createTemplate(String type,String intro,String consider,String result,String resolve) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+        extendedSchool.createTemplate(type, intro, consider, result, resolve);
     }
 }

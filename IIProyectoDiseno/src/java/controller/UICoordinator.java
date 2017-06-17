@@ -373,15 +373,15 @@ public class UICoordinator implements ObserverUI, UIBase{
          switch  (frtemplate.getCbtype().getSelectedIndex()){
              case 0:
                  facade.createTemplate("RecordInclusion",frtemplate.getTxtintro().getText() , frtemplate.getTxtconsider().getText(),
-                 frtemplate.getTxtnotify().getText(), frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
+                  frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
                  break;
              case 1:
                  facade.createTemplate("RecordExclusion",frtemplate.getTxtintro().getText() , frtemplate.getTxtconsider().getText(),
-                 frtemplate.getTxtnotify().getText(), frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
+                  frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
                  break;
              default:
                  facade.createTemplate("GradeError",frtemplate.getTxtintro().getText() , frtemplate.getTxtconsider().getText(),
-                 frtemplate.getTxtnotify().getText(), frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
+                  frtemplate.getTxtresult().getText(), frtemplate.getTxtresolve().getText());
                  break;
          
      }}
