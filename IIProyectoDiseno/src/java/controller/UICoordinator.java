@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import model.Course;
 import model.EInconsistencie;
 import model.ERequestState;
@@ -19,6 +20,7 @@ import model.Employee;
 import model.Group;
 import model.Request;
 import model.Resolution;
+import model.Template;
 import org.apache.commons.validator.routines.EmailValidator;
 import view.FrRequest;
 import view.FrResolution;
@@ -369,7 +371,6 @@ public class UICoordinator implements ObserverUI, UIBase{
     }
      public void createTemplate(NewTemplate frtemplate) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
          frtemplate.getCbtype().getSelectedIndex();
-         System.out.println("Entroooo");
          switch  (frtemplate.getCbtype().getSelectedIndex()){
              case 0:
                  facade.createTemplate("RecordInclusion",frtemplate.getTxtintro().getText() , frtemplate.getTxtconsider().getText(),
@@ -385,4 +386,79 @@ public class UICoordinator implements ObserverUI, UIBase{
                  break;
          
      }}
+     
+     public void insertParam(JTextArea txt, int num){
+         switch(num){
+             case 0:
+                 txt.setText(txt.getText()+" {date}");
+                 break;
+             case 1:
+                 txt.setText(txt.getText()+" {school_headmaster}");
+                 break;
+             case 2:
+                  txt.setText(txt.getText()+" {studentName}");
+                  break;
+             case 3:
+                  txt.setText(txt.getText()+" {studentCarne}");
+                  break;
+             case 4:
+                  txt.setText(txt.getText()+" {courseCode}");
+                 break;
+             case 5:
+                  txt.setText(txt.getText()+" {courseName}");
+                 break;
+            case 6:
+                  txt.setText(txt.getText()+" {groupNumber}");
+                 break;
+            case 7:
+                  txt.setText(txt.getText()+" {professor}");
+                 break;
+            case 8:
+                  txt.setText(txt.getText()+" {period}");
+                 break;
+            case 9:
+                 txt.setText(txt.getText()+" {year}");
+                 break;
+            case 10:
+                 txt.setText(txt.getText()+" {semester}");
+                 break;
+                 
+                 
+         }
+     
+     }
+     public void selectTemplates(FrTemplate template){
+        int num=facade.selectTemplates(template.getCbtemplate().getSelectedIndex());
+        if(template.getCbnumtemplate().getItemCount()!=0){
+            template.getCbnumtemplate().removeAllItems();
+        }
+        for(int i=0;num>i;i++){
+            String s=Integer.toString(i);
+            template.getCbnumtemplate().addItem(s);
+       }
+        
+    }
+     
+    public void getTemplate(FrTemplate template){
+       Template temp;
+        switch(template.getCbtemplate().getSelectedIndex()){
+                case 0:
+                     temp=facade.getTemplate(template.getCbnumtemplate().getSelectedIndex(),"IR");
+                    break;
+                case 1:
+                     temp=facade.getTemplate(template.getCbnumtemplate().getSelectedIndex(),"ER" );
+                    break;
+                default:
+                     temp=facade.getTemplate(template.getCbnumtemplate().getSelectedIndex(),"GER" );
+                    break;
+        }
+        
+     
+        template.getTxtintro().setText(temp.getIntro());
+        template.getTxtconsider().setText(temp.getConsider());
+        template.getTxtresult().setText(temp.getResult());
+        template.getTxtresolve().setText(temp.getResolve());
+        
+    }
+
 }

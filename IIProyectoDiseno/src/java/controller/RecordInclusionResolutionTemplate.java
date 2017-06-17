@@ -52,13 +52,13 @@ public class RecordInclusionResolutionTemplate extends TemplateResolution {
 
     @Override
     public void buildResult(String result) {
-        Parameter.getInstance().setParameter("considerIR"+Parameter.getInstance().getParameter("numTempl1"), result);
+        Parameter.getInstance().setParameter("resultIR"+Parameter.getInstance().getParameter("numTempl1"), result);
 
         template.setResult(result);
     }
     @Override
     public void buildResolve(String resolve) {
-          Parameter.getInstance().setParameter("resultIR"+Parameter.getInstance().getParameter("numTempl1"), resolve);
+          Parameter.getInstance().setParameter("resolveIR"+Parameter.getInstance().getParameter("numTempl1"), resolve);
           template.setResolve(resolve);
     }
 }

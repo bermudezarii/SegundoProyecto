@@ -17,6 +17,18 @@ public class Template {
     private String resolve;
     private String consider;
 
+    public Template() {
+    }
+
+    public Template(int id, EInconsistencie type, String intro, String result, String resolve, String consider) {
+        this.id = id;
+        this.type = type;
+        this.intro = intro;
+        this.result = result;
+        this.resolve = resolve;
+        this.consider = consider;
+    }
+
     public int getId() {
         return id;
     }
@@ -65,7 +77,7 @@ public class Template {
         this.resolve = resolve;
     }
 
-
+ 
     
       
 }

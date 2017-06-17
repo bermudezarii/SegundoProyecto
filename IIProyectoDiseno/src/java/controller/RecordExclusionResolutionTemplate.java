@@ -59,7 +59,7 @@ public class RecordExclusionResolutionTemplate extends TemplateResolution {
     }
     @Override
     public void buildResolve(String resolve) {
-          Parameter.getInstance().setParameter("resultER"+Parameter.getInstance().getParameter("numTempl2"), resolve);
+          Parameter.getInstance().setParameter("resolveER"+Parameter.getInstance().getParameter("numTempl2"), resolve);
           template.setResolve(resolve);
     }
 }
