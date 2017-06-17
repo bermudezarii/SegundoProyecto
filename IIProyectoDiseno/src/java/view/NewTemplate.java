@@ -5,6 +5,11 @@
  */
 package view;
 
+import javax.swing.JScrollPane;
+import view.FrRequest;
+import view.FrStadistics;
+import view.FrViewRequest;
+
 /**
  *
  * @author Ximena
@@ -15,7 +20,10 @@ public class NewTemplate extends javax.swing.JFrame {
      * Creates new form NewTemplate
      */
     public NewTemplate() {
+        
         initComponents();
+
+        
     }
 
     /**
@@ -27,31 +35,33 @@ public class NewTemplate extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        btnNewTemplate1 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        btnViewRequest1 = new javax.swing.JMenuItem();
-        btnviewStadistics1 = new javax.swing.JMenuItem();
-        btnViewResolution1 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pn = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea7 = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea8 = new javax.swing.JTextArea();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea9 = new javax.swing.JTextArea();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         btnNewTemplate = new javax.swing.JMenuItem();
@@ -60,101 +70,96 @@ public class NewTemplate extends javax.swing.JFrame {
         btnviewStadistics = new javax.swing.JMenuItem();
         btnViewResolution = new javax.swing.JMenuItem();
 
-        jMenu5.setText("Archivo");
-
-        btnNewTemplate1.setText("Nueva Plantilla...");
-        btnNewTemplate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewTemplate1ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(btnNewTemplate1);
-
-        jMenuBar3.add(jMenu5);
-
-        jMenu6.setText("Ver ");
-
-        btnViewRequest1.setText("Ver Solicitudes");
-        btnViewRequest1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewRequest1ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(btnViewRequest1);
-
-        btnviewStadistics1.setText("Ver Estadísticas");
-        btnviewStadistics1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnviewStadistics1ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(btnviewStadistics1);
-
-        btnViewResolution1.setText("Ver Resoluciones");
-        btnViewResolution1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewResolution1ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(btnViewResolution1);
-
-        jMenuBar3.add(jMenu6);
-
-        jMenu1.setText("jMenu1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pn.setName(""); // NOI18N
+        pn.setPreferredSize(new java.awt.Dimension(1199, 1000));
+        pn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Introducción ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 840, 710, 150));
+        pn.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         jLabel2.setText("Resultado Único");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        pn.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jLabel3.setText("Considerandos");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
+        pn.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
 
         jLabel4.setText("Resuelvo");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, -1, -1));
+        pn.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, -1, -1));
 
         jLabel5.setText("Notifíquese");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 820, -1, -1));
+        pn.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 820, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        pn.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, 140, -1));
+
+        jButton1.setText("Insertar");
+        pn.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 30, -1, -1));
+
+        jButton2.setText("Insertar");
+        pn.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 230, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 230, 140, 30));
+
+        jButton3.setText("Insertar");
+        pn.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 420, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 420, 140, 30));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 620, 140, 30));
+
+        jButton4.setText("Insertar");
+        pn.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 620, -1, -1));
+
+        jButton5.setText("Insertar");
+        pn.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 810, -1, -1));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 810, 140, 30));
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setRows(5);
+        jScrollPane8.setViewportView(jTextArea6);
+
+        pn.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 1000, 150));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane4.setViewportView(jTextArea2);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 710, 150));
+        pn.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 850, 1010, 138));
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane5.setViewportView(jTextArea3);
+        jTextArea7.setColumns(20);
+        jTextArea7.setRows(5);
+        jScrollPane9.setViewportView(jTextArea7);
 
-        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 710, 150));
+        pn.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 1000, 138));
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane6.setViewportView(jTextArea4);
+        jTextArea8.setColumns(20);
+        jTextArea8.setRows(5);
+        jScrollPane10.setViewportView(jTextArea8);
 
-        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 710, 150));
+        pn.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 1010, 138));
 
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollPane7.setViewportView(jTextArea5);
+        jTextArea9.setColumns(20);
+        jTextArea9.setRows(5);
+        jScrollPane11.setViewportView(jTextArea9);
 
-        jPanel1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 710, 150));
+        pn.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 660, 1010, 138));
 
-        jScrollPane2.setViewportView(jPanel1);
+        jScrollPane1.setViewportView(pn);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 1130));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
         jMenu3.setText("Archivo");
 
@@ -226,30 +231,9 @@ public class NewTemplate extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewResolutionActionPerformed
 
-    private void btnNewTemplate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplate1ActionPerformed
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
-        fr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnNewTemplate1ActionPerformed
-
-    private void btnViewRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequest1ActionPerformed
-        // TODO add your handling code here:
-        FrViewRequest fvr=new FrViewRequest();
-        fvr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnViewRequest1ActionPerformed
-
-    private void btnviewStadistics1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadistics1ActionPerformed
-        // TODO add your handling code here:
-        FrStadistics frstadistics= new FrStadistics();
-        frstadistics.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnviewStadistics1ActionPerformed
-
-    private void btnViewResolution1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolution1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnViewResolution1ActionPerformed
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,36 +272,38 @@ public class NewTemplate extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnNewTemplate;
-    private javax.swing.JMenuItem btnNewTemplate1;
     private javax.swing.JMenuItem btnViewRequest;
-    private javax.swing.JMenuItem btnViewRequest1;
     private javax.swing.JMenuItem btnViewResolution;
-    private javax.swing.JMenuItem btnViewResolution1;
     private javax.swing.JMenuItem btnviewStadistics;
-    private javax.swing.JMenuItem btnviewStadistics1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
+    private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTextArea jTextArea8;
+    private javax.swing.JTextArea jTextArea9;
+    private javax.swing.JPanel pn;
     // End of variables declaration//GEN-END:variables
 }

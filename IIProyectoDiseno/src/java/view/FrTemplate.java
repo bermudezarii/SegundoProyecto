@@ -29,8 +29,39 @@ public class FrTemplate extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cbtemplate = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pn = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea7 = new javax.swing.JTextArea();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTextArea8 = new javax.swing.JTextArea();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea9 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        cbtemplate = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         btnNewTemplate = new javax.swing.JMenuItem();
@@ -40,12 +71,111 @@ public class FrTemplate extends javax.swing.JFrame {
         btnViewResolution = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1200, 1100));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(cbtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 140, 20));
+        pn.setPreferredSize(new java.awt.Dimension(1070, 1100));
+        pn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Introducción ");
+        pn.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 30));
+
+        jLabel2.setText("Resultado Único");
+        pn.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 307, -1, 20));
+
+        jLabel3.setText("Considerandos");
+        pn.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
+
+        jLabel4.setText("Resuelvo");
+        pn.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 680, -1, -1));
+
+        jLabel5.setText("Notifíquese");
+        pn.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 890, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 140, 30));
+
+        jButton2.setText("Insertar");
+        pn.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 90, -1, -1));
+
+        jButton3.setText("Insertar");
+        pn.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 290, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 140, 30));
+
+        jButton4.setText("Insertar");
+        pn.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 490, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 140, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 680, 140, -1));
+
+        jButton5.setText("Insertar");
+        pn.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 680, -1, -1));
+
+        jButton6.setText("Insertar");
+        pn.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 880, -1, -1));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+        pn.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 880, 140, -1));
+
+        jTextArea6.setColumns(20);
+        jTextArea6.setRows(5);
+        jScrollPane8.setViewportView(jTextArea6);
+
+        pn.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 1020, 150));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane4.setViewportView(jTextArea2);
+
+        pn.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 920, 1020, 138));
+
+        jTextArea7.setColumns(20);
+        jTextArea7.setRows(5);
+        jScrollPane9.setViewportView(jTextArea7);
+
+        pn.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 1020, 138));
+
+        jTextArea8.setColumns(20);
+        jTextArea8.setRows(5);
+        jScrollPane10.setViewportView(jTextArea8);
+
+        pn.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, 1020, 138));
+
+        jTextArea9.setColumns(20);
+        jTextArea9.setRows(5);
+        jScrollPane11.setViewportView(jTextArea9);
+
+        pn.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 720, 1020, 138));
 
         jButton1.setText("Seleccionar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, -1, -1));
+        pn.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        pn.add(cbtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 140, 30));
+
+        pn.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 60, 30));
+
+        jLabel6.setText("Tipo de Plantilla");
+        pn.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 140, -1));
+
+        jLabel7.setText("Número");
+        pn.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+
+        jLabel8.setText("Seleccione su Plantilla");
+        pn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
+
+        jScrollPane1.setViewportView(pn);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 700));
 
         jMenu3.setText("Archivo");
 
@@ -123,6 +253,10 @@ public class FrTemplate extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnViewResolutionActionPerformed
 
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -165,8 +299,39 @@ public class FrTemplate extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnviewStadistics;
     private javax.swing.JComboBox<String> cbtemplate;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea6;
+    private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTextArea jTextArea8;
+    private javax.swing.JTextArea jTextArea9;
+    private javax.swing.JPanel pn;
     // End of variables declaration//GEN-END:variables
 }
