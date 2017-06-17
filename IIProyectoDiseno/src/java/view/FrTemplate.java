@@ -5,7 +5,10 @@
  */
 package view;
 
+import controller.UICoordinator;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import model.EEmployeeRol;
 import model.Employee;
 
@@ -15,11 +18,48 @@ import model.Employee;
  */
 public class FrTemplate extends javax.swing.JFrame {
     private Employee employee; 
+
+    public JTextArea getTxtconsider() {
+        return txtconsider;
+    }
+
+    public void setTxtconsider(JTextArea txtconsider) {
+        this.txtconsider = txtconsider;
+    }
+
+    public JTextArea getTxtintro() {
+        return txtintro;
+    }
+
+    public void setTxtintro(JTextArea txtintro) {
+        this.txtintro = txtintro;
+    }
+
+    public JTextArea getTxtresolve() {
+        return txtresolve;
+    }
+
+    public void setTxtresolve(JTextArea txtresolve) {
+        this.txtresolve = txtresolve;
+    }
+
+    public JTextArea getTxtresult() {
+        return txtresult;
+    }
+
+    public void setTxtresult(JTextArea txtresult) {
+        this.txtresult = txtresult;
+    }
+    private UICoordinator ui;
+    
     /**
      * Creates new form FrTemplate
      */
     public FrTemplate() {
+        ui=new UICoordinator();
         initComponents();
+        ui.selectTemplates(this);
+        
     }
 
     public Employee getEmployee() {
@@ -74,30 +114,25 @@ public class FrTemplate extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        cbparamintro = new javax.swing.JComboBox<>();
+        btnparamintro = new javax.swing.JButton();
+        btnparamresult = new javax.swing.JButton();
+        cbparamresult = new javax.swing.JComboBox<>();
+        btnparamconsider = new javax.swing.JButton();
+        cbparamconsider = new javax.swing.JComboBox<>();
+        cbparamresolve = new javax.swing.JComboBox<>();
+        btnparamresolve = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtintro = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
+        txtresult = new javax.swing.JTextArea();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
+        txtconsider = new javax.swing.JTextArea();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
+        txtresolve = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         cbtemplate = new javax.swing.JComboBox<>();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        cbnumtemplate = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -112,103 +147,131 @@ public class FrTemplate extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pn.setBackground(new java.awt.Color(4, 103, 219));
+        pn.setBackground(new java.awt.Color(1, 55, 119));
         pn.setPreferredSize(new java.awt.Dimension(1070, 1100));
         pn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("Introducción ");
         pn.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 30));
 
+        jLabel2.setForeground(new java.awt.Color(254, 254, 254));
         jLabel2.setText("Resultado Único");
         pn.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 307, -1, 20));
 
+        jLabel3.setForeground(new java.awt.Color(254, 254, 254));
         jLabel3.setText("Considerandos");
         pn.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
+        jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("Resuelvo");
         pn.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 680, -1, -1));
 
-        jLabel5.setText("Notifíquese");
-        pn.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 890, -1, -1));
+        cbparamintro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(cbparamintro, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 140, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 140, 30));
-
-        jButton2.setText("Insertar");
-        pn.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 90, -1, -1));
-
-        jButton3.setText("Insertar");
-        pn.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 290, -1, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 140, 30));
-
-        jButton4.setText("Insertar");
-        pn.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 490, -1, -1));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 140, -1));
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 680, 140, -1));
-
-        jButton5.setText("Insertar");
-        pn.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 680, -1, -1));
-
-        jButton6.setText("Insertar");
-        pn.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 880, -1, -1));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        btnparamintro.setBackground(new java.awt.Color(239, 62, 53));
+        btnparamintro.setForeground(new java.awt.Color(254, 254, 254));
+        btnparamintro.setText("Insertar");
+        btnparamintro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                btnparamintroActionPerformed(evt);
             }
         });
-        pn.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 880, 140, -1));
+        pn.add(btnparamintro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 90, -1, -1));
 
-        jTextArea6.setColumns(20);
-        jTextArea6.setRows(5);
-        jScrollPane8.setViewportView(jTextArea6);
+        btnparamresult.setBackground(new java.awt.Color(239, 62, 53));
+        btnparamresult.setForeground(new java.awt.Color(254, 254, 254));
+        btnparamresult.setText("Insertar");
+        btnparamresult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnparamresultActionPerformed(evt);
+            }
+        });
+        pn.add(btnparamresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 290, -1, -1));
+
+        cbparamresult.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(cbparamresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 140, 30));
+
+        btnparamconsider.setBackground(new java.awt.Color(239, 62, 53));
+        btnparamconsider.setForeground(new java.awt.Color(254, 254, 254));
+        btnparamconsider.setText("Insertar");
+        btnparamconsider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnparamconsiderActionPerformed(evt);
+            }
+        });
+        pn.add(btnparamconsider, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 490, -1, -1));
+
+        cbparamconsider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(cbparamconsider, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 140, -1));
+
+        cbparamresolve.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
+        pn.add(cbparamresolve, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 680, 140, -1));
+
+        btnparamresolve.setBackground(new java.awt.Color(239, 62, 53));
+        btnparamresolve.setForeground(new java.awt.Color(254, 254, 254));
+        btnparamresolve.setText("Insertar");
+        btnparamresolve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnparamresolveActionPerformed(evt);
+            }
+        });
+        pn.add(btnparamresolve, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 680, -1, -1));
+
+        txtintro.setColumns(20);
+        txtintro.setRows(5);
+        jScrollPane8.setViewportView(txtintro);
 
         pn.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 1020, 150));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
-
-        pn.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 920, 1020, 138));
-
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jScrollPane9.setViewportView(jTextArea7);
+        txtresult.setColumns(20);
+        txtresult.setRows(5);
+        jScrollPane9.setViewportView(txtresult);
 
         pn.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 1020, 138));
 
-        jTextArea8.setColumns(20);
-        jTextArea8.setRows(5);
-        jScrollPane10.setViewportView(jTextArea8);
+        txtconsider.setColumns(20);
+        txtconsider.setRows(5);
+        jScrollPane10.setViewportView(txtconsider);
 
         pn.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 530, 1020, 138));
 
-        jTextArea9.setColumns(20);
-        jTextArea9.setRows(5);
-        jScrollPane11.setViewportView(jTextArea9);
+        txtresolve.setColumns(20);
+        txtresolve.setRows(5);
+        jScrollPane11.setViewportView(txtresolve);
 
         pn.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 720, 1020, 138));
 
+        jButton1.setBackground(new java.awt.Color(239, 62, 53));
+        jButton1.setForeground(new java.awt.Color(254, 254, 254));
         jButton1.setText("Seleccionar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         pn.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
 
+        cbtemplate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inclusión", "Exclusión", "Error de Nota" }));
+        cbtemplate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbtemplateActionPerformed(evt);
+            }
+        });
         pn.add(cbtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 140, 30));
 
-        pn.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 60, 30));
+        pn.add(cbnumtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 60, 30));
 
+        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("Tipo de Plantilla");
         pn.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 140, -1));
 
+        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("Número");
         pn.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
+        jLabel8.setForeground(new java.awt.Color(254, 254, 254));
         jLabel8.setText("Seleccione su Plantilla");
         pn.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, -1, -1));
 
@@ -261,6 +324,22 @@ public class FrTemplate extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JComboBox<String> getCbnumtemplate() {
+        return cbnumtemplate;
+    }
+
+    public void setCbnumtemplate(JComboBox<String> cbnumtemplate) {
+        this.cbnumtemplate = cbnumtemplate;
+    }
+
+    public JComboBox<String> getCbtemplate() {
+        return cbtemplate;
+    }
+
+    public void setCbtemplate(JComboBox<String> cbtemplate) {
+        this.cbtemplate = cbtemplate;
+    }
+
     private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
         // TODO add your handling code here:
         NewTemplate fr=new NewTemplate();
@@ -300,9 +379,36 @@ public class FrTemplate extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnViewResolutionActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void btnparamintroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamintroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+        ui.insertParam(txtintro, cbparamintro.getSelectedIndex());
+        
+    }//GEN-LAST:event_btnparamintroActionPerformed
+
+    private void btnparamresultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamresultActionPerformed
+        // TODO add your handling code here:
+         ui.insertParam(txtresult, cbparamresult.getSelectedIndex());
+    }//GEN-LAST:event_btnparamresultActionPerformed
+
+    private void btnparamconsiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamconsiderActionPerformed
+        // TODO add your handling code here:
+         ui.insertParam(txtconsider, cbparamconsider.getSelectedIndex());
+    }//GEN-LAST:event_btnparamconsiderActionPerformed
+
+    private void btnparamresolveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamresolveActionPerformed
+        // TODO add your handling code here:
+         ui.insertParam(txtresolve, cbparamresolve.getSelectedIndex());
+    }//GEN-LAST:event_btnparamresolveActionPerformed
+
+    private void cbtemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtemplateActionPerformed
+        // TODO add your handling code here:
+        ui.selectTemplates(this);
+    }//GEN-LAST:event_cbtemplateActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ui.getTemplate(this);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,25 +449,22 @@ public class FrTemplate extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnNewTemplate;
     private javax.swing.JMenuItem btnViewRequest;
     private javax.swing.JMenuItem btnViewResolution;
+    private javax.swing.JButton btnparamconsider;
+    private javax.swing.JButton btnparamintro;
+    private javax.swing.JButton btnparamresolve;
+    private javax.swing.JButton btnparamresult;
     private javax.swing.JMenuItem btnviewStadistics;
+    private javax.swing.JComboBox<String> cbnumtemplate;
+    private javax.swing.JComboBox<String> cbparamconsider;
+    private javax.swing.JComboBox<String> cbparamintro;
+    private javax.swing.JComboBox<String> cbparamresolve;
+    private javax.swing.JComboBox<String> cbparamresult;
     private javax.swing.JComboBox<String> cbtemplate;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -371,14 +474,12 @@ public class FrTemplate extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextArea jTextArea9;
     private javax.swing.JPanel pn;
+    private javax.swing.JTextArea txtconsider;
+    private javax.swing.JTextArea txtintro;
+    private javax.swing.JTextArea txtresolve;
+    private javax.swing.JTextArea txtresult;
     // End of variables declaration//GEN-END:variables
 }

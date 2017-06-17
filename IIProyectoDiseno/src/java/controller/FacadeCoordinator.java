@@ -9,9 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import model.Course;
+import model.EInconsistencie;
 import model.Employee;
+import model.Parameter;
 import model.Request;
 import model.Resolution;
+import model.Template;
 
 /**
  *
@@ -84,5 +87,16 @@ public class FacadeCoordinator {
     }
     public void createTemplate(String type,String intro,String consider,String result,String resolve) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
         extendedSchool.createTemplate(type, intro, consider, result, resolve);
+    }
+    
+    public int selectTemplates(int type){
+        
+        return extendedSchool.selectTemplates(type);
+        
+    }
+    public Template getTemplate(int id, String type){
+     
+        
+        return extendedSchool.getTemplate(id, type);
     }
 }

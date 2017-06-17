@@ -60,7 +60,7 @@ public class GradeErrorResolutionTemplate extends TemplateResolution {
 
     @Override
     public void buildResolve(String resolve) {
-          Parameter.getInstance().setParameter("resultGER"+Parameter.getInstance().getParameter("numTempl3"), resolve);
+          Parameter.getInstance().setParameter("resolveGER"+Parameter.getInstance().getParameter("numTempl3"), resolve);
           template.setResolve(resolve);
     }
     

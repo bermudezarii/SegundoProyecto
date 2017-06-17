@@ -5,6 +5,11 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import model.EInconsistencie;
+import model.Parameter;
+import model.Template;
+
 /**
  *
  * @author Ximena
@@ -29,8 +34,23 @@ public class ExtendedSchool {
         template= (TemplateResolution) Class.forName(trclass).newInstance();
         template.templateMethod(intro, consider, result, resolve);
     }
-    public void getTemplate(int id, String type){
+    public Template getTemplate(int id, String type){
+     
+        String num= Integer.toString(id);
+        String intro=Parameter.getInstance().getParameter("intro"+type+num);
+        String consider=Parameter.getInstance().getParameter("consider"+type+num);
+        String result=Parameter.getInstance().getParameter("result"+type+num); 
+        String resolve=Parameter.getInstance().getParameter("resolve"+type+num);
+        Template template= new Template(id, EInconsistencie.values()[id], intro, result, resolve, consider);
+        return template;
+    }
+    public int selectTemplates(int type){
+        type=type+1;
+        System.out.println("numTempl"+Integer.toString(type));
+        String numtmpl= Parameter.getInstance().getParameter("numTempl"+Integer.toString(type));
+        return Integer.parseInt(numtmpl);
         
     }
+   
     
 }
