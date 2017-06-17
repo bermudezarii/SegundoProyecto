@@ -8,6 +8,8 @@ package view;
 import controller.UISuperUser;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -29,6 +31,14 @@ public class FrSuperUser extends javax.swing.JFrame {
     public FrSuperUser() {
         initComponents();
        
+        this.addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent e)
+            {
+                uiSuperuser.saveEmployees();
+            }
+        });
+        
         jCheckBoxModEmail.addItemListener(new ItemListener(){
             @Override
             public void itemStateChanged(ItemEvent e) {

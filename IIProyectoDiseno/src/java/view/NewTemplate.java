@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import model.EEmployeeRol;
+import model.Employee;
 import view.FrRequest;
 import view.FrStadistics;
 import view.FrViewRequest;
@@ -21,6 +23,49 @@ import view.FrViewRequest;
  */
 public class NewTemplate extends javax.swing.JFrame {
     private UICoordinator ui;
+      private Employee employee; 
+    
+        public void setMenu(){
+   
+        
+        if(employee.getRol() == EEmployeeRol.ASSINTANT){
+            btnNewTemplate.setEnabled(false);
+            btnViewRequest.setEnabled(true);
+            btnViewResolution.setEnabled(true);
+            btnsavetemplate.setEnabled(false);
+            btnviewStadistics.setEnabled(false);
+        }
+        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+            btnNewTemplate.setEnabled(true);
+            btnViewRequest.setEnabled(true);
+            btnViewResolution.setEnabled(true);
+            btnsavetemplate.setEnabled(true);
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
+            btnNewTemplate.setEnabled(false);
+            btnViewRequest.setEnabled(false);
+            btnViewResolution.setEnabled(false);
+            btnsavetemplate.setEnabled(false);
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
+            btnNewTemplate.setEnabled(false);
+            btnViewRequest.setEnabled(false);
+            btnViewResolution.setEnabled(false);
+            btnsavetemplate.setEnabled(false);
+            btnviewStadistics.setEnabled(false);
+        }
+
+    }
+    
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
     /**
      * Creates new form NewTemplate
      */
@@ -120,6 +165,7 @@ public class NewTemplate extends javax.swing.JFrame {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(1201, 700));
 
+        pn.setBackground(new java.awt.Color(4, 103, 219));
         pn.setName(""); // NOI18N
         pn.setPreferredSize(new java.awt.Dimension(1199, 1000));
         pn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -252,6 +298,8 @@ public class NewTemplate extends javax.swing.JFrame {
     private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
         // TODO add your handling code here:
         FrRequest fr=new FrRequest();
+        fr.setEmployee(employee);
+        fr.setMenu();
         fr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNewTemplateActionPerformed
@@ -259,6 +307,8 @@ public class NewTemplate extends javax.swing.JFrame {
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
         FrViewRequest fvr=new FrViewRequest();
+        fvr.setEmployee(employee);
+        fvr.setMenu();
         fvr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnViewRequestActionPerformed
@@ -266,6 +316,8 @@ public class NewTemplate extends javax.swing.JFrame {
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
         FrStadistics frstadistics= new FrStadistics();
+        frstadistics.setEmployee(employee);
+        frstadistics.setMenu();
         frstadistics.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnviewStadisticsActionPerformed

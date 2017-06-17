@@ -5,11 +5,16 @@
  */
 package controller;
 
-import java.io.FileInputStream; 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException; 
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.sql.Time; 
 import java.util.ArrayList; 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Course; 
 import model.EDay; 
 import model.EEmployeeRol; 
@@ -18,9 +23,7 @@ import model.Group;
 import model.Plan; 
 import model.Schedule; 
 import org.apache.poi.ss.usermodel.Cell; 
-import org.apache.poi.ss.usermodel.FormulaEvaluator; 
 import org.apache.poi.ss.usermodel.Row; 
-import org.apache.poi.xssf.usermodel.XSSFCell; 
 import org.apache.poi.xssf.usermodel.XSSFSheet; 
  
 import org.apache.poi.xssf.usermodel.XSSFWorkbook; 
@@ -120,7 +123,7 @@ public class DAOData {
                 
                 id = null; name = null; email = null; phone = null; password = null; rol = null;  
             } 
-            System.out.println("estos son los empleados: " + employees.toString());
+            
              
              
         } 
@@ -266,4 +269,66 @@ public class DAOData {
         return groups; 
          
     } 
+    
+    public void saveEmployee() {
+       
+        XSSFSheet sheet = workbook.getSheet("PROFESORES");
+        int rowI = 1; 
+        for(Object o: School.getInstance().selectAllEmployee()){
+        
+          
+            Employee r = (Employee) o; 
+            
+            Row row = sheet.createRow(rowI); 
+            //
+            Cell cellId = row.createCell(0); 
+            cellId.setCellValue(r.getId());
+            Cell cellName = row.createCell(1); 
+            cellName.setCellValue(r.getName());
+            Cell cellEmail = row.createCell(2); 
+            cellEmail.setCellValue(r.getEmail());
+            Cell cellPhone = row.createCell(3); 
+            cellPhone.setCellValue(r.getPhone());
+            Cell cellPassword = row.createCell(4); 
+            cellPassword.setCellValue(r.getPassword());
+            Cell cellRol = row.createCell(5); 
+            cellRol.setCellValue(transformRolToSpanish(r.getRol()));            
+            
+            rowI++; 
+           
+        }
+                // Save to excel file 
+        try{
+            String filePath = getClass().getResource("/files/DatosProyecto1.xlsx").getPath();
+            FileOutputStream out = new FileOutputStream(new File(filePath));
+            workbook.write(out);
+            workbook.close();
+            out.close();
+        } catch (FileNotFoundException ex) {
+            
+            Logger.getLogger(DAORequest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DAOData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+      private String transformRolToSpanish(EEmployeeRol rol) {
+        if(null != rol)
+            switch (rol) {
+            case ASSINTANT:
+                return "ASISTENTE";
+            case CORDINATOR:
+                return "COORDINADOR";
+            case HEADMASTER:
+                return "DIRECTOR";
+            case PROFESSOR:
+                return "PROFESOR"; 
+            case SUPERUSER:
+                return "SUPERUSUARIO"; 
+            default:
+                break;
+        }
+        return null; 
+    }
+    
 }     

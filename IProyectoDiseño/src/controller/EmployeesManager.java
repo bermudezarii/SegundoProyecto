@@ -108,6 +108,9 @@ public final class EmployeesManager extends Manager {
         return null; 
     }
     
+    public void saveEmployees(){
+        data.saveEmployee();
+    }
 
   
 }

@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -202,5 +201,9 @@ public class School  {
     
     public void saveRequest() {
         requestsManager.saveRequest();
+    }
+    
+     public void saveEmployees(){
+        employeesManager.saveEmployees();
     }
 }

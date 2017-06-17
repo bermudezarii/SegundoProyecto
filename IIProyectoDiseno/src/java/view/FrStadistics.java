@@ -18,6 +18,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
+import model.EEmployeeRol;
+import model.Employee;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.ChartPanel;
@@ -42,7 +44,49 @@ import org.jfree.util.Rotation;
 
 public class FrStadistics extends javax.swing.JFrame {
     private UICoordinator uiStadistics; 
+    private Employee employee; 
+    
+    public Employee getEmployee() {
+        return employee;
+    }
 
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    
+    public void setMenu(){
+   
+        
+        if(employee.getRol() == EEmployeeRol.ASSINTANT){
+            
+            btnExel.setEnabled(false);
+            btnnewRequest.setEnabled(false);
+            
+            btnviewRequest.setEnabled(true);
+            btnviewStadistics.setEnabled(false);
+        }
+        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+            System.out.println("llega aqui 2");
+            btnExel.setEnabled(true);
+            btnnewRequest.setEnabled(true);
+            btnviewRequest.setEnabled(true);
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
+            btnExel.setEnabled(false);
+            btnnewRequest.setEnabled(false);
+            btnviewRequest.setEnabled(false);
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
+            btnExel.setEnabled(false);
+            btnnewRequest.setEnabled(true);
+            btnviewRequest.setEnabled(false);
+            btnviewStadistics.setEnabled(false);
+        }
+
+    }
+    
     public JComboBox<String> getCbResolutions() {
         return cbResolutions;
     }
@@ -166,7 +210,7 @@ public class FrStadistics extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         pnProf = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         spInitialD = new javax.swing.JSpinner();
         spFinalD = new javax.swing.JSpinner();
@@ -190,7 +234,7 @@ public class FrStadistics extends javax.swing.JFrame {
         lbgroup = new javax.swing.JLabel();
         btnsearch = new javax.swing.JToggleButton();
         jLabel17 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnnewRequest = new javax.swing.JMenuItem();
@@ -218,28 +262,32 @@ public class FrStadistics extends javax.swing.JFrame {
             .addGap(0, 330, Short.MAX_VALUE)
         );
 
-        jPanel2.add(pnRP, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 490, 330));
+        jPanel2.add(pnRP, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 490, 330));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.white);
         jLabel1.setText("Periodo ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 70, 20));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 100, 20));
 
-        jPanel2.add(cbperiod, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 70, -1));
+        jPanel2.add(cbperiod, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 70, -1));
 
         jLabel15.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel15.setForeground(java.awt.Color.white);
         jLabel15.setText("Top 5 de Cursos con Más Resoluciones en un Periodo");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
 
+        btnok.setBackground(new java.awt.Color(239, 63, 52));
+        btnok.setForeground(java.awt.Color.white);
         btnok.setText("Aceptar");
         btnok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnokActionPerformed(evt);
             }
         });
-        jPanel2.add(btnok, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+        jPanel2.add(btnok, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 470));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/statidisticsimage.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
         jTabbedPane1.addTab("Cursos con Más Resoluciones en ese Periodo", jPanel2);
 
@@ -256,111 +304,141 @@ public class FrStadistics extends javax.swing.JFrame {
             .addGap(0, 350, Short.MAX_VALUE)
         );
 
-        jPanel3.add(pnProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 530, 350));
+        jPanel3.add(pnProf, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 530, 350));
 
         jLabel16.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel16.setForeground(java.awt.Color.white);
         jLabel16.setText("Top 3 de los Profesores con más Modificaciones de Acta");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 470));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/statidisticsimage.png"))); // NOI18N
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 640));
 
         jTabbedPane1.addTab("Profesores con Más Modificaciones de Acta ", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         spInitialD.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
-        jPanel4.add(spInitialD, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 190, 20));
+        jPanel4.add(spInitialD, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 190, 20));
 
         spFinalD.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(), null, new java.util.Date(), java.util.Calendar.DAY_OF_MONTH));
-        jPanel4.add(spFinalD, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 180, -1));
+        jPanel4.add(spFinalD, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 180, -1));
 
-        jLabel2.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.white);
         jLabel2.setText("Fecha Final");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel6.setForeground(java.awt.Color.white);
         jLabel6.setText("Fecha de Inicio");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, 20));
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, 20));
 
         cbResolutions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbResolutionsActionPerformed(evt);
             }
         });
-        jPanel4.add(cbResolutions, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 190, 20));
+        jPanel4.add(cbResolutions, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 190, 20));
 
-        jLabel7.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("Solicitud");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, 20));
+        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, -1, 20));
 
-        jLabel8.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel8.setForeground(java.awt.Color.white);
         jLabel8.setText("Periodo ");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, -1));
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("Curso");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, -1, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("Grupo");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, -1, -1));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel11.setForeground(java.awt.Color.white);
         jLabel11.setText("Nombre del Estudiante");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel12.setForeground(java.awt.Color.white);
         jLabel12.setText("Carné");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel13.setForeground(java.awt.Color.white);
         jLabel13.setText("Resolución");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, -1, -1));
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel14.setForeground(java.awt.Color.white);
         jLabel14.setText("Situación ");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, -1, -1));
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, -1, -1));
 
+        lbname.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lbname.setForeground(java.awt.Color.white);
         lbname.setText("#######################");
-        jPanel4.add(lbname, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
+        jPanel4.add(lbname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, -1, -1));
 
+        lbcarne.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lbcarne.setForeground(java.awt.Color.white);
         lbcarne.setText("#######################");
-        jPanel4.add(lbcarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, -1, -1));
+        jPanel4.add(lbcarne, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 300, -1, -1));
 
+        lbresolution.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lbresolution.setForeground(java.awt.Color.white);
         lbresolution.setText("#######################");
-        jPanel4.add(lbresolution, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
+        jPanel4.add(lbresolution, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
 
+        lbinconsistence.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lbinconsistence.setForeground(java.awt.Color.white);
         lbinconsistence.setText("#######################");
-        jPanel4.add(lbinconsistence, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
+        jPanel4.add(lbinconsistence, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 340, -1, -1));
 
+        lbperiod.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lbperiod.setForeground(java.awt.Color.white);
         lbperiod.setText("#######################");
-        jPanel4.add(lbperiod, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 140, -1, -1));
+        jPanel4.add(lbperiod, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 220, -1, -1));
 
+        lbcourse.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lbcourse.setForeground(java.awt.Color.white);
         lbcourse.setText("#######################");
-        jPanel4.add(lbcourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, -1, -1));
+        jPanel4.add(lbcourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 260, -1, -1));
 
+        lbgroup.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        lbgroup.setForeground(java.awt.Color.white);
         lbgroup.setText("#######################");
-        jPanel4.add(lbgroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, -1, -1));
+        jPanel4.add(lbgroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 300, -1, -1));
 
+        btnsearch.setBackground(new java.awt.Color(239, 63, 52));
+        btnsearch.setForeground(java.awt.Color.white);
         btnsearch.setText("Buscar");
         btnsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsearchActionPerformed(evt);
             }
         });
-        jPanel4.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, 90, -1));
+        jPanel4.add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 390, 90, -1));
 
-        jLabel17.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
+        jLabel17.setForeground(java.awt.Color.white);
         jLabel17.setText("Información de Solicitud");
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, -1, -1));
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 470));
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 0, 14)); // NOI18N
+        jLabel5.setForeground(java.awt.Color.white);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/statidisticsimage.png"))); // NOI18N
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 650));
 
         jTabbedPane1.addTab("Solicitudes Atendidas en un rango de Fechas", jPanel4);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 490));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
         jMenu1.setText("Archivo");
 
@@ -410,6 +488,8 @@ public class FrStadistics extends javax.swing.JFrame {
     private void btnnewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewRequestActionPerformed
         // TODO add your handling code here:
         FrRequest fr=new FrRequest();
+        fr.setEmployee(employee);
+        fr.setMenu();
         fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fr.setVisible(true);
         this.setVisible(false);
@@ -440,6 +520,8 @@ public class FrStadistics extends javax.swing.JFrame {
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
             FrStadistics frstadistics= new FrStadistics();
+            frstadistics.setEmployee(employee);
+            frstadistics.setMenu(); 
             frstadistics.setExtendedState(JFrame.MAXIMIZED_BOTH); 
             frstadistics.setVisible(true);
             this.setVisible(false);
@@ -449,6 +531,8 @@ public class FrStadistics extends javax.swing.JFrame {
     private void btnviewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewRequestActionPerformed
         // TODO add your handling code here:
         FrViewRequest fvr=new FrViewRequest();
+        fvr.setEmployee(employee); 
+        fvr.setMenu(); 
         fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fvr.setVisible(true);
         this.setVisible(false);

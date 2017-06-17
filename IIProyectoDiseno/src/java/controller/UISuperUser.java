@@ -154,4 +154,9 @@ public class UISuperUser {
         fr.setVisible(true);
         frsuper.setVisible(false);
     }
+    
+    public void saveEmployees(){
+        facadeSuperuser.saveEmployees(); 
+    }
+    
 }

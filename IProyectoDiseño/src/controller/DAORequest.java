@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -49,7 +48,7 @@ public class DAORequest {
         XSSFSheet sheet = workbook.getSheetAt(0); 
         
         for(Row row : sheet){
-            System.out.println("1");
+            
             Date date= null; 
             Student affected; String carnet = null; String name = null; String email = null; String celStu = null; 
             Group group; String period = null; String course = null; int numberGroup = 0; 
@@ -138,7 +137,7 @@ public class DAORequest {
                     for (Resolution r: resolutions) {
                         if(r.getId() == numRes)
                             request.setResolution(r);
-                            System.out.println("linquea numRes: " + numRes + " con ReqId:" + request.getId());
+                            
                     }
                 }
             }
@@ -367,7 +366,7 @@ public class DAORequest {
     private ArrayList<Resolution> readResolutions() {
         ArrayList<Resolution> resolutions = new ArrayList(); 
         try{
-            FileInputStream fis = new FileInputStream(new File("src//files//DatosResolucion.xlsx"));
+            InputStream fis = getClass().getResourceAsStream("/files/DatosResolucion.xlsx"); 
             XSSFWorkbook wb = new XSSFWorkbook(fis); 
             XSSFSheet sheet = wb.getSheetAt(0); 
         for(Row row : sheet){
@@ -405,7 +404,7 @@ public class DAORequest {
                     }
                 }
                 if(id != 0){
-                    System.out.println("Resolution: [id: " + id + " attention: " + attention + "\ntitle: " + title + " \nintro: " + intro + " \nresult: " + result + " \nresolve: "+ resolve + " \nnotify: " + notify + " \nconsiderations: " + considerations + "\n]" ); 
+                    
                     resolutions.add(new Resolution(id, attention, title, intro, result, resolve, notify, considerations));
                 }
             }
@@ -414,7 +413,7 @@ public class DAORequest {
             
         
         catch(FileNotFoundException e){
-            System.out.println("No hay archivo que cargar de Resolutions");
+            Logger.getLogger(DAORequest.class.getName()).log(Level.SEVERE, null, e);
         } catch (IOException ex) {
             Logger.getLogger(DAORequest.class.getName()).log(Level.SEVERE, null, ex);
         }

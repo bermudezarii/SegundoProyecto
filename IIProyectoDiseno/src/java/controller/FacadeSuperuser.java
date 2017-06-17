@@ -40,5 +40,7 @@ public class FacadeSuperuser {
         System.out.println("borrado: " + school.selectAllEmployee().toString());
     }
     
-     
+     public void saveEmployees(){
+         school.saveEmployees();
+     }
 }

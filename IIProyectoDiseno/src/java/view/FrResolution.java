@@ -17,6 +17,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
+import model.EEmployeeRol;
+import model.Employee;
 
 /**
  *
@@ -24,6 +26,7 @@ import javax.swing.JTextPane;
  */
 public class FrResolution extends javax.swing.JFrame {
     private UICoordinator uiResolution; 
+    private Employee employee; 
     /**
      * Creates new form FrResolution
      */
@@ -31,6 +34,14 @@ public class FrResolution extends javax.swing.JFrame {
         uiResolution= new UICoordinator();
         initComponents();
         getResolution();
+    }
+    
+       public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     
     private void getResolution() {
@@ -85,6 +96,43 @@ public class FrResolution extends javax.swing.JFrame {
         return btnSaveAs;
     }
     
+    public void setMenu(){
+   
+        
+        if(employee.getRol() == EEmployeeRol.ASSINTANT){
+            btnExel.setEnabled(false);
+            btnSave.setEnabled(false);
+            btnSaveAs.setEnabled(false);
+            btnNewRequest.setEnabled(false);
+            btnViewRequest.setEnabled(true);
+            btnviewStadistics.setEnabled(false);
+        }
+        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+            btnExel.setEnabled(true);
+            btnSave.setEnabled(true);
+            btnSaveAs.setEnabled(true);
+            btnNewRequest.setEnabled(true);
+            btnViewRequest.setEnabled(true);
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
+            btnExel.setEnabled(false);
+            btnSave.setEnabled(false);
+            btnSaveAs.setEnabled(false);
+            btnNewRequest.setEnabled(false);
+            btnViewRequest.setEnabled(false);
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
+            btnExel.setEnabled(false);
+            btnSave.setEnabled(false);
+            btnSaveAs.setEnabled(false);
+            btnNewRequest.setEnabled(true);
+            btnViewRequest.setEnabled(false);
+            btnviewStadistics.setEnabled(false);
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,29 +149,29 @@ public class FrResolution extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         txtintro = new javax.swing.JTextPane();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtresult = new javax.swing.JTextPane();
         chkresult = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtresolve = new javax.swing.JTextPane();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtnotify = new javax.swing.JTextPane();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         chkconsider = new javax.swing.JCheckBox();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtconsider = new javax.swing.JTextPane();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtresolve = new javax.swing.JTextPane();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txtnotify = new javax.swing.JTextPane();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         btnNewRequest = new javax.swing.JMenuItem();
@@ -152,90 +200,93 @@ public class FrResolution extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.white);
         jLabel1.setText("Introducción:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
+        txtintro.setOpaque(false);
         jScrollPane6.setViewportView(txtintro);
 
-        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 710, 310));
+        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 870, 430));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jLabel6.setText("jLabel2");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 490));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/1200-700cowork.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 640));
 
         jTabbedPane1.addTab("Introducción", jPanel1);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel7.setForeground(java.awt.Color.white);
         jLabel7.setText("Resultado:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, -1, -1));
 
         jScrollPane1.setViewportView(txtresult);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 710, 300));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 890, 420));
 
+        chkresult.setForeground(java.awt.Color.white);
         chkresult.setText("Resultado Único");
-        jPanel2.add(chkresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, -1, -1));
+        jPanel2.add(chkresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 80, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jLabel5.setText("jLabel2");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 490));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/1200-700cowork.jpg"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 640));
 
         jTabbedPane1.addTab("Resultado Único ", jPanel2);
-
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        chkconsider.setText("Considerando Único");
-        jPanel3.add(chkconsider, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 70, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
-        jLabel8.setText("Considerando:");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
-
-        jScrollPane2.setViewportView(txtconsider);
-
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 710, 300));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jLabel4.setText("jLabel2");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 490));
-
-        jTabbedPane1.addTab("Considerandos", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("Resuelvo:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
 
         jScrollPane3.setViewportView(txtresolve);
 
-        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 710, 300));
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 910, 420));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jLabel3.setText("jLabel2");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 490));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/1200-700cowork.jpg"))); // NOI18N
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 640));
 
         jTabbedPane1.addTab("Resuelvo", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("Notifíquese:");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 60, -1, -1));
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
 
         jScrollPane4.setViewportView(txtnotify);
 
-        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 710, 300));
+        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 900, 410));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/5193848-white-wallpaper.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 490));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/1200-700cowork.jpg"))); // NOI18N
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 640));
 
         jTabbedPane1.addTab("Notifíquese", jPanel5);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        chkconsider.setForeground(java.awt.Color.white);
+        chkconsider.setText("Considerando Único");
+        jPanel3.add(chkconsider, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel8.setForeground(java.awt.Color.white);
+        jLabel8.setText("Considerando:");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+
+        jScrollPane2.setViewportView(txtconsider);
+
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 900, 410));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/1200-700cowork.jpg"))); // NOI18N
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 640));
+
+        jTabbedPane1.addTab("Considerandos", jPanel3);
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 680));
 
         jMenu3.setText("Archivo");
 
@@ -302,6 +353,8 @@ public class FrResolution extends javax.swing.JFrame {
     private void btnNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRequestActionPerformed
         // TODO add your handling code here:
         FrRequest fr=new FrRequest();
+        fr.setEmployee(employee);
+        fr.setMenu();
         fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fr.setVisible(true);
         this.setVisible(false);
@@ -333,6 +386,8 @@ public class FrResolution extends javax.swing.JFrame {
         if(i==JOptionPane.YES_OPTION){
             uiResolution.createResolution(this);
             FrViewRequest fvr=new FrViewRequest();
+            fvr.setEmployee(employee);
+            fvr.setMenu();
             fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
             fvr.setVisible(true);
             this.setVisible(false);
@@ -342,6 +397,8 @@ public class FrResolution extends javax.swing.JFrame {
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
         FrViewRequest fvr=new FrViewRequest();
+        fvr.setEmployee(employee);
+        fvr.setMenu();
         fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fvr.setVisible(true);
         this.setVisible(false);
@@ -353,6 +410,8 @@ public class FrResolution extends javax.swing.JFrame {
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
         FrStadistics frstadistics= new FrStadistics();
+        frstadistics.setEmployee(employee);
+        frstadistics.setMenu();
         frstadistics.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frstadistics.setVisible(true);
         this.setVisible(false);

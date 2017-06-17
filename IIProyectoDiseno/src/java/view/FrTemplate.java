@@ -6,13 +6,15 @@
 package view;
 
 import javax.swing.JFrame;
+import model.EEmployeeRol;
+import model.Employee;
 
 /**
  *
  * @author Ximena
  */
 public class FrTemplate extends javax.swing.JFrame {
-
+    private Employee employee; 
     /**
      * Creates new form FrTemplate
      */
@@ -20,6 +22,43 @@ public class FrTemplate extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    
+    public void setMenu(){
+   
+        
+        if(employee.getRol() == EEmployeeRol.ASSINTANT){
+            btnNewTemplate.setEnabled(false);
+            btnViewRequest.setEnabled(true);
+            btnViewResolution.setEnabled(true);
+            btnviewStadistics.setEnabled(false);
+        }
+        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+            btnNewTemplate.setEnabled(true);
+            btnViewRequest.setEnabled(true);
+            btnViewResolution.setEnabled(true);
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
+            btnNewTemplate.setEnabled(false);
+            btnViewRequest.setEnabled(false);
+            btnViewResolution.setEnabled(false); 
+            btnviewStadistics.setEnabled(true);
+        }
+        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
+            btnNewTemplate.setEnabled(false);
+            btnViewRequest.setEnabled(false);
+            btnViewResolution.setEnabled(false);
+            btnviewStadistics.setEnabled(false);
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,9 +110,9 @@ public class FrTemplate extends javax.swing.JFrame {
         btnViewResolution = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 1100));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pn.setBackground(new java.awt.Color(4, 103, 219));
         pn.setPreferredSize(new java.awt.Dimension(1070, 1100));
         pn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -225,6 +264,8 @@ public class FrTemplate extends javax.swing.JFrame {
     private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
         // TODO add your handling code here:
         NewTemplate fr=new NewTemplate();
+        fr.setEmployee(employee); 
+        fr.setMenu(); 
         fr.setVisible(true);
         this.setVisible(false);
 
@@ -233,6 +274,8 @@ public class FrTemplate extends javax.swing.JFrame {
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
         FrViewRequest fvr=new FrViewRequest();
+        fvr.setEmployee(employee); 
+        fvr.setMenu(); 
         fvr.setVisible(true);
         this.setVisible(false);
 
@@ -241,6 +284,8 @@ public class FrTemplate extends javax.swing.JFrame {
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
         FrStadistics frstadistics= new FrStadistics();
+        frstadistics.setEmployee(employee);
+        frstadistics.setMenu();
         frstadistics.setVisible(true);
         this.setVisible(false);
 
@@ -249,6 +294,8 @@ public class FrTemplate extends javax.swing.JFrame {
     private void btnViewResolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolutionActionPerformed
         // TODO add your handling code here:
         FrResolution frResolution= new FrResolution();
+        frResolution.setEmployee(employee);
+        frResolution.setMenu();
         frResolution.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnViewResolutionActionPerformed
