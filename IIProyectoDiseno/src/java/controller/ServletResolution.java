@@ -11,14 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.ERequestState;
 import model.Request;
 
 /**
  *
- * @author Ximena
+ * @author epikhdez
  */
-public class ServletConsultUI extends HttpServlet {
+public class ServletResolution extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,20 +35,13 @@ public class ServletConsultUI extends HttpServlet {
         
         try (PrintWriter out = response.getWriter()) {
             String reqid = request.getParameter("request");
-            out.print("<h4>");
          
             if(!reqid.isEmpty()) { 
-                Request res = School.getInstance().selectRequest(reqid); 
-
-                if(res == null) 
-                    out.print("La solicitud con dicho ID no existe."); 
-                else 
-                    out.print(stateAsString(res.getRequestState())); 
-            } else { 
-                out.print("Ingrese un ID para buscar."); 
+                School.getInstance().selectRequest(reqid); 
+                String html = School.getInstance().createResolutionDoc(EDocType.HTML);
+                out.print(html);
             }
             
-            out.print("</h4>");
             out.close();
         }
     }
@@ -92,19 +84,5 @@ public class ServletConsultUI extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-    private String stateAsString(ERequestState state) {
-        switch(state) {
-            case CANCELED:
-                return "<font color=\"red\">Cancelada.</font>";
-            
-            case PENDING:
-                return "<font color=\"yellow\">Pendiente.</font>";
-                
-            case PROCESSED:
-                return "<font color=\"green\">Tramitada.</font>";
-        }
-        
-        return "";
-    }
+
 }

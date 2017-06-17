@@ -19,7 +19,7 @@ public class HTMLGenerator implements IDocumentGenerator{
     private String buffer;
     
     @Override
-    public void GenerateDocument(Resolution doc) {
+    public String GenerateDocument(Resolution doc) {
         String resId = "RES-IC-" + format(doc.getId()) + "-" +
                 Calendar.getInstance().get(Calendar.YEAR);
         
@@ -32,7 +32,6 @@ public class HTMLGenerator implements IDocumentGenerator{
         while(attention[1].charAt(i) == '\t' || attention[1].charAt(i) == ' ')
             i++;
         
-        System.out.println(i);
         attention[1] = attention[1].substring(i);
         
         buffer = createHead(resId)
@@ -70,7 +69,11 @@ public class HTMLGenerator implements IDocumentGenerator{
             FileOutputStream file = new FileOutputStream(resId + ".html");
             PrintStream ps = new PrintStream(file);
             ps.print(buffer);
+            ps.close();
+            file.close();
         } catch(Exception ex) {}
+        
+        return buffer;
     }
     
     private String format(int id) {

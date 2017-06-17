@@ -171,14 +171,16 @@ public class School  {
         requestsManager.setResolution(res);
     }
     
-    public void createResolutionDoc(EDocType type) {
+    public String createResolutionDoc(EDocType type) {
         Package pack = EDocType.class.getPackage();
         String creatorName = String.format("%s.%sGenerator", pack.getName(), type.name());
         
         try {
             docGenerator = (IDocumentGenerator) Class.forName(creatorName).newInstance();
-            docGenerator.GenerateDocument(requestsManager.getResolution());
+            return docGenerator.GenerateDocument(requestsManager.getResolution());
         } catch(Exception ex) {}
+        
+        return null;
     }
     
    

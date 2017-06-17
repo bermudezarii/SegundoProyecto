@@ -12,5 +12,5 @@ import model.Resolution;
  * @author Usuario
  */
 public interface IDocumentGenerator {
-    public void GenerateDocument(Resolution doc); 
+    public String GenerateDocument(Resolution doc); 
 }

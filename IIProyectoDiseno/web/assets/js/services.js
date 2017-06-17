@@ -37,6 +37,10 @@ $('#consult-form').submit(function(e) {
         cache: false,
         success: function(result) {
             response.html(result);
+            
+            if(result.indexOf("Tramitada.") > -1) {
+                document.getElementById('watch-resolution').style.display = 'block';;
+            }
         },
         error: function(){
             response.html("<p>Error: No se ha podido realizar la consulta.</p>")
@@ -46,8 +50,6 @@ $('#consult-form').submit(function(e) {
 
 $('#request-form').submit(function(e) {
     e.preventDefault();
-    
-    console.log($('#courses').val());
 
     $.ajax({
         type: 'GET',
@@ -116,3 +118,18 @@ $courses.change (
         });
     }
 );
+
+function getresolution() {
+    $.ajax({
+        type: "GET",
+        url: "ServletResolution",
+        dataType: 'text',
+        contentType: "text/html; charset=utf-8",
+        data: {
+            request: $('#id-request').val()
+        },
+        success: function(data){
+            $groups.html(data);
+        }
+    });
+}

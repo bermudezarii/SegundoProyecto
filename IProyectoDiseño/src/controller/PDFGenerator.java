@@ -26,14 +26,14 @@ import model.Resolution;
 public class PDFGenerator implements IDocumentGenerator{
 
     @Override
-    public void GenerateDocument(Resolution doc) {
+    public String GenerateDocument(Resolution doc) {
         String resId = "RES-IC-" + format(doc.getId()) + "-" +
                 Calendar.getInstance().get(Calendar.YEAR);
         
         Document pdf = createDocument(resId + ".pdf");
         
         if(pdf == null)
-            return;
+            return null;
         
         try {
             pdf.open();
@@ -99,6 +99,8 @@ public class PDFGenerator implements IDocumentGenerator{
         } catch(Exception ex) {
             System.out.println("Error writirn pdf.");
         }
+        
+        return null;
     }
     
     private Document createDocument(String path) {

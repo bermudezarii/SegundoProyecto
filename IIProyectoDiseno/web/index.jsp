@@ -245,6 +245,9 @@
                                     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <h4 id="consult-response">Presione consultar para mostrar el estado de la solicitud.</h4>
+                                            <div id="watch-resolution" style="display:none;">
+                                                <button class="btn" onclick="getResolution()">Mostrar resolución</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

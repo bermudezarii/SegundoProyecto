@@ -29,6 +29,10 @@
         <servlet-name>ServletGroups</servlet-name>
         <servlet-class>controller.ServletGroups</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletResolution</servlet-name>
+        <servlet-class>controller.ServletResolution</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -52,6 +56,10 @@
     <servlet-mapping>
         <servlet-name>ServletGroups</servlet-name>
         <url-pattern>/ServletGroups</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletResolution</servlet-name>
+        <url-pattern>/ServletResolution</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
