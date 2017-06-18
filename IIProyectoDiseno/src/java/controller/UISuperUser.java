@@ -59,7 +59,6 @@ public class UISuperUser {
             dto.setName(name);
             dto.setPhone(phone);
             dto.setEmail(email);
-            System.out.println("the rol is: "+ rol);
             dto.setRol(identifyEEmployeeRol(rol));
             
             dto.setPassword(password);
@@ -73,13 +72,35 @@ public class UISuperUser {
         }
     }
      
-    public ArrayList<Object> selectAllEmployee(){
-        return facadeSuperuser.selectAllEmployees(); 
+    public void selectAllEmployee(FrSuperUser frsu){
+        if(frsu.getjComboBoxModUsuarios().getItemCount()!=0||frsu.getjComboBoxDelUsuario().getItemCount()!=0){
+            frsu.getjComboBoxModUsuarios().removeAllItems();
+            frsu.getjComboBoxDelUsuario().removeAllItems();
+        }
+        Employee e;
+        for(Object o:facadeSuperuser.selectAllEmployees()){
+           e=(Employee)o;
+           frsu.getjComboBoxModUsuarios().addItem(e.getId());
+           
+           frsu.getjComboBoxDelUsuario().addItem(e.getId());
+           
+           
+        }
     }
+    public void selectEmployee(FrSuperUser frsu,String id){
+        Employee e=facadeSuperuser.selectEmployee(id);
+        frsu.getLbName().setText(e.getName());
+        frsu.getLbName1().setText(e.getName());
+        frsu.getjTextFieldModId().setText(e.getId());
+        frsu.getjTextFieldModEmail().setText(e.getEmail());
+        frsu.getjTextFieldModName().setText(e.getName());
+        frsu.getjTextFieldModPhone().setText(e.getPhone());
+        
     
-    public void editEmployee(FrSuperUser frsuper){
+    }
+    public void editEmployee(FrSuperUser frsuper,String id){
         dto = new DTOEmployee(); 
-        Employee employee = (Employee) frsuper.getjComboBoxModUsuarios().getSelectedItem();
+        Employee employee = facadeSuperuser.selectEmployee(id);
         dto.setId(employee.getId());
         dto.setName(employee.getName());
         dto.setEmail(employee.getEmail());
@@ -88,34 +109,33 @@ public class UISuperUser {
         dto.setPassword(employee.getPassword());
         
         if(!frsuper.getjTextFieldModId().getText().equals("")){
-            System.out.println("1");
+        
             dto.setId(frsuper.getjTextFieldModId().getText());
         }
         if(!frsuper.getjTextFieldModName().getText().equals("")){
-            System.out.println("2");
+           
             dto.setName(frsuper.getjTextFieldModName().getText());
         }
         if(!frsuper.getjTextFieldModPhone().getText().equals("")){
-            System.out.println("3");
+
             dto.setPhone(frsuper.getjTextFieldModPhone().getText());
         }
         if(frsuper.getjCheckBoxModRol().isSelected() == true){
             dto.setRol(identifyEEmployeeRol(frsuper.getjComboBoxModRol().getItemAt(frsuper.getjComboBoxModRol().getSelectedIndex())));
         }
         if(!frsuper.getjPasswordFieldModPass1().getText().equals("")){
-            System.out.println("4");
+      
             dto.setPassword(frsuper.getjPasswordFieldModPass1().getText());
         }
         if(!frsuper.getjTextFieldModId().getText().equals("") && !frsuper.getjTextFieldModEmail().getText().equals("")){
-            System.out.println("5");
+      
             facadeSuperuser.editEmployee(dto);
-            System.out.println(selectAllEmployee().toString());
-            System.out.println("5.1");
+  
             dto.setEmail(frsuper.getjTextFieldModEmail().getText());
-            System.out.println("5.2");
+           
         }
         if(frsuper.getjTextFieldModId().getText().equals("") && !frsuper.getjTextFieldModEmail().getText().equals("")){
-            System.out.println("6");
+         
             dto.setEmail(frsuper.getjTextFieldModEmail().getText());
         }
         facadeSuperuser.editEmployee(dto);
@@ -144,10 +164,10 @@ public class UISuperUser {
         return null;  
     } 
 
-    public void deleteEmployee(FrSuperUser frsuper) {
-        System.out.println(frsuper.getjComboBoxModRol().getSelectedIndex());
-        Employee employee = (Employee) frsuper.getjComboBoxDelUsuario().getSelectedItem(); 
-        System.out.println("id: " + employee.getId());
+    public void deleteEmployee(FrSuperUser frsuper,String id) {
+        
+        Employee employee = facadeSuperuser.selectEmployee(id); 
+        
         facadeSuperuser.deleteEmployee(employee.getId()); 
         JOptionPane.showMessageDialog(frsuper, "Se ha Eliminado Una Empleado con Éxito.");
         FrSuperUser fr=new FrSuperUser();

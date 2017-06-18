@@ -14,6 +14,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTabbedPane;
@@ -149,9 +150,24 @@ public class FrSuperUser extends javax.swing.JFrame {
         jTextFieldModPhone.setEnabled(false);
         jPasswordFieldModPass1.setEnabled(false);
 
-        jComboBoxModUsuarios.setModel(new DefaultComboBoxModel(uiSuperuser.selectAllEmployee().toArray()));
-        jComboBoxDelUsuario.setModel(new DefaultComboBoxModel(uiSuperuser.selectAllEmployee().toArray()));
+        uiSuperuser.selectAllEmployee(this);
         
+    }
+
+    public JLabel getLbName() {
+        return lbName;
+    }
+
+    public void setLbName(JLabel lbName) {
+        this.lbName = lbName;
+    }
+
+    public JLabel getLbName1() {
+        return lbName1;
+    }
+
+    public void setLbName1(JLabel lbName1) {
+        this.lbName1 = lbName1;
     }
     
     
@@ -381,6 +397,7 @@ public class FrSuperUser extends javax.swing.JFrame {
         jComboBoxModRol = new javax.swing.JComboBox<>();
         jCheckBoxModRol = new javax.swing.JCheckBox();
         jComboBoxModUsuarios = new javax.swing.JComboBox<>();
+        lbName1 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -389,6 +406,7 @@ public class FrSuperUser extends javax.swing.JFrame {
         jComboBoxDelUsuario = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jButtonDelUsuario = new javax.swing.JButton();
+        lbName = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -513,13 +531,15 @@ public class FrSuperUser extends javax.swing.JFrame {
         });
         jPanel2.add(jCheckBoxModRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, -1, -1));
 
-        jComboBoxModUsuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxModUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxModUsuariosActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBoxModUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        jPanel2.add(jComboBoxModUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 180, -1));
+
+        lbName1.setForeground(new java.awt.Color(254, 254, 254));
+        jPanel2.add(lbName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 280, 30));
 
         jLabel23.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/workspace1200-700.jpg"))); // NOI18N
@@ -547,8 +567,12 @@ public class FrSuperUser extends javax.swing.JFrame {
 
         jComboBoxDelUsuario.setBackground(new java.awt.Color(239, 62, 53));
         jComboBoxDelUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        jComboBoxDelUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel3.add(jComboBoxDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+        jComboBoxDelUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDelUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBoxDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 180, -1));
 
         jLabel21.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
@@ -564,6 +588,9 @@ public class FrSuperUser extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButtonDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
+
+        lbName.setForeground(new java.awt.Color(254, 254, 254));
+        jPanel3.add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 230, 30));
 
         jLabel22.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/workspace1200-700.jpg"))); // NOI18N
@@ -701,9 +728,9 @@ public class FrSuperUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!TextFieldAddName.getText().equals("")&&!TextFieldAddEmail.getText().equals("")&&!TextFieldAddPhone.getText().equals("")&&!TextFieldAddUsername.getText().equals("") 
            &&!PasswordFieldAddPassword.getText().equals("") )  { 
-            System.out.println("aqui 2");
+            
             uiSuperuser.createEmployee(this);
-            System.out.println("aqui 3");
+          
     }
         else{ 
             JOptionPane.showMessageDialog(this,"Tiene que llenar todos los espacios establecidos."); 
@@ -733,7 +760,7 @@ public class FrSuperUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Teléfono inválido, hasta que no ingrese un teléfono válido o desactive la opción no se modificará el empleado.");
         }
         else{
-            uiSuperuser.editEmployee(this); 
+            uiSuperuser.editEmployee(this,jComboBoxModUsuarios.getSelectedItem().toString()); 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -743,12 +770,19 @@ public class FrSuperUser extends javax.swing.JFrame {
 
     private void jButtonDelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelUsuarioActionPerformed
         // TODO add your handling code here:
-        uiSuperuser.deleteEmployee(this);
+        uiSuperuser.deleteEmployee(this,jComboBoxDelUsuario.getSelectedItem().toString());
     }//GEN-LAST:event_jButtonDelUsuarioActionPerformed
 
     private void jComboBoxModUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxModUsuariosActionPerformed
         // TODO add your handling code here:
+        uiSuperuser.selectEmployee(this,jComboBoxModUsuarios.getSelectedItem().toString());
+        
     }//GEN-LAST:event_jComboBoxModUsuariosActionPerformed
+
+    private void jComboBoxDelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDelUsuarioActionPerformed
+        // TODO add your handling code here:
+         uiSuperuser.selectEmployee(this,jComboBoxDelUsuario.getSelectedItem().toString());
+    }//GEN-LAST:event_jComboBoxDelUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -836,6 +870,8 @@ public class FrSuperUser extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldModId;
     private javax.swing.JTextField jTextFieldModName;
     private javax.swing.JTextField jTextFieldModPhone;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbName1;
     // End of variables declaration//GEN-END:variables
 
 

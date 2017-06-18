@@ -43,4 +43,8 @@ public class FacadeSuperuser {
      public void saveEmployees(){
          school.saveEmployees();
      }
+     
+     public Employee selectEmployee(String id){
+         return school.selectEmployee(id);
+     }
 }
