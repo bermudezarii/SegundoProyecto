@@ -27,6 +27,7 @@ import model.Employee;
 public class FrResolution extends javax.swing.JFrame {
     private UICoordinator uiResolution; 
     private Employee employee; 
+    
     /**
      * Creates new form FrResolution
      */
@@ -38,7 +39,7 @@ public class FrResolution extends javax.swing.JFrame {
     public FrResolution(boolean template,int number, int type) {
         uiResolution= new UICoordinator();
         initComponents();
-        
+        getResolutionTemplate(number,type);
     }
     
        public Employee getEmployee() {
@@ -51,6 +52,9 @@ public class FrResolution extends javax.swing.JFrame {
     
     private void getResolution() {
         uiResolution.getResolution(this);
+    }
+    private void getResolutionTemplate(int number, int type) {
+        uiResolution.getResolutionTemplate(this,number,type);
     }
 
     public JTextPane getTxtintro() {
@@ -440,6 +444,7 @@ public class FrResolution extends javax.swing.JFrame {
             EDocType.values(), 
             EDocType.values()[0]);
         
+       
         uiResolution.createResolutionDoc(format);
     }//GEN-LAST:event_btnSaveAsActionPerformed
 

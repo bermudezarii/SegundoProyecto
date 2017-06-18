@@ -30,32 +30,32 @@ public class NewTemplate extends javax.swing.JFrame {
    
         
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            btnNewTemplate.setEnabled(false);
-            btnViewRequest.setEnabled(true);
-            btnViewResolution.setEnabled(true);
-            btnsavetemplate.setEnabled(false);
-            btnviewStadistics.setEnabled(false);
+            btnNewTemplate.setVisible(false);
+            btnViewRequest.setVisible(true);
+            btnViewResolution.setVisible(true);
+            btnsavetemplate.setVisible(false);
+            btnviewStadistics.setVisible(false);
         }
         else if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            btnNewTemplate.setEnabled(true);
-            btnViewRequest.setEnabled(true);
-            btnViewResolution.setEnabled(true);
-            btnsavetemplate.setEnabled(true);
-            btnviewStadistics.setEnabled(true);
+            btnNewTemplate.setVisible(true);
+            btnViewRequest.setVisible(true);
+            btnViewResolution.setVisible(true);
+            btnsavetemplate.setVisible(true);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnNewTemplate.setEnabled(false);
-            btnViewRequest.setEnabled(false);
-            btnViewResolution.setEnabled(false);
-            btnsavetemplate.setEnabled(false);
-            btnviewStadistics.setEnabled(true);
+            btnNewTemplate.setVisible(false);
+            btnViewRequest.setVisible(false);
+            btnViewResolution.setVisible(false);
+            btnsavetemplate.setVisible(false);
+            btnviewStadistics.setVisible(true);
         }
         else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnNewTemplate.setEnabled(false);
-            btnViewRequest.setEnabled(false);
-            btnViewResolution.setEnabled(false);
-            btnsavetemplate.setEnabled(false);
-            btnviewStadistics.setEnabled(false);
+            btnNewTemplate.setVisible(false);
+            btnViewRequest.setVisible(false);
+            btnViewResolution.setVisible(false);
+            btnsavetemplate.setVisible(false);
+            btnviewStadistics.setVisible(false);
         }
 
     }
@@ -372,7 +372,10 @@ public class NewTemplate extends javax.swing.JFrame {
                 // TODO add your handling code here:
                 ui.createTemplate(this);
                 FrTemplate frtemplate=new FrTemplate();
+                frtemplate.setEmployee(employee);
+                frtemplate.setMenu();
                 frtemplate.setVisible(true);
+                
                 this.setVisible(false);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(NewTemplate.class.getName()).log(Level.SEVERE, null, ex);

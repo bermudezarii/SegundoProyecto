@@ -18,6 +18,7 @@ import model.EInconsistencie;
 import model.ERequestState;
 import model.Employee;
 import model.Group;
+import model.Parameter;
 import model.Request;
 import model.Resolution;
 import model.Template;
@@ -306,6 +307,47 @@ public class UICoordinator implements ObserverUI, UIBase{
        frResolution.getTxtresult().setText(r.getResult());
        frResolution.getTxtconsider().setText(r.getConsider());
     }
+    public void getResolutionTemplate(FrResolution frResolution,int number, int type) {
+      
+        r=facade.getResolution();
+        if(r.isDefinitive()) {
+            frResolution.getTxtintro().setEnabled(false);
+            frResolution.getTxtnotify().setEnabled(false);
+            frResolution.getTxtresolve().setEnabled(false);
+            frResolution.getTxtresult().setEnabled(false);
+            frResolution.getTxtconsider().setEnabled(false);
+            frResolution.getBtnSave().setVisible(false);
+            frResolution.getBtnSaveAs().setVisible(true);
+            frResolution.getChkconsider().setVisible(false);
+            frResolution.getChkresult().setVisible(false);
+        }else{
+        
+            
+            String stype="";
+            switch(type){
+                    case 0:
+                        stype="IR";
+                        break;
+                    case 1:
+                        stype="ER";
+                        break;
+                    default:
+                        stype="GER";
+                        break;
+            }
+            r.setIntro(Parameter.getInstance().getParameter("intro"+stype+Integer.toString(number)));
+            r.setConsider(Parameter.getInstance().getParameter("consider"+stype+Integer.toString(number)));
+            r.setResolve(Parameter.getInstance().getParameter("resolve"+stype+Integer.toString(number)));
+            r.setResult(Parameter.getInstance().getParameter("result"+stype+Integer.toString(number)));
+        }
+        
+       frResolution.getTxtintro().setText(r.getIntro());
+       frResolution.getTxtnotify().setText(r.getNotify());
+       frResolution.getTxtresolve().setText(r.getResolve());
+       frResolution.getTxtresult().setText(r.getResult());
+       frResolution.getTxtconsider().setText(r.getConsider());
+    }
+  
   
 
      public void processedRequestsInDateRange(FrStadistics frstadistics) {

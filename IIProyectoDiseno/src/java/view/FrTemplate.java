@@ -423,6 +423,8 @@ public class FrTemplate extends javax.swing.JFrame {
         // TODO add your handling code here:
         FrResolution fr=new FrResolution(true, Integer.parseInt(cbnumtemplate.getSelectedItem().toString()), cbtemplate.getSelectedIndex());
         fr.setVisible(true);
+        fr.setEmployee(employee);
+        fr.setMenu();
         this.setVisible(false);
         
     }//GEN-LAST:event_btnCurrentTemplateActionPerformed
