@@ -196,6 +196,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
             Request r=facade.selectRequest(frviewrequest.getCdRequest().getSelectedItem().toString());
             switch(frviewrequest.getCbtyperequest().getSelectedIndex()){
                 case 0:
+                    frviewrequest.getCbCategory().setEnabled(true);
                      frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
@@ -209,7 +210,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
                      frviewrequest.getLbcarner().setText(r.getRequester().getId());
                      break;
                 case 1:
-
+                     frviewrequest.getCbCategory().setEnabled(false);
                      frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
@@ -224,7 +225,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
                      frviewrequest.getLbcarner().setText(r.getRequester().getId());
                      break;
                 case 2:
-
+                    frviewrequest.getCbCategory().setEnabled(false);
                      frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
@@ -237,7 +238,11 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
                      frviewrequest.getLbnamer().setText(r.getRequester().getName());
                      frviewrequest.getLbcarner().setText(r.getRequester().getId());
                      frviewrequest.getTxtMotivo().setEditable(false);
-                     frviewrequest.getTxtMotivo().setText(r.getNote().getDescription());
+                     
+                     if(r.getNote()!=null){
+                         frviewrequest.getTxtMotivo().setText(r.getNote().getDescription());
+                     }
+                     
                    
                      break;
 
@@ -516,7 +521,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
         if (fr.getCdRequest().getItemCount()!=0){
             Request r=facade.selectRequest(fr.getCdRequest().getSelectedItem().toString());
             r.setInconsistencie(EInconsistencie.values()[fr.getCbCategory().getSelectedIndex()+1]);
-            JOptionPane.showMessageDialog(fr, "Se cambió la categoría con éxito."); 
+            
         }
     }
  
