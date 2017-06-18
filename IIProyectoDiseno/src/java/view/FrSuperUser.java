@@ -30,7 +30,7 @@ public class FrSuperUser extends javax.swing.JFrame {
     
     public FrSuperUser() {
         initComponents();
-       
+        this.setResizable(false);
         this.addWindowListener(new WindowAdapter()
         {
             public void windowClosing(WindowEvent e)

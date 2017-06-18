@@ -73,7 +73,7 @@ public class NewTemplate extends javax.swing.JFrame {
     public NewTemplate() {
         
         initComponents();
-
+        this.setResizable(false);
         ui=new UICoordinator();
     }
 

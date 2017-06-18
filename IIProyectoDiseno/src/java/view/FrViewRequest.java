@@ -116,6 +116,7 @@ public class FrViewRequest extends javax.swing.JFrame {
     public FrViewRequest() {
         uiRequest=new UICoordinator();
         initComponents();
+        this.setResizable(false);
         lbdescription.setEditable(false);
 
         uiRequest.setallRequest(this);
@@ -841,7 +842,6 @@ public class FrViewRequest extends javax.swing.JFrame {
         FrStadistics frstadistics= new FrStadistics();
         frstadistics.setEmployee(employee);
         frstadistics.setMenu();
-        frstadistics.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frstadistics.setVisible(true);
         this.setVisible(false);
  

@@ -34,11 +34,13 @@ public class FrResolution extends javax.swing.JFrame {
     public FrResolution() {
         uiResolution= new UICoordinator();
         initComponents();
+        this.setResizable(false);
         getResolution();
     }
     public FrResolution(boolean template,int number, int type) {
         uiResolution= new UICoordinator();
         initComponents();
+        this.setResizable(false);
         getResolutionTemplate(number,type);
     }
     

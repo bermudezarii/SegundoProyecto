@@ -139,6 +139,7 @@ public class FrRequest extends javax.swing.JFrame {
     public FrRequest() {
         uiRequest=new  UICoordinator();
         initComponents();
+        this.setResizable(false);
         uiRequest.setallPeriods(this);
         cbperiod.setSelectedIndex(0);
         uiRequest.setallCourses(this);
@@ -457,7 +458,7 @@ public class FrRequest extends javax.swing.JFrame {
         fvr.setEmployee(employee);
         fvr.setMenu();
         this.setVisible(false);
-        fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    
         fvr.setVisible(true);
        
 
@@ -491,7 +492,7 @@ public class FrRequest extends javax.swing.JFrame {
         FrStadistics frstadistics= new FrStadistics();
         frstadistics.setEmployee(employee);
         frstadistics.setMenu();
-        frstadistics.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+       
         frstadistics.setVisible(true);
         
         this.setVisible(false);

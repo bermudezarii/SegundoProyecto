@@ -320,10 +320,8 @@ public class UICoordinator implements ObserverUI, UIBase{
             frResolution.getBtnSaveAs().setVisible(true);
             frResolution.getChkconsider().setVisible(false);
             frResolution.getChkresult().setVisible(false);
-        }else{
-        
-            
-            String stype="";
+        }
+         String stype="";
             switch(type){
                     case 0:
                         stype="IR";
@@ -339,8 +337,6 @@ public class UICoordinator implements ObserverUI, UIBase{
             r.setConsider(Parameter.getInstance().getParameter("consider"+stype+Integer.toString(number)));
             r.setResolve(Parameter.getInstance().getParameter("resolve"+stype+Integer.toString(number)));
             r.setResult(Parameter.getInstance().getParameter("result"+stype+Integer.toString(number)));
-        }
-        
        frResolution.getTxtintro().setText(r.getIntro());
        frResolution.getTxtnotify().setText(r.getNotify());
        frResolution.getTxtresolve().setText(r.getResolve());

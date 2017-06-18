@@ -58,6 +58,7 @@ public class FrTemplate extends javax.swing.JFrame {
     public FrTemplate() {
         ui=new UICoordinator();
         initComponents();
+        this.setResizable(false);
         ui.selectTemplates(this);
         
     }

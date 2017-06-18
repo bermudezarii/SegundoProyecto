@@ -29,7 +29,7 @@ public class FrMain extends javax.swing.JFrame {
     public FrMain() {
        
         initComponents();
- 
+        this.setResizable(false);
     }
 
         public void setMenu(){

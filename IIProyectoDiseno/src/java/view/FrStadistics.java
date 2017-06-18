@@ -178,6 +178,7 @@ public class FrStadistics extends javax.swing.JFrame {
     public FrStadistics() {
         uiStadistics=new UICoordinator();
         initComponents();
+        this.setResizable(false);
         DefaultCategoryDataset dataset= new DefaultCategoryDataset();
         dataset=uiStadistics.top3ProfessorsResolutions();
         JFreeChart chart= ChartFactory.createBarChart("Profesores", "", "", dataset, PlotOrientation.HORIZONTAL, false, true, false);

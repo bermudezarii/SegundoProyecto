@@ -20,6 +20,7 @@ public class FrLogin extends javax.swing.JFrame {
     public FrLogin() {
         initComponents();
         uilogin = new UILogin(); 
+        this.setResizable(false);
     }
 
     public JButton getButtonIngresar() {
