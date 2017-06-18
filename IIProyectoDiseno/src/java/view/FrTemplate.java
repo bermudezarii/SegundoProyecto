@@ -108,6 +108,7 @@ public class FrTemplate extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         btnNewTemplate = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnViewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -206,6 +207,14 @@ public class FrTemplate extends javax.swing.JFrame {
         });
         jMenu3.add(btnNewTemplate);
 
+        jMenuItem1.setText("Seleccionar Plantilla Actual...");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
         jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Ver ");
@@ -301,6 +310,14 @@ public class FrTemplate extends javax.swing.JFrame {
         ui.getTemplate(this);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        UIBase uiB = (UIBase) this.ui; 
+        FrResolution frResolution= new FrResolution(uiB,true,Integer.parseInt(cbnumtemplate.getSelectedItem().toString()),cbtemplate.getSelectedIndex());
+        frResolution.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -354,6 +371,7 @@ public class FrTemplate extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
