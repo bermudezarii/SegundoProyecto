@@ -45,6 +45,7 @@ public class ServletConsultUI extends HttpServlet {
                     out.print("La solicitud con dicho ID no existe."); 
                 else 
                     out.print(stateAsString(res.getRequestState())); 
+               
             } else { 
                 out.print("Ingrese un ID para buscar."); 
             }

@@ -360,25 +360,6 @@ public class FrSuperUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        TextFieldAddUsername = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        TextFieldAddName = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        TextFieldAddPhone = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        TextFieldAddEmail = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        PasswordFieldAddPassword = new javax.swing.JPasswordField();
-        jLabel10 = new javax.swing.JLabel();
-        ComboBoxRol = new javax.swing.JComboBox<>();
-        ButtonAddUser = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -407,130 +388,52 @@ public class FrSuperUser extends javax.swing.JFrame {
         jComboBoxDelUsuario = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jButtonDelUsuario = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        TextFieldAddUsername = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        TextFieldAddName = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        TextFieldAddPhone = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        TextFieldAddEmail = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        PasswordFieldAddPassword = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
+        ComboBoxRol = new javax.swing.JComboBox<>();
+        ButtonAddUser = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 70, 125));
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Agregar Usuarios");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("_______________");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("_______________");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("En esta sección usted puede agregar usuarios que posteriormente podrán hacer uso del programa ");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Usuario");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
-
-        TextFieldAddUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldAddUsernameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(TextFieldAddUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 280, -1));
-
-        jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Nombre ");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
-        jPanel1.add(TextFieldAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 340, 280, -1));
-
-        jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Correo");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, -1, -1));
-
-        TextFieldAddPhone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFieldAddPhoneActionPerformed(evt);
-            }
-        });
-        jPanel1.add(TextFieldAddPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, 280, -1));
-
-        jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Teléfono");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, -1, -1));
-        jPanel1.add(TextFieldAddEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 280, -1));
-
-        jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Contraseña");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 520, -1, -1));
-        jPanel1.add(PasswordFieldAddPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 550, 280, -1));
-
-        jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Rol");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, -1, -1));
-
-        ComboBoxRol.setBackground(new java.awt.Color(239, 62, 53));
-        ComboBoxRol.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        ComboBoxRol.setForeground(new java.awt.Color(255, 255, 255));
-        ComboBoxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DIRECTOR", "COORDINADOR", "PROFESOR", "ASISTENTE", "SUPERUSUARIO" }));
-        ComboBoxRol.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxRolActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ComboBoxRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 630, 270, -1));
-
-        ButtonAddUser.setBackground(new java.awt.Color(239, 62, 53));
-        ButtonAddUser.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonAddUser.setText("Listo");
-        ButtonAddUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAddUserActionPerformed(evt);
-            }
-        });
-        jPanel1.add(ButtonAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 700, -1, 30));
-
-        jLabel22.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/331azul.jpg"))); // NOI18N
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1900, 880));
-
-        jTabbedPane1.addTab("Agregar", jPanel1);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Modificar Usuarios");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 70));
 
         jLabel12.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("________________");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, -30, 450, 60));
 
         jLabel13.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("________________");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Usuario");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         jCheckBoxModId.setBackground(new java.awt.Color(0, 70, 125));
         jCheckBoxModId.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -541,13 +444,13 @@ public class FrSuperUser extends javax.swing.JFrame {
                 jCheckBoxModIdActionPerformed(evt);
             }
         });
-        jPanel2.add(jCheckBoxModId, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, -1));
-        jPanel2.add(jTextFieldModId, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 253, -1));
+        jPanel2.add(jCheckBoxModId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
+        jPanel2.add(jTextFieldModId, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 253, -1));
 
         jLabel15.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Marque las opciones que desea cambiar del empleado");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         jCheckBoxModName.setBackground(new java.awt.Color(0, 70, 125));
         jCheckBoxModName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -558,22 +461,22 @@ public class FrSuperUser extends javax.swing.JFrame {
                 jCheckBoxModNameActionPerformed(evt);
             }
         });
-        jPanel2.add(jCheckBoxModName, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
-        jPanel2.add(jTextFieldModName, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 253, -1));
+        jPanel2.add(jCheckBoxModName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+        jPanel2.add(jTextFieldModName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 253, -1));
 
         jCheckBoxModEmail.setBackground(new java.awt.Color(0, 70, 125));
         jCheckBoxModEmail.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jCheckBoxModEmail.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxModEmail.setText("Cambiar correo electrónico");
-        jPanel2.add(jCheckBoxModEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
-        jPanel2.add(jTextFieldModEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 253, -1));
+        jPanel2.add(jCheckBoxModEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+        jPanel2.add(jTextFieldModEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 253, -1));
 
         jCheckBoxModPhone.setBackground(new java.awt.Color(0, 70, 125));
         jCheckBoxModPhone.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jCheckBoxModPhone.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxModPhone.setText("Cambiar teléfono");
-        jPanel2.add(jCheckBoxModPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, -1, -1));
-        jPanel2.add(jTextFieldModPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, 253, -1));
+        jPanel2.add(jCheckBoxModPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
+        jPanel2.add(jTextFieldModPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, 253, -1));
 
         jCheckBoxModPassword.setBackground(new java.awt.Color(0, 70, 125));
         jCheckBoxModPassword.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -584,8 +487,8 @@ public class FrSuperUser extends javax.swing.JFrame {
                 jCheckBoxModPasswordActionPerformed(evt);
             }
         });
-        jPanel2.add(jCheckBoxModPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 670, -1, -1));
-        jPanel2.add(jPasswordFieldModPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 710, 253, -1));
+        jPanel2.add(jCheckBoxModPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, -1, -1));
+        jPanel2.add(jPasswordFieldModPass1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 590, 253, -1));
 
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -593,10 +496,10 @@ public class FrSuperUser extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 780, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 640, -1, -1));
 
         jComboBoxModRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DIRECTOR", "COORDINADOR", "PROFESOR", "ASISTENTE", "SUPERUSUARIO" }));
-        jPanel2.add(jComboBoxModRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 630, 260, -1));
+        jPanel2.add(jComboBoxModRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 510, 260, -1));
 
         jCheckBoxModRol.setBackground(new java.awt.Color(0, 70, 125));
         jCheckBoxModRol.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -607,7 +510,7 @@ public class FrSuperUser extends javax.swing.JFrame {
                 jCheckBoxModRolActionPerformed(evt);
             }
         });
-        jPanel2.add(jCheckBoxModRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, -1, -1));
+        jPanel2.add(jCheckBoxModRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 480, -1, -1));
 
         jComboBoxModUsuarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxModUsuarios.addActionListener(new java.awt.event.ActionListener() {
@@ -615,11 +518,12 @@ public class FrSuperUser extends javax.swing.JFrame {
                 jComboBoxModUsuariosActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBoxModUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
+        jPanel2.add(jComboBoxModUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
-        jLabel23.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/331azul.jpg"))); // NOI18N
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1900, 880));
+        jLabel23.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/workspace1200-700.jpg"))); // NOI18N
+        jLabel23.setText("jLabel1");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
         jTabbedPane1.addTab("Modificar", jPanel2);
 
@@ -628,27 +532,27 @@ public class FrSuperUser extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Eliminar Empleado");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, -1, -1));
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("_______________");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("_______________");
-        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         jComboBoxDelUsuario.setBackground(new java.awt.Color(239, 62, 53));
         jComboBoxDelUsuario.setForeground(new java.awt.Color(255, 255, 255));
         jComboBoxDelUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel3.add(jComboBoxDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
+        jPanel3.add(jComboBoxDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Seleccione un usuario para eliminarlo");
-        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
+        jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         jButtonDelUsuario.setBackground(new java.awt.Color(239, 62, 53));
         jButtonDelUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -658,20 +562,117 @@ public class FrSuperUser extends javax.swing.JFrame {
                 jButtonDelUsuarioActionPerformed(evt);
             }
         });
-        jPanel3.add(jButtonDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, -1, -1));
+        jPanel3.add(jButtonDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/azultechardwork.jpg"))); // NOI18N
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1900, 880));
+        jLabel22.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/workspace1200-700.jpg"))); // NOI18N
+        jLabel22.setText("jLabel1");
+        jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
 
         jTabbedPane1.addTab("Eliminar", jPanel3);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Agregar Usuarios");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("_______________");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, -20, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("_______________");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("En esta sección usted puede agregar usuarios que posteriormente podrán hacer uso del programa ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, 80));
+
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Usuario");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        TextFieldAddUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldAddUsernameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(TextFieldAddUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 280, -1));
+
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Nombre ");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        jPanel1.add(TextFieldAddName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 280, -1));
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Correo");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        TextFieldAddPhone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextFieldAddPhoneActionPerformed(evt);
+            }
+        });
+        jPanel1.add(TextFieldAddPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 280, -1));
+
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Teléfono");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        jPanel1.add(TextFieldAddEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 280, -1));
+
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Contraseña");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, -1, -1));
+        jPanel1.add(PasswordFieldAddPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 280, -1));
+
+        jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Rol");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
+
+        ComboBoxRol.setBackground(new java.awt.Color(239, 62, 53));
+        ComboBoxRol.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        ComboBoxRol.setForeground(new java.awt.Color(255, 255, 255));
+        ComboBoxRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DIRECTOR", "COORDINADOR", "PROFESOR", "ASISTENTE", "SUPERUSUARIO" }));
+        ComboBoxRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxRolActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ComboBoxRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 270, -1));
+
+        ButtonAddUser.setBackground(new java.awt.Color(239, 62, 53));
+        ButtonAddUser.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonAddUser.setText("Listo");
+        ButtonAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAddUserActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ButtonAddUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, 30));
+
+        jLabel17.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/workspace1200-700.jpg"))); // NOI18N
+        jLabel17.setText("jLabel1");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+
+        jTabbedPane1.addTab("Agregar", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1904, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -810,7 +811,7 @@ public class FrSuperUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;

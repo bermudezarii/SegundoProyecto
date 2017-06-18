@@ -74,6 +74,10 @@ public class NewTemplate extends javax.swing.JFrame {
         
         initComponents();
         this.setResizable(false);
+        txtintro.setLineWrap(true);
+        txtconsider.setLineWrap(true);
+        txtresolve.setLineWrap(true);
+        txtresult.setLineWrap(true);
         ui=new UICoordinator();
     }
 

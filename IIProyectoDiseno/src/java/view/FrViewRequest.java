@@ -118,7 +118,7 @@ public class FrViewRequest extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         lbdescription.setEditable(false);
-
+        
         uiRequest.setallRequest(this);
      
     }

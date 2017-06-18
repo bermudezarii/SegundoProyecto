@@ -58,6 +58,15 @@ public class FrTemplate extends javax.swing.JFrame {
     public FrTemplate() {
         ui=new UICoordinator();
         initComponents();
+        txtintro.setEnabled(false);
+        txtconsider.setEnabled(false);
+        txtresolve.setEnabled(false);
+        txtresult.setEnabled(false);
+
+        txtintro.setLineWrap(true);
+        txtconsider.setLineWrap(true);
+        txtresolve.setLineWrap(true);
+        txtresult.setLineWrap(true);
         this.setResizable(false);
         ui.selectTemplates(this);
         
@@ -115,14 +124,6 @@ public class FrTemplate extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        cbparamintro = new javax.swing.JComboBox<>();
-        btnparamintro = new javax.swing.JButton();
-        btnparamresult = new javax.swing.JButton();
-        cbparamresult = new javax.swing.JComboBox<>();
-        btnparamconsider = new javax.swing.JButton();
-        cbparamconsider = new javax.swing.JComboBox<>();
-        cbparamresolve = new javax.swing.JComboBox<>();
-        btnparamresolve = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         txtintro = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -140,7 +141,6 @@ public class FrTemplate extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         btnNewTemplate = new javax.swing.JMenuItem();
-        btnCurrentTemplate = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnViewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -168,58 +168,6 @@ public class FrTemplate extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(254, 254, 254));
         jLabel4.setText("Resuelvo");
         pn.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 680, -1, -1));
-
-        cbparamintro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(cbparamintro, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 140, 30));
-
-        btnparamintro.setBackground(new java.awt.Color(239, 62, 53));
-        btnparamintro.setForeground(new java.awt.Color(254, 254, 254));
-        btnparamintro.setText("Insertar");
-        btnparamintro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnparamintroActionPerformed(evt);
-            }
-        });
-        pn.add(btnparamintro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 90, -1, -1));
-
-        btnparamresult.setBackground(new java.awt.Color(239, 62, 53));
-        btnparamresult.setForeground(new java.awt.Color(254, 254, 254));
-        btnparamresult.setText("Insertar");
-        btnparamresult.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnparamresultActionPerformed(evt);
-            }
-        });
-        pn.add(btnparamresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 290, -1, -1));
-
-        cbparamresult.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(cbparamresult, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 290, 140, 30));
-
-        btnparamconsider.setBackground(new java.awt.Color(239, 62, 53));
-        btnparamconsider.setForeground(new java.awt.Color(254, 254, 254));
-        btnparamconsider.setText("Insertar");
-        btnparamconsider.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnparamconsiderActionPerformed(evt);
-            }
-        });
-        pn.add(btnparamconsider, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 490, -1, -1));
-
-        cbparamconsider.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(cbparamconsider, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 140, -1));
-
-        cbparamresolve.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre Director", "Nombre del Estudiante", "Carné del Estudiante", "Código del Curso", "Nombre del Curso", "Número de Grupo", "Profesor", "Periodo", "Año", "Semestre" }));
-        pn.add(cbparamresolve, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 680, 140, -1));
-
-        btnparamresolve.setBackground(new java.awt.Color(239, 62, 53));
-        btnparamresolve.setForeground(new java.awt.Color(254, 254, 254));
-        btnparamresolve.setText("Insertar");
-        btnparamresolve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnparamresolveActionPerformed(evt);
-            }
-        });
-        pn.add(btnparamresolve, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 680, -1, -1));
 
         txtintro.setColumns(20);
         txtintro.setRows(5);
@@ -253,7 +201,7 @@ public class FrTemplate extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        pn.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+        pn.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, -1, -1));
 
         cbtemplate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Inclusión", "Exclusión", "Error de Nota" }));
         cbtemplate.addActionListener(new java.awt.event.ActionListener() {
@@ -261,17 +209,17 @@ public class FrTemplate extends javax.swing.JFrame {
                 cbtemplateActionPerformed(evt);
             }
         });
-        pn.add(cbtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 140, 30));
+        pn.add(cbtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 140, 30));
 
-        pn.add(cbnumtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 60, 30));
+        pn.add(cbnumtemplate, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 90, 60, 30));
 
         jLabel6.setForeground(new java.awt.Color(254, 254, 254));
         jLabel6.setText("Tipo de Plantilla");
-        pn.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 140, -1));
+        pn.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 140, -1));
 
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("Número");
-        pn.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+        pn.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 70, -1, 20));
 
         jLabel8.setForeground(new java.awt.Color(254, 254, 254));
         jLabel8.setText("Seleccione su Plantilla");
@@ -290,14 +238,6 @@ public class FrTemplate extends javax.swing.JFrame {
             }
         });
         jMenu3.add(btnNewTemplate);
-
-        btnCurrentTemplate.setText("Seleccionar Plantilla Actual...");
-        btnCurrentTemplate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCurrentTemplateActionPerformed(evt);
-            }
-        });
-        jMenu3.add(btnCurrentTemplate);
 
         jMenuBar2.add(jMenu3);
 
@@ -389,27 +329,6 @@ public class FrTemplate extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnViewResolutionActionPerformed
 
-    private void btnparamintroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamintroActionPerformed
-        // TODO add your handling code here:
-        ui.insertParam(txtintro, cbparamintro.getSelectedIndex());
-        
-    }//GEN-LAST:event_btnparamintroActionPerformed
-
-    private void btnparamresultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamresultActionPerformed
-        // TODO add your handling code here:
-         ui.insertParam(txtresult, cbparamresult.getSelectedIndex());
-    }//GEN-LAST:event_btnparamresultActionPerformed
-
-    private void btnparamconsiderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamconsiderActionPerformed
-        // TODO add your handling code here:
-         ui.insertParam(txtconsider, cbparamconsider.getSelectedIndex());
-    }//GEN-LAST:event_btnparamconsiderActionPerformed
-
-    private void btnparamresolveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnparamresolveActionPerformed
-        // TODO add your handling code here:
-         ui.insertParam(txtresolve, cbparamresolve.getSelectedIndex());
-    }//GEN-LAST:event_btnparamresolveActionPerformed
-
     private void cbtemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtemplateActionPerformed
         // TODO add your handling code here:
         ui.selectTemplates(this);
@@ -419,16 +338,6 @@ public class FrTemplate extends javax.swing.JFrame {
         // TODO add your handling code here:
         ui.getTemplate(this);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btnCurrentTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCurrentTemplateActionPerformed
-        // TODO add your handling code here:
-        FrResolution fr=new FrResolution(true, Integer.parseInt(cbnumtemplate.getSelectedItem().toString()), cbtemplate.getSelectedIndex());
-        fr.setVisible(true);
-        fr.setEmployee(employee);
-        fr.setMenu();
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_btnCurrentTemplateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -466,20 +375,11 @@ public class FrTemplate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem btnCurrentTemplate;
     private javax.swing.JMenuItem btnNewTemplate;
     private javax.swing.JMenuItem btnViewRequest;
     private javax.swing.JMenuItem btnViewResolution;
-    private javax.swing.JButton btnparamconsider;
-    private javax.swing.JButton btnparamintro;
-    private javax.swing.JButton btnparamresolve;
-    private javax.swing.JButton btnparamresult;
     private javax.swing.JMenuItem btnviewStadistics;
     private javax.swing.JComboBox<String> cbnumtemplate;
-    private javax.swing.JComboBox<String> cbparamconsider;
-    private javax.swing.JComboBox<String> cbparamintro;
-    private javax.swing.JComboBox<String> cbparamresolve;
-    private javax.swing.JComboBox<String> cbparamresult;
     private javax.swing.JComboBox<String> cbtemplate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
