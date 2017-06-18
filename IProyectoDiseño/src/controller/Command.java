@@ -7,8 +7,8 @@ package controller;
 
 /**
  *
- * @author Ximena
+ * @author ximeb
  */
-public interface ObserverUI {
-    void notifyObserver();
+public interface Command {
+    public void execute();
 }

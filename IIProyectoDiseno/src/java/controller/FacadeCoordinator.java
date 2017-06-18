@@ -105,6 +105,5 @@ public class FacadeCoordinator {
         return extendedSchool.getTemplate(id, type);
     }
     
-    
-    
+
 }

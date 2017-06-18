@@ -150,18 +150,27 @@ public final class RequestsManager extends Manager {
     }
     
     public void setResolution(Resolution res) {
+        
+        SendMail sendmail=new SendMail();
+        ConcreteCommandMail ccm=new ConcreteCommandMail(sendmail);
+        Invoker invoker=new Invoker();
+        
         currentRequest.setRequestState(PROCESSED);
         res.setDefinitive(true);
         currentRequest.setResolution(res);
         saveRequest();
-        String subject="SOLICITUD "+ currentRequest.getInconsistencie()
+      String subject="SOLICITUD "+ currentRequest.getInconsistencie()
              +currentRequest.getId()+": ACEPTADA";
       
       String info="Saludos Cordiales,\nSe le informa, que se ha tramitado la solicitud sobre " +currentRequest.getInconsistencie()+"del alumno "+
               currentRequest.getAffected().getName()+",con identificación " +currentRequest.getAffected().getId()+
               ", en el curso "+currentRequest.getGroup().getCourse().getCode()+" "+currentRequest.getGroup().getCourse().getName()
               +" con el profesor "+ currentRequest.getGroup().getProfessor().getName()+".";
-      SendMail.send(currentRequest.getAffected().getEmail(),subject ,info, "correo.informativo.xbf@gmail.com", "12345678A");
+      
+      ccm.setMail(currentRequest.getAffected().getEmail());
+      ccm.setSubject(subject);
+      ccm.setInfo(info);
+      invoker.placeCommand(ccm);
     }
     
     public void setDAOData(DAORequest data) {
@@ -174,6 +183,9 @@ public final class RequestsManager extends Manager {
     }
     
     public void CancelRequest(String message){
+       SendMail sendmail=new SendMail();
+        ConcreteCommandMail ccm=new ConcreteCommandMail(sendmail);
+        Invoker invoker=new Invoker();
       currentRequest.setRequestState(CANCELED);
       currentRequest.setNote(message);
       saveRequest();
@@ -183,8 +195,10 @@ public final class RequestsManager extends Manager {
               currentRequest.getAffected().getName()+",con identificación " +currentRequest.getAffected().getId()+
               ", en el curso "+currentRequest.getGroup().getCourse().getCode()+" "+currentRequest.getGroup().getCourse().getName()
               +" con el profesor "+ currentRequest.getGroup().getProfessor().getName() +".\n Por el siguiente motivo:\n"+message;
-      SendMail.send(currentRequest.getAffected().getEmail(),subject ,info, "correo.informativo.xbf@gmail.com", "12345678A");
-    
+      ccm.setMail(currentRequest.getAffected().getEmail());
+      ccm.setSubject(subject);
+      ccm.setInfo(info);
+      invoker.placeCommand(ccm);
     }
     
     public ArrayList<Request> processedRequestsInDateRange(Date start, Date end) {

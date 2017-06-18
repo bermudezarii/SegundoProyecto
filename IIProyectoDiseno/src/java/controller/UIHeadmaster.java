@@ -30,7 +30,7 @@ import view.NewTemplate;
  *
  * @author Ximena
  */
-public class UIHeadmaster implements  UIBase, ObserverUI, UIStadistics{
+public class UIHeadmaster implements  UIBase,  UIStadistics{
     private FacadeHeadMaster facade; 
 
     public UIHeadmaster() {
@@ -129,9 +129,5 @@ public class UIHeadmaster implements  UIBase, ObserverUI, UIStadistics{
         }            
     }
 
-    @Override
-    public void notifyObserver() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

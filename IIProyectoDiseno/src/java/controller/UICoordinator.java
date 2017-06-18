@@ -36,13 +36,14 @@ import view.NewTemplate;
  *
  * @author Ximena
  */
-public class UICoordinator implements ObserverUI, UIBase, UIStadistics, UIViewRequest{
+public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
     private FacadeCoordinator facade; 
     private DTORequest dtoRequest; 
     private Resolution r; 
-
+    private FrViewRequest fr;
     public UICoordinator() {
          facade= new FacadeCoordinator();
+         
     }
 
     public Object getFacade() {
@@ -130,6 +131,7 @@ public class UICoordinator implements ObserverUI, UIBase, UIStadistics, UIViewRe
     }
     @Override
     public void setallRequest(FrViewRequest frviewrequest){
+        fr=frviewrequest;
         frviewrequest.getLbCategory().setText("");
         frviewrequest.getLbcarne().setText("");
         frviewrequest.getLbcourse().setText("");
@@ -189,7 +191,7 @@ public class UICoordinator implements ObserverUI, UIBase, UIStadistics, UIViewRe
     }
     @Override
      public void setRequest(FrViewRequest frviewrequest){
- 
+       fr=frviewrequest;
        if (frviewrequest.getCdRequest().getItemCount()!=0){
             Request r=facade.selectRequest(frviewrequest.getCdRequest().getSelectedItem().toString());
             switch(frviewrequest.getCbtyperequest().getSelectedIndex()){
@@ -408,10 +410,7 @@ public class UICoordinator implements ObserverUI, UIBase, UIStadistics, UIViewRe
         return dataset;
     }
 
-    @Override
-    public void notifyObserver() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 
 
      public void createTemplate(NewTemplate frtemplate) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
@@ -512,5 +511,8 @@ public class UICoordinator implements ObserverUI, UIBase, UIStadistics, UIViewRe
         return; 
                 
     }
+
+
+ 
 
 }

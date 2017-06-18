@@ -5,7 +5,6 @@
  */
 package controller;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -52,12 +51,15 @@ public class School  {
         
         return null;
     }
-    
-    
+
+   
+
     public static synchronized School getInstance() {
         if(INSTANCE == null) {
             INSTANCE = new School();
             INSTANCE.loadData();
+            
+            
         }
         
         return INSTANCE;
@@ -80,6 +82,7 @@ public class School  {
    
     public void insertRequest(DTORequest req) {
         requestsManager.insert(req);
+        
     }
     
    public void insertEmployee(DTOEmployee dto){
@@ -208,4 +211,7 @@ public class School  {
      public void saveEmployees(){
         employeesManager.saveEmployees();
     }
+
+   
+  
 }

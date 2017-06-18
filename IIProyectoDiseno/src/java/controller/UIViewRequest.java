@@ -14,4 +14,5 @@ import view.FrViewRequest;
 public interface UIViewRequest {
     public void setallRequest(FrViewRequest frviewrequest); 
     public void setRequest(FrViewRequest frviewrequest); 
+
 }

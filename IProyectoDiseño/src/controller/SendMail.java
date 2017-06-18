@@ -16,7 +16,7 @@ public class SendMail
 
    
 
-    public static void send(String to, String sub,String msg, final String user, final String pass) 
+    public void send(String to, String sub,String msg, final String user, final String pass) 
     {
         Properties props = new Properties();
 

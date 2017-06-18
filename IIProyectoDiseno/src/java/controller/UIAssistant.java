@@ -22,17 +22,21 @@ import view.NewTemplate;
  *
  * @author Ximena
  */
-public class UIAssistant implements ObserverUI, UIBase, UIViewRequest{
+public class UIAssistant implements  UIBase, UIViewRequest{
     private FacadeAssistant facade; 
     private Resolution r; 
+    private FrViewRequest fr;
 
     public UIAssistant() {
         this.facade = new FacadeAssistant();
+      
+        
     }
         
 
     @Override
     public void setallRequest(FrViewRequest frviewrequest){
+        fr=frviewrequest;
         frviewrequest.getLbCategory().setText("");
         frviewrequest.getLbcarne().setText("");
         frviewrequest.getLbcourse().setText("");
@@ -111,7 +115,7 @@ public class UIAssistant implements ObserverUI, UIBase, UIViewRequest{
 
     @Override
     public void setRequest(FrViewRequest frviewrequest){
- 
+       fr=frviewrequest;
        if (frviewrequest.getCdRequest().getItemCount()!=0){
             Request r=facade.selectRequest(frviewrequest.getCdRequest().getSelectedItem().toString());
             switch(frviewrequest.getCbtyperequest().getSelectedIndex()){
@@ -166,10 +170,6 @@ public class UIAssistant implements ObserverUI, UIBase, UIViewRequest{
     }
 
 
-    @Override
-    public void notifyObserver() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public void setMenu(JFrame frame) {
@@ -191,7 +191,7 @@ public class UIAssistant implements ObserverUI, UIBase, UIViewRequest{
             
         }
         else if(frame instanceof FrViewRequest){
-            FrViewRequest fr = (FrViewRequest) frame; 
+            fr = (FrViewRequest) frame; 
             
             
             fr.getBtncancel().setEnabled(false);
@@ -220,4 +220,8 @@ public class UIAssistant implements ObserverUI, UIBase, UIViewRequest{
         
     
     }
+
+
+
+   
 }
