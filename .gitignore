@@ -3,3 +3,5 @@ IProyectoDiseño/build/
 IProyectoDiseño/dist/
 IIProyectoDiseno/build/
 IIProyectoDiseno/dist/
+
+*.class

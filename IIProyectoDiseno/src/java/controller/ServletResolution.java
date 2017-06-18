@@ -34,7 +34,7 @@ public class ServletResolution extends HttpServlet {
         response.setStatus(200);
         
         try (PrintWriter out = response.getWriter()) {
-            String reqid = request.getParameter("request");
+            String reqid = request.getParameter("id-req");
          
             if(!reqid.isEmpty()) { 
                 School.getInstance().selectRequest(reqid); 

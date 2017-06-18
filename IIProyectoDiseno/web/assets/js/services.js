@@ -40,6 +40,7 @@ $('#consult-form').submit(function(e) {
             
             if(result.indexOf("Tramitada.") > -1) {
                 document.getElementById('watch-resolution').style.display = 'block';;
+                document.getElementById("id-req").value = requestid;
             }
         },
         error: function(){

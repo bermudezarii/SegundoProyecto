@@ -71,7 +71,9 @@ public class HTMLGenerator implements IDocumentGenerator{
             ps.print(buffer);
             ps.close();
             file.close();
-        } catch(Exception ex) {}
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
         
         return buffer;
     }
