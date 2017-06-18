@@ -11,18 +11,24 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFileChooser;
+import javax.swing.JTextArea;
 import model.Course;
 import model.Employee;
 import model.Group;
 import model.Request;
 import org.jfree.data.category.DefaultCategoryDataset;
+import view.FrRequest;
+import view.FrResolution;
 import view.FrStadistics;
+import view.FrTemplate;
+import view.FrViewRequest;
+import view.NewTemplate;
 
 /**
  *
  * @author Ximena
  */
-public class UIHeadmaster implements  UIBase {
+public class UIHeadmaster implements  UIBase, ObserverUI{
     private FacadeHeadMaster facade; 
 
     public UIHeadmaster() {
@@ -99,7 +105,103 @@ public class UIHeadmaster implements  UIBase {
     }
 
     @Override
-    public void setFrame() {
+    public void setMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object getFacade() {
+        return facade; 
+    }
+
+    @Override
+    public void setFacade(Object facade) {
+        FacadeHeadMaster o = (FacadeHeadMaster) facade; 
+        this.facade = o; 
+    }
+
+    @Override
+    public DTORequest getDtoRequest() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setDtoRequest(DTORequest dtoRequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void createRequest(FrRequest frrequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setallGroups(FrRequest frrequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setallCourses(FrRequest frrequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setallPeriods(FrRequest frrequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setallRequest(FrViewRequest frviewrequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setRequest(FrViewRequest frviewrequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void CancelRequest(FrViewRequest frviewrequest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void createResolution(FrResolution frResolution) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void createResolutionDoc(EDocType type) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void getResolution(FrResolution frResolution) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void notifyObserver() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void createTemplate(NewTemplate frtemplate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insertParam(JTextArea txt, int num) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void selectTemplates(FrTemplate template) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void getTemplate(FrTemplate template) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

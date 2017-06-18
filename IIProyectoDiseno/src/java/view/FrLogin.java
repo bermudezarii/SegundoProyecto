@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  * @author Usuario
  */
 public class FrLogin extends javax.swing.JFrame {
-    UILogin uilogin; 
+    private UILogin uilogin; 
     public FrLogin() {
         initComponents();
         uilogin = new UILogin(); 

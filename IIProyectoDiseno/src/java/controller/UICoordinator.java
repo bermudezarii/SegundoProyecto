@@ -44,12 +44,14 @@ public class UICoordinator implements ObserverUI, UIBase{
          facade= new FacadeCoordinator();
     }
 
-    public FacadeCoordinator getFacade() {
+    @Override
+    public Object getFacade() {
         return facade;
     }
 
-    public void setFacade(FacadeCoordinator facade) {
-        this.facade = facade;
+    public void setFacade(Object facade) {
+        FacadeCoordinator o = (FacadeCoordinator) facade; 
+        this.facade = o;
     }
 
     public DTORequest getDtoRequest() {
@@ -406,10 +408,7 @@ public class UICoordinator implements ObserverUI, UIBase{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void setFrame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
      public void createTemplate(NewTemplate frtemplate) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
          frtemplate.getCbtype().getSelectedIndex();
          switch  (frtemplate.getCbtype().getSelectedIndex()){
@@ -500,6 +499,12 @@ public class UICoordinator implements ObserverUI, UIBase{
         template.getTxtresult().setText(temp.getResult());
         template.getTxtresolve().setText(temp.getResolve());
         
+    }
+
+
+    @Override
+    public void setMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

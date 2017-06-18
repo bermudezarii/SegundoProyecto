@@ -32,11 +32,8 @@ public class FrMain extends javax.swing.JFrame {
         this.setResizable(false);
     }
 
-        public void setMenu(){
-   
-        
+    public void setMenu(){
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            
             btnExel.setVisible(false);
             btnNewRequest.setVisible(false);
             btnViewRequest.setVisible(true);
@@ -55,12 +52,7 @@ public class FrMain extends javax.swing.JFrame {
             btnViewRequest.setVisible(false);
             btnviewStadistics.setVisible(true);
         }
-        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(true);
-            btnViewRequest.setVisible(false);
-            btnviewStadistics.setVisible(false);
-        }
+
 
     }
 

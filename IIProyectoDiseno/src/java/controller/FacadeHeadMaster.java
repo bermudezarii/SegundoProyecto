@@ -18,6 +18,12 @@ import model.Request;
  */
 public class FacadeHeadMaster {
     private School school; 
+
+    public FacadeHeadMaster() {
+        school = School.getInstance(); 
+    }
+    
+    
     public ArrayList<Request> processedRequestsInDateRange(Date start, Date end) {
         return school.processedRequestsInDateRange(start, end);
     }
@@ -28,6 +34,8 @@ public class FacadeHeadMaster {
     public HashMap<Employee, Integer> top3ProfessorsResolutions() {
         return school.top3ProfessorsResolutions();
     }
+  
+    
      public ArrayList<Object> selectallGroups(){
         return school.selectAllGroups();
     }

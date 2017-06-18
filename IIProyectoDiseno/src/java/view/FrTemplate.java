@@ -50,6 +50,7 @@ public class FrTemplate extends javax.swing.JFrame {
     public void setTxtresult(JTextArea txtresult) {
         this.txtresult = txtresult;
     }
+    
     private UICoordinator ui;
     
     /**
@@ -81,33 +82,12 @@ public class FrTemplate extends javax.swing.JFrame {
     }
     
     public void setMenu(){
-   
-        
-        if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            btnNewTemplate.setEnabled(false);
-            btnViewRequest.setEnabled(true);
-            btnViewResolution.setEnabled(true);
-            btnviewStadistics.setEnabled(false);
-        }
-        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+        if (employee.getRol() == EEmployeeRol.CORDINATOR){
             btnNewTemplate.setEnabled(true);
             btnViewRequest.setEnabled(true);
             btnViewResolution.setEnabled(true);
             btnviewStadistics.setEnabled(true);
         }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnNewTemplate.setEnabled(false);
-            btnViewRequest.setEnabled(false);
-            btnViewResolution.setEnabled(false); 
-            btnviewStadistics.setEnabled(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnNewTemplate.setEnabled(false);
-            btnViewRequest.setEnabled(false);
-            btnViewResolution.setEnabled(false);
-            btnviewStadistics.setEnabled(false);
-        }
-
     }
     /**
      * This method is called from within the constructor to initialize the form.

@@ -7,6 +7,8 @@ package view;
 
 import controller.EDocType;
 import controller.School;
+import controller.UIAssistant;
+import controller.UIBase;
 import controller.UICoordinator;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -25,24 +27,37 @@ import model.Employee;
  * @author Usuario
  */
 public class FrResolution extends javax.swing.JFrame {
-    private UICoordinator uiResolution; 
+    private UIBase uiResolution; 
     private Employee employee; 
     
     /**
      * Creates new form FrResolution
      */
     public FrResolution() {
-        uiResolution= new UICoordinator();
+     
         initComponents();
-        this.setResizable(false);
-        getResolution();
+        
     }
     public FrResolution(boolean template,int number, int type) {
-        uiResolution= new UICoordinator();
+  
         initComponents();
         this.setResizable(false);
         getResolutionTemplate(number,type);
     }
+    
+    public void setFrameAfterUI(){
+        getResolution();
+    }
+
+    public UIBase getUiResolution() {
+        return uiResolution;
+    }
+
+    public void setUiResolution(UIBase uiResolution) {
+        this.uiResolution = uiResolution;
+    }
+    
+    
     
        public Employee getEmployee() {
         return employee;
@@ -50,6 +65,14 @@ public class FrResolution extends javax.swing.JFrame {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+        if(employee.getRol()  == EEmployeeRol.CORDINATOR){
+            this.setUiResolution(new UICoordinator());
+            setFrameAfterUI();
+        }
+        else if(employee.getRol()  == EEmployeeRol.ASSINTANT){
+            this.setUiResolution(new UIAssistant());
+            setFrameAfterUI();
+        }
     }
     
     private void getResolution() {
@@ -108,8 +131,6 @@ public class FrResolution extends javax.swing.JFrame {
     }
     
     public void setMenu(){
-   
-        
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
             btnExel.setVisible(false);
             btnSave.setVisible(false);
@@ -125,22 +146,6 @@ public class FrResolution extends javax.swing.JFrame {
             btnNewRequest.setVisible(true);
             btnViewRequest.setVisible(true);
             btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnExel.setVisible(false);
-            btnSave.setVisible(false);
-            btnSaveAs.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnViewRequest.setVisible(false);
-            btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnExel.setVisible(false);
-            btnSave.setVisible(false);
-            btnSaveAs.setVisible(false);
-            btnNewRequest.setVisible(true);
-            btnViewRequest.setVisible(false);
-            btnviewStadistics.setVisible(false);
         }
 
     }

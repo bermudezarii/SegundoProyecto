@@ -6,7 +6,10 @@
 package view;
 
 import controller.School;
+import controller.UIAssistant;
+import controller.UIBase;
 import controller.UICoordinator;
+import controller.UIHeadmaster;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
@@ -43,7 +46,7 @@ import org.jfree.util.Rotation;
 
 
 public class FrStadistics extends javax.swing.JFrame {
-    private UICoordinator uiStadistics; 
+    private UIBase uiStadistics; 
     private Employee employee; 
     
     public Employee getEmployee() {
@@ -52,20 +55,32 @@ public class FrStadistics extends javax.swing.JFrame {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+        if(employee.getRol()  == EEmployeeRol.CORDINATOR){
+            
+            this.setUiStadistics(new UICoordinator());
+            System.out.println("fr stadistics tiene uicoordinador");
+            setFrameAfterUI();
+        }
+        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
+            this.setUiStadistics(new UIHeadmaster());
+            System.out.println("fr stadistics tiene uidirector");
+            setFrameAfterUI();
+        }
+        
+    }
+
+    public UIBase getUiStadistics() {
+        return uiStadistics;
+    }
+
+    public void setUiStadistics(UIBase uiStadistics) {
+        this.uiStadistics = uiStadistics;
     }
     
+    
+    
     public void setMenu(){
-   
-        
-        if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            
-            btnExel.setVisible(false);
-            btnnewRequest.setVisible(false);
-            
-            btnviewRequest.setVisible(true);
-            btnviewStadistics.setVisible(false);
-        }
-        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+        if (employee.getRol() == EEmployeeRol.CORDINATOR){
             System.out.println("llega aqui 2");
             btnExel.setVisible(true);
             btnnewRequest.setVisible(true);
@@ -77,12 +92,6 @@ public class FrStadistics extends javax.swing.JFrame {
             btnnewRequest.setVisible(false);
             btnviewRequest.setVisible(false);
             btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnExel.setVisible(false);
-            btnnewRequest.setVisible(true);
-            btnviewRequest.setVisible(false);
-            btnviewStadistics.setVisible(false);
         }
 
     }
@@ -176,9 +185,11 @@ public class FrStadistics extends javax.swing.JFrame {
     }
 
     public FrStadistics() {
-        uiStadistics=new UICoordinator();
         initComponents();
-        this.setResizable(false);
+ 
+    }
+
+    public void setFrameAfterUI(){
         DefaultCategoryDataset dataset= new DefaultCategoryDataset();
         dataset=uiStadistics.top3ProfessorsResolutions();
         JFreeChart chart= ChartFactory.createBarChart("Profesores", "", "", dataset, PlotOrientation.HORIZONTAL, false, true, false);
@@ -192,10 +203,7 @@ public class FrStadistics extends javax.swing.JFrame {
         pnProf.validate();
         uiStadistics.processedRequestsInDateRange(this);
         uiStadistics.setallPeriods(this);
-        
     }
-
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

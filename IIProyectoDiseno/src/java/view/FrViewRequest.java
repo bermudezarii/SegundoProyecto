@@ -6,6 +6,8 @@
 package view;
 
 import controller.School;
+import controller.UIAssistant;
+import controller.UIBase;
 import controller.UICoordinator;
 
 import java.awt.Color;
@@ -33,13 +35,21 @@ import model.Employee;
  * @author Ximena
  */
 public class FrViewRequest extends javax.swing.JFrame {
-    private UICoordinator uiRequest;
+    private UIBase uiRequest;
     private Employee employee; 
     
-        public void setMenu(){
-   
-        
+    public void setMenu(){
         if(employee.getRol() == EEmployeeRol.ASSINTANT){
+            System.out.println("es una asistente :3");
+            this.btnCancelRequest.setEnabled(false);
+            this.btnCancelRequest.setVisible(false);
+            this.btncancel.setEnabled(false);
+            this.btncancel.setVisible(false);
+            this.txtMotivo.setEditable(false);
+            this.txtMotivo.setEnabled(false);
+            this.lbdescription.setEditable(false);
+            this.lbdescription.setEnabled(false);
+            System.out.println("quak");
             btnNewResolution.setVisible(false);
             btnNewResolution1.setVisible(false);
             btnExel.setVisible(false);
@@ -51,6 +61,7 @@ public class FrViewRequest extends javax.swing.JFrame {
             btnviewStadistics.setVisible(false);
         }
         else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+            System.out.println("es una coordinadora :3");
             btnNewResolution.setVisible(true);
             btnNewResolution1.setVisible(true);
             btnExel.setVisible(true);
@@ -60,31 +71,19 @@ public class FrViewRequest extends javax.swing.JFrame {
             btnViewRequest1.setVisible(true);
             btnViewResolution.setVisible(true);
             btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnNewResolution.setVisible(false);
-            btnNewResolution1.setVisible(false);
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnNewRequest1.setVisible(false);
-            btnViewRequest.setVisible(false);
-            btnViewRequest1.setVisible(false);
-            btnViewResolution.setVisible(false);
-            btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnNewResolution.setVisible(false);
-            btnNewResolution1.setVisible(false);
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(true);
-            btnNewRequest1.setVisible(true);
-            btnViewRequest.setVisible(false);
-            btnViewRequest1.setVisible(false);
-            btnViewResolution.setVisible(false);
-            btnviewStadistics.setVisible(false);
+            lbdescription.setEditable(false);
         }
 
     }
+
+    public UIBase getUiRequest() {
+        return uiRequest;
+    }
+
+    public void setUiRequest(UIBase uiRequest) {
+        this.uiRequest = uiRequest;
+    }
+    
     
     public Employee getEmployee() {
         return employee;
@@ -92,6 +91,16 @@ public class FrViewRequest extends javax.swing.JFrame {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+        if(employee.getRol()  == EEmployeeRol.CORDINATOR){  
+            this.setUiRequest(new UICoordinator());
+            System.out.println("fr viewRequest tiene uicoordinador");
+            setFrameAfterUI();
+        }
+        else if(employee.getRol() == EEmployeeRol.ASSINTANT){
+            this.setUiRequest(new UIAssistant());
+            System.out.println("fr viewRequest tiene uiassistant");
+            setFrameAfterUI();
+        }
     }
 
     public JMenuItem getBtnNewResolution1() {
@@ -114,15 +123,15 @@ public class FrViewRequest extends javax.swing.JFrame {
      * Creates new form FrViewRequest
      */
     public FrViewRequest() {
-        uiRequest=new UICoordinator();
-        initComponents();
         this.setResizable(false);
-        lbdescription.setEditable(false);
-        
-        uiRequest.setallRequest(this);
-     
+        initComponents(); 
     }
 
+    public void setFrameAfterUI(){
+        lbdescription.setEditable(false);
+        uiRequest.setallRequest(this);
+    }
+    
     public JComboBox<String> getCdRequest() {
         return cdRequest;
     }

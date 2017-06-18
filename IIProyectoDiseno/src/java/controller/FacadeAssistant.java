@@ -6,6 +6,7 @@
 package controller;
 
 import java.util.ArrayList;
+import model.Request;
 import model.Resolution;
 
 /**
@@ -14,6 +15,11 @@ import model.Resolution;
  */
 public class FacadeAssistant {
     private School school; 
+
+    public FacadeAssistant() {
+        school = School.getInstance();
+    }
+    
     public ArrayList<Object> selectallRequest(){
         return school.selectAllRequests();
     }
@@ -32,6 +38,10 @@ public class FacadeAssistant {
         }
                 
         return null;
+    }
+    
+     public Request selectRequest(String id){
+        return school.selectRequest(id);
     }
     
 }

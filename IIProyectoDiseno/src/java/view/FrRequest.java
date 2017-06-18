@@ -5,12 +5,12 @@
  */
 package view;
 
-import controller.School;
+import controller.UIAssistant;
+import controller.UIBase;
 import controller.UICoordinator;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import controller.UIHeadmaster;
+import controller.UISuperUser;
 import java.io.File;
-import java.io.FileFilter;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -27,6 +27,16 @@ import model.Employee;
  */
 public class FrRequest extends javax.swing.JFrame {
     private Employee employee; 
+    private UIBase uiRequest; 
+
+    public UIBase getUiRequest() {
+        return uiRequest;
+    }
+
+    public void setUiRequest(UIBase uiRequest) {
+        this.uiRequest = uiRequest;
+    }
+    
 
     public Employee getEmployee() {
         return employee;
@@ -34,6 +44,11 @@ public class FrRequest extends javax.swing.JFrame {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+        if(employee.getRol()  == EEmployeeRol.CORDINATOR){
+            this.setUiRequest(new UICoordinator());
+            setFrameAfterUI();
+             System.out.println("fr request tiene uicoordinador");
+        }
     }
 
     public JComboBox<String> getCbcategory() {
@@ -135,31 +150,24 @@ public class FrRequest extends javax.swing.JFrame {
   
 
     
-    private UICoordinator uiRequest; 
+    
     public FrRequest() {
-        uiRequest=new  UICoordinator();
         initComponents();
         this.setResizable(false);
+    }
+
+    public void setFrameAfterUI(){
         uiRequest.setallPeriods(this);
         cbperiod.setSelectedIndex(0);
         uiRequest.setallCourses(this);
         cbcourse.setSelectedIndex(0);
         uiRequest.setallGroups(this);
         cbgroup.setSelectedIndex(0);
-        
     }
-
+    
     public void setMenu(){
         
-        if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnViewRequest.setVisible(true);
-            btnviewStadistics.setVisible(false);
-            btnAddFile.setVisible(false);
-        }
-        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
+        if (employee.getRol() == EEmployeeRol.CORDINATOR){
             System.out.println("llega aqui 2");
             btnExel.setVisible(true);
             btnNewRequest.setVisible(true);
@@ -167,20 +175,7 @@ public class FrRequest extends javax.swing.JFrame {
             btnviewStadistics.setVisible(true);
             btnAddFile.setVisible(true);
         }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnViewRequest.setVisible(false);
-            btnviewStadistics.setVisible(true);
-            btnAddFile.setVisible(false);
-        }
-        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(true);
-            btnViewRequest.setVisible(false);
-            btnviewStadistics.setVisible(false);
-            btnAddFile.setVisible(true);
-        }
+   
 
     }
 
