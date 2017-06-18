@@ -250,8 +250,13 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
       }
     }
     public void CancelRequest(FrViewRequest frviewrequest){
-        facade.CancelRequest(frviewrequest.getTxtMotivo().getText());
-        setallRequest(frviewrequest);
+        if(frviewrequest.getTxtMotivo().getText()!= null){
+            facade.CancelRequest(frviewrequest.getTxtMotivo().getText());
+            setallRequest(frviewrequest);
+        }else{
+            JOptionPane.showMessageDialog(frviewrequest, "Ingrese un motivo por favor");
+        }
+        
     }
     
     public void loadfile(){
