@@ -9,6 +9,7 @@ import controller.School;
 import controller.UIAssistant;
 import controller.UIBase;
 import controller.UICoordinator;
+import controller.UIViewRequest;
 
 import java.awt.Color;
 import static java.awt.Color.blue;
@@ -22,6 +23,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -35,73 +37,10 @@ import model.Employee;
  * @author Ximena
  */
 public class FrViewRequest extends javax.swing.JFrame {
-    private UIBase uiRequest;
-    private Employee employee; 
+    private UIBase ui;
+    private UIViewRequest uiRequest; 
     
-    public void setMenu(){
-        if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            System.out.println("es una asistente :3");
-            this.btnCancelRequest.setEnabled(false);
-            this.btnCancelRequest.setVisible(false);
-            this.btncancel.setEnabled(false);
-            this.btncancel.setVisible(false);
-            this.txtMotivo.setEditable(false);
-            this.txtMotivo.setEnabled(false);
-            this.lbdescription.setEditable(false);
-            this.lbdescription.setEnabled(false);
-            System.out.println("quak");
-            btnNewResolution.setVisible(false);
-            btnNewResolution1.setVisible(false);
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnNewRequest1.setVisible(false);
-            btnViewRequest.setVisible(true);
-            btnViewRequest1.setVisible(true);
-            btnViewResolution.setVisible(true);
-            btnviewStadistics.setVisible(false);
-        }
-        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            System.out.println("es una coordinadora :3");
-            btnNewResolution.setVisible(true);
-            btnNewResolution1.setVisible(true);
-            btnExel.setVisible(true);
-            btnNewRequest1.setVisible(true);
-            btnNewRequest.setVisible(true);
-            btnViewRequest.setVisible(true);
-            btnViewRequest1.setVisible(true);
-            btnViewResolution.setVisible(true);
-            btnviewStadistics.setVisible(true);
-            lbdescription.setEditable(false);
-        }
-
-    }
-
-    public UIBase getUiRequest() {
-        return uiRequest;
-    }
-
-    public void setUiRequest(UIBase uiRequest) {
-        this.uiRequest = uiRequest;
-    }
-    
-    
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-        if(employee.getRol()  == EEmployeeRol.CORDINATOR){  
-            this.setUiRequest(new UICoordinator());
-            System.out.println("fr viewRequest tiene uicoordinador");
-            setFrameAfterUI();
-        }
-        else if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            this.setUiRequest(new UIAssistant());
-            System.out.println("fr viewRequest tiene uiassistant");
-            setFrameAfterUI();
-        }
-    }
+  
 
     public JMenuItem getBtnNewResolution1() {
         return btnNewResolution1;
@@ -122,15 +61,18 @@ public class FrViewRequest extends javax.swing.JFrame {
     /**
      * Creates new form FrViewRequest
      */
-    public FrViewRequest() {
+    public FrViewRequest(UIBase ui) {
+        this.ui = ui; 
         this.setResizable(false);
         initComponents(); 
+        ui.setMenu(this);
+        lbdescription.setEditable(false);
+        if(ui instanceof UICoordinator || ui instanceof UIAssistant){
+            uiRequest = (UIViewRequest) ui; 
+            uiRequest.setallRequest(this);
+        }
     }
 
-    public void setFrameAfterUI(){
-        lbdescription.setEditable(false);
-        uiRequest.setallRequest(this);
-    }
     
     public JComboBox<String> getCdRequest() {
         return cdRequest;
@@ -185,7 +127,6 @@ public class FrViewRequest extends javax.swing.JFrame {
     }
 
  
-
     public JComboBox<String> getCbtyperequest() {
         return cbtyperequest;
     }
@@ -222,8 +163,6 @@ public class FrViewRequest extends javax.swing.JFrame {
         this.lbdescription = lbdescription;
     }
 
-
- 
 
     public JLabel getLbemail() {
         return lbemail;
@@ -268,6 +207,65 @@ public class FrViewRequest extends javax.swing.JFrame {
     public JMenuItem getBtnViewResolution() {
         return btnViewResolution;
     }
+
+    public JMenuItem getBtnNewRequest() {
+        return btnNewRequest;
+    }
+
+    public void setBtnNewRequest(JMenuItem btnNewRequest) {
+        this.btnNewRequest = btnNewRequest;
+    }
+
+    public JMenuItem getBtnNewRequest1() {
+        return btnNewRequest1;
+    }
+
+    public void setBtnNewRequest1(JMenuItem btnNewRequest1) {
+        this.btnNewRequest1 = btnNewRequest1;
+    }
+
+    public JMenuItem getBtnNewResolution() {
+        return btnNewResolution;
+    }
+
+    public void setBtnNewResolution(JMenuItem btnNewResolution) {
+        this.btnNewResolution = btnNewResolution;
+    }
+
+    public JMenuItem getBtnViewRequest() {
+        return btnViewRequest;
+    }
+
+    public void setBtnViewRequest(JMenuItem btnViewRequest) {
+        this.btnViewRequest = btnViewRequest;
+    }
+
+    public JMenuItem getBtnViewRequest1() {
+        return btnViewRequest1;
+    }
+
+    public void setBtnViewRequest1(JMenuItem btnViewRequest1) {
+        this.btnViewRequest1 = btnViewRequest1;
+    }
+
+    public JMenuItem getBtnviewStadistics() {
+        return btnviewStadistics;
+    }
+
+    public void setBtnviewStadistics(JMenuItem btnviewStadistics) {
+        this.btnviewStadistics = btnviewStadistics;
+    }
+
+    public JMenu getjMenu5() {
+        return jMenu5;
+    }
+
+    public void setjMenu5(JMenu jMenu5) {
+        this.jMenu5 = jMenu5;
+    }
+    
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -351,7 +349,6 @@ public class FrViewRequest extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         btnNewRequest1 = new javax.swing.JMenuItem();
         btnNewResolution1 = new javax.swing.JMenuItem();
-        btnExel = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         btnViewRequest1 = new javax.swing.JMenuItem();
         btnViewResolution = new javax.swing.JMenuItem();
@@ -756,14 +753,6 @@ public class FrViewRequest extends javax.swing.JFrame {
         });
         jMenu5.add(btnNewResolution1);
 
-        btnExel.setText("Cargar Excel...");
-        btnExel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExelActionPerformed(evt);
-            }
-        });
-        jMenu5.add(btnExel);
-
         jMenuBar3.add(jMenu5);
 
         jMenu6.setText("Ver ");
@@ -801,9 +790,7 @@ public class FrViewRequest extends javax.swing.JFrame {
 
     private void btnNewResolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewResolutionActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
-        fr.setEmployee(employee);
-        fr.setMenu();
+        FrRequest fr=new FrRequest(ui);
         fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fr.setVisible(true);
         this.setVisible(false);
@@ -811,9 +798,7 @@ public class FrViewRequest extends javax.swing.JFrame {
 
     private void btnNewRequest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRequest1ActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
-        fr.setEmployee(employee);
-        fr.setMenu();
+        FrRequest fr=new FrRequest(ui);
         fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fr.setVisible(true);
         this.setVisible(false);
@@ -828,16 +813,12 @@ public class FrViewRequest extends javax.swing.JFrame {
         if(i==JOptionPane.YES_OPTION){
             if(cdRequest.getSelectedItem()!=null){ 
                FrTemplate fr=new FrTemplate(); 
-               fr.setEmployee(employee);
-               fr.setMenu();
                fr.setVisible(true); 
                this.setVisible(false); 
            }
         }else{
             if(cdRequest.getSelectedItem()!=null){ 
-               FrResolution fr=new FrResolution(); 
-               fr.setEmployee(employee);
-               fr.setMenu();
+               FrResolution fr=new FrResolution(ui); 
                fr.setVisible(true); 
                this.setVisible(false); 
            }else{ 
@@ -848,9 +829,7 @@ public class FrViewRequest extends javax.swing.JFrame {
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
-        FrStadistics frstadistics= new FrStadistics();
-        frstadistics.setEmployee(employee);
-        frstadistics.setMenu();
+        FrStadistics frstadistics= new FrStadistics(ui);
         frstadistics.setVisible(true);
         this.setVisible(false);
  
@@ -870,24 +849,23 @@ public class FrViewRequest extends javax.swing.JFrame {
 
     private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
         // TODO add your handling code here:
-           if(cdRequest.getSelectedItem()!=null){ 
-            uiRequest.CancelRequest(this);} 
-         else{ 
+        if(ui instanceof UICoordinator){
+          if(cdRequest.getSelectedItem()!=null){ 
+            UICoordinator uiC = (UICoordinator) ui;
+            uiC.CancelRequest(this);
+          } 
+          else{ 
             JOptionPane.showMessageDialog(this, "Tiene que seleccionar una solicitud, para poder cancelar."); 
-         } 
+          } 
+        }
+ 
     }//GEN-LAST:event_btncancelActionPerformed
-
-    private void btnExelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExelActionPerformed
-        // TODO add your handling code here:
-      uiRequest.loadfile();
-    }//GEN-LAST:event_btnExelActionPerformed
 
     private void btnViewResolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolutionActionPerformed
         // TODO add your handling code here:
         if(cdRequest.getSelectedItem()!=null){ 
-            FrResolution fr=new FrResolution(); 
-            fr.setEmployee(employee);
-            fr.setMenu();
+            FrResolution fr=new FrResolution(ui); 
+ 
             fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
             fr.setVisible(true); 
             this.setVisible(false); 
@@ -896,46 +874,10 @@ public class FrViewRequest extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnViewResolutionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrViewRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrViewRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrViewRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrViewRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrViewRequest().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame FrViewRequest;
     private javax.swing.JButton btnCancelRequest;
-    private javax.swing.JMenuItem btnExel;
     private javax.swing.JMenuItem btnNewRequest;
     private javax.swing.JMenuItem btnNewRequest1;
     private javax.swing.JMenuItem btnNewResolution;

@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import model.Course;
@@ -35,7 +36,7 @@ import view.NewTemplate;
  *
  * @author Ximena
  */
-public class UICoordinator implements ObserverUI, UIBase{
+public class UICoordinator implements ObserverUI, UIBase, UIStadistics, UIViewRequest{
     private FacadeCoordinator facade; 
     private DTORequest dtoRequest; 
     private Resolution r; 
@@ -44,7 +45,6 @@ public class UICoordinator implements ObserverUI, UIBase{
          facade= new FacadeCoordinator();
     }
 
-    @Override
     public Object getFacade() {
         return facade;
     }
@@ -86,10 +86,8 @@ public class UICoordinator implements ObserverUI, UIBase{
         dtoRequest.setRequesterName(frrequest.getTxtnamer().getText());
         facade.createRequest(dtoRequest);
         JOptionPane.showMessageDialog(frrequest, "Se ha Creado Una Solicitud con Éxito.");
-        FrRequest fr=new FrRequest();
+        FrRequest fr=new FrRequest(this);
         fr.setVisible(true);
-        fr.setEmployee(frrequest.getEmployee());
-        fr.setMenu();
         frrequest.setVisible(false);
         }else{
          JOptionPane.showMessageDialog(frrequest, "Se ha Ingresado un Correo o Número de Teléfono Inválido.");
@@ -130,6 +128,7 @@ public class UICoordinator implements ObserverUI, UIBase{
         
     }
     }
+    @Override
     public void setallRequest(FrViewRequest frviewrequest){
         frviewrequest.getLbCategory().setText("");
         frviewrequest.getLbcarne().setText("");
@@ -188,6 +187,7 @@ public class UICoordinator implements ObserverUI, UIBase{
             
             
     }
+    @Override
      public void setRequest(FrViewRequest frviewrequest){
  
        if (frviewrequest.getCdRequest().getItemCount()!=0){
@@ -348,6 +348,7 @@ public class UICoordinator implements ObserverUI, UIBase{
   
   
 
+    @Override
      public void processedRequestsInDateRange(FrStadistics frstadistics) {
         
         Date start=(Date) frstadistics.getSpInitialD().getValue();
@@ -360,6 +361,7 @@ public class UICoordinator implements ObserverUI, UIBase{
             frstadistics.getCbResolutions().addItem(Integer.toString(request.getId()));
         }
     }
+    @Override
      public void getRequest(FrStadistics frstadistics){
          if(frstadistics.getCbResolutions().getItemCount()!=0){
             Request r=facade.selectRequest(frstadistics.getCbResolutions().getSelectedItem().toString());
@@ -373,6 +375,7 @@ public class UICoordinator implements ObserverUI, UIBase{
          }
      
      }
+    @Override
      public void setallPeriods(FrStadistics frstadistics){
         int i=0;
         ArrayList<String>periods=new ArrayList<String>();
@@ -385,6 +388,7 @@ public class UICoordinator implements ObserverUI, UIBase{
         
     }
     }
+    @Override
      public DefaultCategoryDataset top5CoursesResolutionsByPeriod(FrStadistics frstadistics){
         HashMap<Course, Integer> c=facade.top5CoursesResolutionsByPeriod(frstadistics.getCbperiod().getSelectedItem().toString());
          DefaultCategoryDataset dataset=new DefaultCategoryDataset();
@@ -394,6 +398,7 @@ public class UICoordinator implements ObserverUI, UIBase{
          }
          return dataset;
     }
+    @Override
       public DefaultCategoryDataset top3ProfessorsResolutions() {
         HashMap<Employee, Integer> e= facade.top3ProfessorsResolutions();
         DefaultCategoryDataset dataset=new DefaultCategoryDataset();
@@ -503,8 +508,9 @@ public class UICoordinator implements ObserverUI, UIBase{
 
 
     @Override
-    public void setMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setMenu(JFrame frame) {
+        return; 
+                
     }
 
 }

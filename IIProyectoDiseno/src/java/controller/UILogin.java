@@ -5,6 +5,7 @@
  */
 package controller;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import model.EEmployeeRol;
@@ -24,7 +25,7 @@ import view.NewTemplate;
  *
  * @author Ximena
  */
-public class UILogin implements  UIBase, ObserverUI {
+public class UILogin  {
     private DTOEmployee dto;
     private FacadeLogin facadelogin; 
 
@@ -40,13 +41,19 @@ public class UILogin implements  UIBase, ObserverUI {
             Employee employee = facadelogin.findEmployee(dto.getId()); 
             System.out.println("empleado encontrado: "+ employee.toString());
             if(employee.getRol() == EEmployeeRol.ASSINTANT || employee.getRol() == EEmployeeRol.CORDINATOR || employee.getRol() == EEmployeeRol.HEADMASTER){
-                System.out.println("lalala 1");
-                FrMain fr=new FrMain();
-                System.out.println("lalala 2");
-                fr.setEmployee(employee);
-                System.out.println("lalala 3");
-                fr.setMenu(); 
-                fr.setVisible(true);
+                if(employee.getRol() == EEmployeeRol.ASSINTANT){
+                    FrMain fr=new FrMain(new UIAssistant());
+                    fr.setVisible(true);
+                }
+                else if(employee.getRol() == EEmployeeRol.CORDINATOR){
+                     FrMain fr=new FrMain(new UICoordinator());
+                     fr.setVisible(true);
+                }
+                else if(employee.getRol() == EEmployeeRol.HEADMASTER){
+                     FrMain fr=new FrMain(new UIHeadmaster());
+                     fr.setVisible(true);
+                }
+                
                 aThis.setVisible(false);
             }
             else if(employee.getRol() == EEmployeeRol.SUPERUSER){
@@ -57,144 +64,15 @@ public class UILogin implements  UIBase, ObserverUI {
             else if( employee.getRol() == EEmployeeRol.PROFESSOR){
                 JOptionPane.showMessageDialog(aThis, "Si es profesor, por favor utilizar la pagina habilitada, gracias");
             }
-            
-            
         }
         else{
             JOptionPane.showMessageDialog(aThis, "Se ha ingresado un usuario o contraseña incorrecta.");
         }
+        
+        
+      
       
     }
 
-    @Override
-    public Object getFacade() {
-        return facadelogin; 
-    }
-
-    @Override
-    public void setFacade(Object facade) {
-        FacadeLogin o = (FacadeLogin) facade; 
-        this.facadelogin = o; 
-    }
-
-    @Override
-    public DTORequest getDtoRequest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setDtoRequest(DTORequest dtoRequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createRequest(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallGroups(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallCourses(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallPeriods(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallRequest(FrViewRequest frviewrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setRequest(FrViewRequest frviewrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void CancelRequest(FrViewRequest frviewrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void loadfile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createResolution(FrResolution frResolution) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createResolutionDoc(EDocType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getResolution(FrResolution frResolution) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void processedRequestsInDateRange(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getRequest(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallPeriods(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DefaultCategoryDataset top5CoursesResolutionsByPeriod(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DefaultCategoryDataset top3ProfessorsResolutions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void notifyObserver() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createTemplate(NewTemplate frtemplate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void insertParam(JTextArea txt, int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void selectTemplates(FrTemplate template) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getTemplate(FrTemplate template) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
    
 }

@@ -28,14 +28,12 @@ import model.Employee;
  */
 public class FrResolution extends javax.swing.JFrame {
     private UIBase uiResolution; 
-    private Employee employee; 
     
-    /**
-     * Creates new form FrResolution
-     */
-    public FrResolution() {
-     
+    public FrResolution(UIBase ui) {
+        this.uiResolution = ui; 
         initComponents();
+        uiResolution.setMenu(this);
+        getResolution();
         
     }
     public FrResolution(boolean template,int number, int type) {
@@ -45,9 +43,7 @@ public class FrResolution extends javax.swing.JFrame {
         getResolutionTemplate(number,type);
     }
     
-    public void setFrameAfterUI(){
-        getResolution();
-    }
+  
 
     public UIBase getUiResolution() {
         return uiResolution;
@@ -56,30 +52,44 @@ public class FrResolution extends javax.swing.JFrame {
     public void setUiResolution(UIBase uiResolution) {
         this.uiResolution = uiResolution;
     }
-    
-    
-    
-       public Employee getEmployee() {
-        return employee;
+
+
+    public JMenuItem getBtnNewRequest() {
+        return btnNewRequest;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-        if(employee.getRol()  == EEmployeeRol.CORDINATOR){
-            this.setUiResolution(new UICoordinator());
-            setFrameAfterUI();
-        }
-        else if(employee.getRol()  == EEmployeeRol.ASSINTANT){
-            this.setUiResolution(new UIAssistant());
-            setFrameAfterUI();
-        }
+    public void setBtnNewRequest(JMenuItem btnNewRequest) {
+        this.btnNewRequest = btnNewRequest;
     }
+
+    public JMenuItem getBtnViewRequest() {
+        return btnViewRequest;
+    }
+
+    public void setBtnViewRequest(JMenuItem btnViewRequest) {
+        this.btnViewRequest = btnViewRequest;
+    }
+
+    public JMenuItem getBtnviewStadistics() {
+        return btnviewStadistics;
+    }
+
     
     private void getResolution() {
-        uiResolution.getResolution(this);
+        if(uiResolution instanceof UICoordinator){
+            UICoordinator uiC = (UICoordinator) uiResolution; 
+        uiC.getResolution(this);
+        }
     }
     private void getResolutionTemplate(int number, int type) {
-        uiResolution.getResolutionTemplate(this,number,type);
+        if(uiResolution instanceof UICoordinator){
+            UICoordinator uiC = (UICoordinator) uiResolution; 
+        uiC.getResolutionTemplate(this,number,type);
+        }
+    }
+     
+    public void setBtnviewStadistics(JMenuItem btnviewStadistics) {
+        this.btnviewStadistics = btnviewStadistics;
     }
 
     public JTextPane getTxtintro() {
@@ -130,25 +140,6 @@ public class FrResolution extends javax.swing.JFrame {
         return btnSaveAs;
     }
     
-    public void setMenu(){
-        if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            btnExel.setVisible(false);
-            btnSave.setVisible(false);
-            btnSaveAs.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnViewRequest.setVisible(true);
-            btnviewStadistics.setVisible(false);
-        }
-        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            btnExel.setVisible(true);
-            btnSave.setVisible(true);
-            btnSaveAs.setVisible(true);
-            btnNewRequest.setVisible(true);
-            btnViewRequest.setVisible(true);
-            btnviewStadistics.setVisible(true);
-        }
-
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -193,7 +184,6 @@ public class FrResolution extends javax.swing.JFrame {
         btnNewRequest = new javax.swing.JMenuItem();
         btnSave = new javax.swing.JMenuItem();
         btnSaveAs = new javax.swing.JMenuItem();
-        btnExel = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnViewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -331,14 +321,6 @@ public class FrResolution extends javax.swing.JFrame {
         });
         jMenu3.add(btnSaveAs);
 
-        btnExel.setText("Cargar Excel...");
-        btnExel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExelActionPerformed(evt);
-            }
-        });
-        jMenu3.add(btnExel);
-
         jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Ver ");
@@ -368,9 +350,7 @@ public class FrResolution extends javax.swing.JFrame {
 
     private void btnNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRequestActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
-        fr.setEmployee(employee);
-        fr.setMenu();
+        FrRequest fr=new FrRequest(uiResolution);
         fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fr.setVisible(true);
         this.setVisible(false);
@@ -396,25 +376,23 @@ public class FrResolution extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        
-        int i=JOptionPane.showConfirmDialog(this, "¿Seguro de que quiere crear una Resolución?","",JOptionPane.YES_NO_OPTION);
-       
-        if(i==JOptionPane.YES_OPTION){
-            uiResolution.createResolution(this);
-            FrViewRequest fvr=new FrViewRequest();
-            fvr.setEmployee(employee);
-            fvr.setMenu();
-            fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-            fvr.setVisible(true);
-            this.setVisible(false);
+        if(uiResolution instanceof UICoordinator){
+            UICoordinator uiC = (UICoordinator) uiResolution; 
+            int i=JOptionPane.showConfirmDialog(this, "¿Seguro de que quiere crear una Resolución?","",JOptionPane.YES_NO_OPTION);
+            if(i==JOptionPane.YES_OPTION){
+                uiC.createResolution(this);
+                FrViewRequest fvr=new FrViewRequest(uiResolution);
+                fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+                fvr.setVisible(true);
+                this.setVisible(false);
+            }
         }
+ 
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
-        FrViewRequest fvr=new FrViewRequest();
-        fvr.setEmployee(employee);
-        fvr.setMenu();
+        FrViewRequest fvr=new FrViewRequest(uiResolution);
         fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fvr.setVisible(true);
         this.setVisible(false);
@@ -425,9 +403,7 @@ public class FrResolution extends javax.swing.JFrame {
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
-        FrStadistics frstadistics= new FrStadistics();
-        frstadistics.setEmployee(employee);
-        frstadistics.setMenu();
+        FrStadistics frstadistics= new FrStadistics(uiResolution);
         frstadistics.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frstadistics.setVisible(true);
         this.setVisible(false);
@@ -436,13 +412,10 @@ public class FrResolution extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnviewStadisticsActionPerformed
 
-    private void btnExelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExelActionPerformed
-        // TODO add your handling code here:
-        uiResolution.loadfile();
-    }//GEN-LAST:event_btnExelActionPerformed
-
     private void btnSaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveAsActionPerformed
         // TODO add your handling code here:
+        if(uiResolution instanceof UICoordinator){
+            UICoordinator uiC = (UICoordinator) uiResolution; 
         EDocType format=(EDocType) JOptionPane.showInputDialog(this, 
             "Guardar como...",
             "",
@@ -452,47 +425,13 @@ public class FrResolution extends javax.swing.JFrame {
             EDocType.values()[0]);
         
        
-        uiResolution.createResolutionDoc(format);
+        uiC.createResolutionDoc(format);
+        }
     }//GEN-LAST:event_btnSaveAsActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrResolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrResolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrResolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrResolution.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrResolution().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem btnExel;
     private javax.swing.JMenuItem btnNewRequest;
     private javax.swing.JMenuItem btnSave;
     private javax.swing.JMenuItem btnSaveAs;
@@ -531,4 +470,5 @@ public class FrResolution extends javax.swing.JFrame {
     private javax.swing.JTextPane txtresolve;
     private javax.swing.JTextPane txtresult;
     // End of variables declaration//GEN-END:variables
+
 }

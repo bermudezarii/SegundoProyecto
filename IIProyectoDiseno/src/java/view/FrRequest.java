@@ -5,51 +5,23 @@
  */
 package view;
 
-import controller.UIAssistant;
 import controller.UIBase;
 import controller.UICoordinator;
-import controller.UIHeadmaster;
-import controller.UISuperUser;
 import java.io.File;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import model.EEmployeeRol;
-import model.Employee;
+
 
 /**
  *
  * @author Usuario
  */
 public class FrRequest extends javax.swing.JFrame {
-    private Employee employee; 
-    private UIBase uiRequest; 
-
-    public UIBase getUiRequest() {
-        return uiRequest;
-    }
-
-    public void setUiRequest(UIBase uiRequest) {
-        this.uiRequest = uiRequest;
-    }
-    
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-        if(employee.getRol()  == EEmployeeRol.CORDINATOR){
-            this.setUiRequest(new UICoordinator());
-            setFrameAfterUI();
-             System.out.println("fr request tiene uicoordinador");
-        }
-    }
+    private UICoordinator uiRequest; 
 
     public JComboBox<String> getCbcategory() {
         return cbcategory;
@@ -151,12 +123,10 @@ public class FrRequest extends javax.swing.JFrame {
 
     
     
-    public FrRequest() {
+    public FrRequest(UIBase ui) {
+        uiRequest =(UICoordinator) ui; 
         initComponents();
         this.setResizable(false);
-    }
-
-    public void setFrameAfterUI(){
         uiRequest.setallPeriods(this);
         cbperiod.setSelectedIndex(0);
         uiRequest.setallCourses(this);
@@ -164,20 +134,9 @@ public class FrRequest extends javax.swing.JFrame {
         uiRequest.setallGroups(this);
         cbgroup.setSelectedIndex(0);
     }
-    
-    public void setMenu(){
-        
-        if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            System.out.println("llega aqui 2");
-            btnExel.setVisible(true);
-            btnNewRequest.setVisible(true);
-            btnViewRequest.setVisible(true);
-            btnviewStadistics.setVisible(true);
-            btnAddFile.setVisible(true);
-        }
-   
 
-    }
+  
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -449,9 +408,7 @@ public class FrRequest extends javax.swing.JFrame {
 
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
-        FrViewRequest fvr=new FrViewRequest();
-        fvr.setEmployee(employee);
-        fvr.setMenu();
+        FrViewRequest fvr=new FrViewRequest((UIBase)uiRequest);
         this.setVisible(false);
     
         fvr.setVisible(true);
@@ -484,12 +441,8 @@ public class FrRequest extends javax.swing.JFrame {
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
-        FrStadistics frstadistics= new FrStadistics();
-        frstadistics.setEmployee(employee);
-        frstadistics.setMenu();
-       
+        FrStadistics frstadistics= new FrStadistics((UIBase)uiRequest);    
         frstadistics.setVisible(true);
-        
         this.setVisible(false);
    
 
@@ -524,41 +477,7 @@ public class FrRequest extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAddFileActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrRequest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrRequest().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnAddFile;

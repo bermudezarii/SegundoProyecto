@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.UIBase;
 import controller.UICoordinator;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -17,8 +18,8 @@ import model.Employee;
  * @author Ximena
  */
 public class FrTemplate extends javax.swing.JFrame {
-    private Employee employee; 
-
+    private UICoordinator ui;
+    
     public JTextArea getTxtconsider() {
         return txtconsider;
     }
@@ -51,7 +52,7 @@ public class FrTemplate extends javax.swing.JFrame {
         this.txtresult = txtresult;
     }
     
-    private UICoordinator ui;
+   
     
     /**
      * Creates new form FrTemplate
@@ -59,6 +60,7 @@ public class FrTemplate extends javax.swing.JFrame {
     public FrTemplate() {
         ui=new UICoordinator();
         initComponents();
+      
         txtintro.setEnabled(false);
         txtconsider.setEnabled(false);
         txtresolve.setEnabled(false);
@@ -73,22 +75,7 @@ public class FrTemplate extends javax.swing.JFrame {
         
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-    
-    public void setMenu(){
-        if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            btnNewTemplate.setEnabled(true);
-            btnViewRequest.setEnabled(true);
-            btnViewResolution.setEnabled(true);
-            btnviewStadistics.setEnabled(true);
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -272,9 +259,7 @@ public class FrTemplate extends javax.swing.JFrame {
 
     private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
         // TODO add your handling code here:
-        NewTemplate fr=new NewTemplate();
-        fr.setEmployee(employee); 
-        fr.setMenu(); 
+        NewTemplate fr=new NewTemplate(); 
         fr.setVisible(true);
         this.setVisible(false);
 
@@ -282,9 +267,8 @@ public class FrTemplate extends javax.swing.JFrame {
 
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
-        FrViewRequest fvr=new FrViewRequest();
-        fvr.setEmployee(employee); 
-        fvr.setMenu(); 
+        UIBase uiB = (UIBase) this.ui; 
+        FrViewRequest fvr=new FrViewRequest(uiB);
         fvr.setVisible(true);
         this.setVisible(false);
 
@@ -292,9 +276,8 @@ public class FrTemplate extends javax.swing.JFrame {
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
-        FrStadistics frstadistics= new FrStadistics();
-        frstadistics.setEmployee(employee);
-        frstadistics.setMenu();
+        UIBase uiB = (UIBase) this.ui; 
+        FrStadistics frstadistics= new FrStadistics(uiB);
         frstadistics.setVisible(true);
         this.setVisible(false);
 
@@ -302,9 +285,8 @@ public class FrTemplate extends javax.swing.JFrame {
 
     private void btnViewResolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolutionActionPerformed
         // TODO add your handling code here:
-        FrResolution frResolution= new FrResolution();
-        frResolution.setEmployee(employee);
-        frResolution.setMenu();
+        UIBase uiB = (UIBase) this.ui; 
+        FrResolution frResolution= new FrResolution(uiB);
         frResolution.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnViewResolutionActionPerformed

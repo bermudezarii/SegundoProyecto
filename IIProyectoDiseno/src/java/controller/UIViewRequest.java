@@ -5,10 +5,13 @@
  */
 package controller;
 
+import view.FrViewRequest;
+
 /**
  *
- * @author Ximena
+ * @author coco
  */
-public interface ObserverUI {
-    void notifyObserver();
+public interface UIViewRequest {
+    public void setallRequest(FrViewRequest frviewrequest); 
+    public void setRequest(FrViewRequest frviewrequest); 
 }

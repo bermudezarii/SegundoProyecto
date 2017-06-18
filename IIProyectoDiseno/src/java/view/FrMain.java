@@ -7,61 +7,63 @@ package view;
 
 import controller.FacadeCoordinator;
 import controller.FileTypeFilter;
-import controller.School;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import controller.UIBase;
 import java.io.File;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.filechooser.FileFilter;
-import model.EEmployeeRol;
-import model.Employee;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 /**
  *
  * @author Ximena
  */
 public class FrMain extends javax.swing.JFrame {
-    private Employee employee; 
+    private UIBase ui; 
     /**
      * Creates new form FrMain
      */
-    public FrMain() {
-       
+    public FrMain(UIBase ui) {
         initComponents();
+        this.ui = ui; 
+        ui.setMenu(this);
+        
+    }
+
+
+    public JMenuItem getBtnExel() {
+        return btnExel;
+    }
+
+    public void setBtnExel(JMenuItem btnExel) {
+        this.btnExel = btnExel;
+    }
+
+    public JMenuItem getBtnNewRequest() {
+        return btnNewRequest;
+    }
+
+    public void setBtnNewRequest(JMenuItem btnNewRequest) {
+        this.btnNewRequest = btnNewRequest;
+    }
+
+    public JMenuItem getBtnViewRequest() {
+        return btnViewRequest;
+    }
+
+    public void setBtnViewRequest(JMenuItem btnViewRequest) {
+        this.btnViewRequest = btnViewRequest;
+    }
+
+
+
+    public JMenuItem getBtnviewStadistics() {
+        return btnviewStadistics;
+    }
+
+    public void setBtnviewStadistics(JMenuItem btnviewStadistics) {
+        this.btnviewStadistics = btnviewStadistics;
+    initComponents();
         this.setResizable(false);
-    }
-
-    public void setMenu(){
-        if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnViewRequest.setVisible(true);
-            btnviewStadistics.setVisible(false);
-        }
-        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            System.out.println("llega aqui 2");
-            btnExel.setVisible(true);
-            btnNewRequest.setVisible(true);
-            btnViewRequest.setVisible(true);
-            btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnExel.setVisible(false);
-            btnNewRequest.setVisible(false);
-            btnViewRequest.setVisible(false);
-            btnviewStadistics.setVisible(true);
-        }
-
-
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
     }
 
     @SuppressWarnings("unchecked")
@@ -151,9 +153,7 @@ public class FrMain extends javax.swing.JFrame {
 
     private void btnNewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewRequestActionPerformed
         // TODO add your handling code here:
-        FrRequest fr= new FrRequest();
-        fr.setEmployee(employee);
-        fr.setMenu();
+        FrRequest fr= new FrRequest(ui);
         fr.setVisible(true);
         this.setVisible(false);
    
@@ -162,9 +162,7 @@ public class FrMain extends javax.swing.JFrame {
 
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
-        FrViewRequest fvr=new FrViewRequest();
-        fvr.setEmployee(employee);
-        fvr.setMenu();
+        FrViewRequest fvr=new FrViewRequest(ui);
         this.setVisible(false);
         fvr.setVisible(true);
      
@@ -173,9 +171,7 @@ public class FrMain extends javax.swing.JFrame {
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
-        FrStadistics frstadistics= new FrStadistics();
-        frstadistics.setEmployee(employee);
-        frstadistics.setMenu();
+        FrStadistics frstadistics= new FrStadistics(ui);
         frstadistics.setVisible(true);
         this.setVisible(false);
     
@@ -198,42 +194,7 @@ public class FrMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnExelActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrMain().setVisible(true);
-            }
-            
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnExel;

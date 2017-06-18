@@ -11,12 +11,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import model.Course;
 import model.Employee;
 import model.Group;
 import model.Request;
 import org.jfree.data.category.DefaultCategoryDataset;
+import view.FrMain;
 import view.FrRequest;
 import view.FrResolution;
 import view.FrStadistics;
@@ -28,13 +30,14 @@ import view.NewTemplate;
  *
  * @author Ximena
  */
-public class UIHeadmaster implements  UIBase, ObserverUI{
+public class UIHeadmaster implements  UIBase, ObserverUI, UIStadistics{
     private FacadeHeadMaster facade; 
 
     public UIHeadmaster() {
         facade=new FacadeHeadMaster();
     }
 
+    @Override
      public void processedRequestsInDateRange(FrStadistics frstadistics) {
         
         Date start=(Date) frstadistics.getSpInitialD().getValue();
@@ -47,6 +50,7 @@ public class UIHeadmaster implements  UIBase, ObserverUI{
             frstadistics.getCbResolutions().addItem(Integer.toString(request.getId()));
         }
     }
+    @Override
      public void getRequest(FrStadistics frstadistics){
          if(frstadistics.getCbResolutions().getItemCount()!=0){
             Request r=facade.selectRequest(frstadistics.getCbResolutions().getSelectedItem().toString());
@@ -60,6 +64,7 @@ public class UIHeadmaster implements  UIBase, ObserverUI{
          }
      
      }
+    @Override
      public void setallPeriods(FrStadistics frstadistics){
         int i=0;
         ArrayList<String>periods=new ArrayList<String>();
@@ -72,6 +77,7 @@ public class UIHeadmaster implements  UIBase, ObserverUI{
         
     }
     }
+    @Override
      public DefaultCategoryDataset top5CoursesResolutionsByPeriod(FrStadistics frstadistics){
         HashMap<Course, Integer> c=facade.top5CoursesResolutionsByPeriod(frstadistics.getCbperiod().getSelectedItem().toString());
          DefaultCategoryDataset dataset=new DefaultCategoryDataset();
@@ -81,6 +87,7 @@ public class UIHeadmaster implements  UIBase, ObserverUI{
          }
          return dataset;
     }
+    @Override
       public DefaultCategoryDataset top3ProfessorsResolutions() {
         HashMap<Employee, Integer> e= facade.top3ProfessorsResolutions();
         DefaultCategoryDataset dataset=new DefaultCategoryDataset();
@@ -104,80 +111,22 @@ public class UIHeadmaster implements  UIBase, ObserverUI{
         }
     }
 
+    
     @Override
-    public void setMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object getFacade() {
-        return facade; 
-    }
-
-    @Override
-    public void setFacade(Object facade) {
-        FacadeHeadMaster o = (FacadeHeadMaster) facade; 
-        this.facade = o; 
-    }
-
-    @Override
-    public DTORequest getDtoRequest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setDtoRequest(DTORequest dtoRequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createRequest(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallGroups(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallCourses(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallPeriods(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallRequest(FrViewRequest frviewrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setRequest(FrViewRequest frviewrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void CancelRequest(FrViewRequest frviewrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createResolution(FrResolution frResolution) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createResolutionDoc(EDocType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getResolution(FrResolution frResolution) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setMenu(JFrame frame) {
+        if(frame instanceof FrMain){
+            FrMain fr = (FrMain) frame; 
+            fr.getBtnExel().setVisible(false);
+            fr.getBtnNewRequest().setVisible(false);
+            fr.getBtnViewRequest().setVisible(false);
+            fr.getBtnviewStadistics().setVisible(true);
+        }
+        else if(frame instanceof FrStadistics){
+            FrStadistics fr = (FrStadistics) frame; 
+            fr.getBtnnewRequest().setVisible(false);
+            fr.getBtnviewRequest().setVisible(false);
+            fr.getBtnviewStadistics().setVisible(true);
+        }            
     }
 
     @Override
@@ -185,23 +134,4 @@ public class UIHeadmaster implements  UIBase, ObserverUI{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void createTemplate(NewTemplate frtemplate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void insertParam(JTextArea txt, int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void selectTemplates(FrTemplate template) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getTemplate(FrTemplate template) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.UIBase;
 import controller.UICoordinator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,49 +25,8 @@ import view.FrViewRequest;
  */
 public class NewTemplate extends javax.swing.JFrame {
     private UICoordinator ui;
-      private Employee employee; 
-    
-        public void setMenu(){
-   
-        
-        if(employee.getRol() == EEmployeeRol.ASSINTANT){
-            btnNewTemplate.setVisible(false);
-            btnViewRequest.setVisible(true);
-            btnViewResolution.setVisible(true);
-            btnsavetemplate.setVisible(false);
-            btnviewStadistics.setVisible(false);
-        }
-        else if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            btnNewTemplate.setVisible(true);
-            btnViewRequest.setVisible(true);
-            btnViewResolution.setVisible(true);
-            btnsavetemplate.setVisible(true);
-            btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnNewTemplate.setVisible(false);
-            btnViewRequest.setVisible(false);
-            btnViewResolution.setVisible(false);
-            btnsavetemplate.setVisible(false);
-            btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.PROFESSOR){
-            btnNewTemplate.setVisible(false);
-            btnViewRequest.setVisible(false);
-            btnViewResolution.setVisible(false);
-            btnsavetemplate.setVisible(false);
-            btnviewStadistics.setVisible(false);
-        }
 
-    }
-    
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
+ 
     /**
      * Creates new form NewTemplate
      */
@@ -335,27 +295,24 @@ public class NewTemplate extends javax.swing.JFrame {
 
     private void btnNewTemplateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewTemplateActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
-        fr.setEmployee(employee);
-        fr.setMenu();
+        FrRequest fr=new FrRequest((UIBase)ui);
+ 
         fr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnNewTemplateActionPerformed
 
     private void btnViewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewRequestActionPerformed
         // TODO add your handling code here:
-        FrViewRequest fvr=new FrViewRequest();
-        fvr.setEmployee(employee);
-        fvr.setMenu();
+        FrViewRequest fvr=new FrViewRequest((UIBase)ui);
+   
         fvr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnViewRequestActionPerformed
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
-        FrStadistics frstadistics= new FrStadistics();
-        frstadistics.setEmployee(employee);
-        frstadistics.setMenu();
+        FrStadistics frstadistics= new FrStadistics((UIBase)ui);
+
         frstadistics.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnviewStadisticsActionPerformed
@@ -376,8 +333,6 @@ public class NewTemplate extends javax.swing.JFrame {
                 // TODO add your handling code here:
                 ui.createTemplate(this);
                 FrTemplate frtemplate=new FrTemplate();
-                frtemplate.setEmployee(employee);
-                frtemplate.setMenu();
                 frtemplate.setVisible(true);
                 
                 this.setVisible(false);

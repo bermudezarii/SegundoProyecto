@@ -5,10 +5,12 @@
  */
 package controller;
 
+import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import model.Request;
 import model.Resolution;
 import org.jfree.data.category.DefaultCategoryDataset;
+import view.FrMain;
 import view.FrRequest;
 import view.FrResolution;
 import view.FrStadistics;
@@ -20,7 +22,7 @@ import view.NewTemplate;
  *
  * @author Ximena
  */
-public class UIAssistant implements ObserverUI, UIBase{
+public class UIAssistant implements ObserverUI, UIBase, UIViewRequest{
     private FacadeAssistant facade; 
     private Resolution r; 
 
@@ -29,6 +31,7 @@ public class UIAssistant implements ObserverUI, UIBase{
     }
         
 
+    @Override
     public void setallRequest(FrViewRequest frviewrequest){
         frviewrequest.getLbCategory().setText("");
         frviewrequest.getLbcarne().setText("");
@@ -79,16 +82,12 @@ public class UIAssistant implements ObserverUI, UIBase{
                 frviewrequest.getBtnNewResolution1().setVisible(false);
                 frviewrequest.getBtnViewResolution().setVisible(false);
                 break;
-                
-                
-            
-        }
-
-            
+                  
+        }          
             
     }
         
-      public void getResolution(FrResolution frResolution) {
+    public void getResolution(FrResolution frResolution) {
       r=facade.getResolution();
         if(r.isDefinitive()) {
             frResolution.getTxtintro().setEnabled(false);
@@ -109,57 +108,8 @@ public class UIAssistant implements ObserverUI, UIBase{
        frResolution.getTxtconsider().setText(r.getConsider());
     }
 
-    @Override
-    public void notifyObserver() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
-    public void setMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object getFacade() {
-        return facade; 
-    }
-
-    @Override
-    public void setFacade(Object facade) {
-        FacadeAssistant o = (FacadeAssistant) facade; 
-        this.facade = o; 
-    }
-
-    @Override
-    public DTORequest getDtoRequest() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setDtoRequest(DTORequest dtoRequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createRequest(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallGroups(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallCourses(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallPeriods(FrRequest frrequest) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public void setRequest(FrViewRequest frviewrequest){
  
        if (frviewrequest.getCdRequest().getItemCount()!=0){
@@ -215,68 +165,59 @@ public class UIAssistant implements ObserverUI, UIBase{
       }
     }
 
+
     @Override
-    public void CancelRequest(FrViewRequest frviewrequest) {
+    public void notifyObserver() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void loadfile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createResolution(FrResolution frResolution) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createResolutionDoc(EDocType type) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void processedRequestsInDateRange(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getRequest(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setallPeriods(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DefaultCategoryDataset top5CoursesResolutionsByPeriod(FrStadistics frstadistics) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DefaultCategoryDataset top3ProfessorsResolutions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void createTemplate(NewTemplate frtemplate) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void insertParam(JTextArea txt, int num) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void selectTemplates(FrTemplate template) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void getTemplate(FrTemplate template) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setMenu(JFrame frame) {
+        if(frame instanceof FrMain){
+            FrMain fr = (FrMain) frame; 
+            fr.getBtnExel().setVisible(false);
+            fr.getBtnNewRequest().setVisible(false);
+            fr.getBtnViewRequest().setVisible(true);
+            fr.getBtnviewStadistics().setVisible(false);
+        
+        }
+        else if(frame instanceof FrResolution){
+            FrResolution fr = (FrResolution) frame; 
+            fr.getBtnSave().setVisible(false);
+            fr.getBtnSaveAs().setVisible(false);
+            fr.getBtnNewRequest().setVisible(false);
+            fr.getBtnViewRequest().setVisible(true);
+            fr.getBtnviewStadistics().setVisible(false);
+            
+        }
+        else if(frame instanceof FrViewRequest){
+            FrViewRequest fr = (FrViewRequest) frame; 
+            
+            
+            fr.getBtncancel().setEnabled(false);
+            fr.getBtncancel().setVisible(false);
+            fr.getTxtMotivo().setEditable(false);
+            fr.getTxtMotivo().setEnabled(false);
+            fr.getLbdescription().setEditable(false);
+            fr.getLbdescription().setEnabled(false);
+            System.out.println("desaparecer");
+            fr.getBtnNewResolution().setVisible(false);
+            fr.getBtnNewResolution().setEnabled(false);
+            fr.getBtnNewResolution1().setEnabled(false);
+            fr.getBtnNewResolution1().setVisible(false);
+            fr.getjMenu5().setVisible(false);
+            System.out.println("desaparecer1");
+            fr.getBtnNewRequest().setVisible(false);
+            fr.getBtnNewRequest1().setVisible(false);
+            fr.getBtnViewRequest().setVisible(true);
+            fr.getBtnViewRequest1().setVisible(true);
+            fr.getBtnViewResolution().setVisible(true);
+            fr.getBtnviewStadistics().setVisible(false);
+        }
+        
+      
+             
+        
+    
     }
 }

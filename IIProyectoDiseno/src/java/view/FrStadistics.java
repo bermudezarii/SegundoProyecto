@@ -10,17 +10,21 @@ import controller.UIAssistant;
 import controller.UIBase;
 import controller.UICoordinator;
 import controller.UIHeadmaster;
+import controller.UIStadistics;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
+import javax.swing.JToggleButton;
 import model.EEmployeeRol;
 import model.Employee;
 import org.jfree.chart.ChartFactory;
@@ -46,55 +50,52 @@ import org.jfree.util.Rotation;
 
 
 public class FrStadistics extends javax.swing.JFrame {
-    private UIBase uiStadistics; 
-    private Employee employee; 
+    private UIStadistics uiStadistics; 
+
     
-    public Employee getEmployee() {
-        return employee;
+
+
+    public JMenuItem getBtnnewRequest() {
+        return btnnewRequest;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-        if(employee.getRol()  == EEmployeeRol.CORDINATOR){
-            
-            this.setUiStadistics(new UICoordinator());
-            System.out.println("fr stadistics tiene uicoordinador");
-            setFrameAfterUI();
-        }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            this.setUiStadistics(new UIHeadmaster());
-            System.out.println("fr stadistics tiene uidirector");
-            setFrameAfterUI();
-        }
-        
+    public void setBtnnewRequest(JMenuItem btnnewRequest) {
+        this.btnnewRequest = btnnewRequest;
     }
 
-    public UIBase getUiStadistics() {
-        return uiStadistics;
+    public JButton getBtnok() {
+        return btnok;
     }
 
-    public void setUiStadistics(UIBase uiStadistics) {
-        this.uiStadistics = uiStadistics;
+    public void setBtnok(JButton btnok) {
+        this.btnok = btnok;
+    }
+
+    public JToggleButton getBtnsearch() {
+        return btnsearch;
+    }
+
+    public void setBtnsearch(JToggleButton btnsearch) {
+        this.btnsearch = btnsearch;
+    }
+
+    public JMenuItem getBtnviewRequest() {
+        return btnviewRequest;
+    }
+
+    public void setBtnviewRequest(JMenuItem btnviewRequest) {
+        this.btnviewRequest = btnviewRequest;
+    }
+
+    public JMenuItem getBtnviewStadistics() {
+        return btnviewStadistics;
+    }
+
+    public void setBtnviewStadistics(JMenuItem btnviewStadistics) {
+        this.btnviewStadistics = btnviewStadistics;
     }
     
     
-    
-    public void setMenu(){
-        if (employee.getRol() == EEmployeeRol.CORDINATOR){
-            System.out.println("llega aqui 2");
-            btnExel.setVisible(true);
-            btnnewRequest.setVisible(true);
-            btnviewRequest.setVisible(true);
-            btnviewStadistics.setVisible(true);
-        }
-        else if(employee.getRol() == EEmployeeRol.HEADMASTER){
-            btnExel.setVisible(false);
-            btnnewRequest.setVisible(false);
-            btnviewRequest.setVisible(false);
-            btnviewStadistics.setVisible(true);
-        }
-
-    }
     
     public JComboBox<String> getCbResolutions() {
         return cbResolutions;
@@ -184,12 +185,12 @@ public class FrStadistics extends javax.swing.JFrame {
         this.spInitialD = spInitialD;
     }
 
-    public FrStadistics() {
+    public FrStadistics(UIBase ui) {
         initComponents();
- 
-    }
-
-    public void setFrameAfterUI(){
+        ui.setMenu(this);
+        if(ui instanceof UICoordinator || ui instanceof UIHeadmaster){
+            uiStadistics = (UIStadistics) ui; 
+        }
         DefaultCategoryDataset dataset= new DefaultCategoryDataset();
         dataset=uiStadistics.top3ProfessorsResolutions();
         JFreeChart chart= ChartFactory.createBarChart("Profesores", "", "", dataset, PlotOrientation.HORIZONTAL, false, true, false);
@@ -203,7 +204,10 @@ public class FrStadistics extends javax.swing.JFrame {
         pnProf.validate();
         uiStadistics.processedRequestsInDateRange(this);
         uiStadistics.setallPeriods(this);
+ 
     }
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -247,7 +251,6 @@ public class FrStadistics extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnnewRequest = new javax.swing.JMenuItem();
-        btnExel = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         btnviewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -459,14 +462,6 @@ public class FrStadistics extends javax.swing.JFrame {
         });
         jMenu1.add(btnnewRequest);
 
-        btnExel.setText("Cargar Excel...");
-        btnExel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExelActionPerformed(evt);
-            }
-        });
-        jMenu1.add(btnExel);
-
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ver ");
@@ -496,9 +491,7 @@ public class FrStadistics extends javax.swing.JFrame {
 
     private void btnnewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewRequestActionPerformed
         // TODO add your handling code here:
-        FrRequest fr=new FrRequest();
-        fr.setEmployee(employee);
-        fr.setMenu();
+        FrRequest fr=new FrRequest((UIBase) uiStadistics);
         fr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fr.setVisible(true);
         this.setVisible(false);
@@ -528,9 +521,7 @@ public class FrStadistics extends javax.swing.JFrame {
 
     private void btnviewStadisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewStadisticsActionPerformed
         // TODO add your handling code here:
-            FrStadistics frstadistics= new FrStadistics();
-            frstadistics.setEmployee(employee);
-            frstadistics.setMenu(); 
+            FrStadistics frstadistics= new FrStadistics((UIBase) uiStadistics);
             frstadistics.setExtendedState(JFrame.MAXIMIZED_BOTH); 
             frstadistics.setVisible(true);
             this.setVisible(false);
@@ -539,9 +530,7 @@ public class FrStadistics extends javax.swing.JFrame {
 
     private void btnviewRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewRequestActionPerformed
         // TODO add your handling code here:
-        FrViewRequest fvr=new FrViewRequest();
-        fvr.setEmployee(employee); 
-        fvr.setMenu(); 
+        FrViewRequest fvr=new FrViewRequest((UIBase) uiStadistics); 
         fvr.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         fvr.setVisible(true);
         this.setVisible(false);
@@ -559,43 +548,10 @@ public class FrStadistics extends javax.swing.JFrame {
         uiStadistics.processedRequestsInDateRange(this);
     }//GEN-LAST:event_btnsearchActionPerformed
 
-    private void btnExelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExelActionPerformed
-        // TODO add your handling code here:
-       uiStadistics.loadfile();
-    }//GEN-LAST:event_btnExelActionPerformed
-
   
-    public static void main(String args[]) {
-        
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrStadistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrStadistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrStadistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrStadistics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrStadistics().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem btnExel;
     private javax.swing.JMenuItem btnnewRequest;
     private javax.swing.JButton btnok;
     private javax.swing.JToggleButton btnsearch;
