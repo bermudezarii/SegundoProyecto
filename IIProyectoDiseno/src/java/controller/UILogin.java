@@ -16,10 +16,9 @@ import view.FrSuperUser;
  *
  * @author Ximena
  */
-public class UILogin extends AbstractBridge implements  UIBase {
+public class UILogin implements  UIBase {
     private DTOEmployee dto;
     private FacadeLogin facadelogin; 
-    public void login(){}
 
     public UILogin() {
         this.facadelogin = new FacadeLogin(); 
@@ -31,11 +30,11 @@ public class UILogin extends AbstractBridge implements  UIBase {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-     public void matchEmployee(FrLogin aThis) {
+     public void login(FrLogin aThis) {
         dto = new DTOEmployee(); 
         dto.setId(aThis.getTextFieldUser().getText());
         dto.setPassword(aThis.getTextFieldPassword().getText());
-        if(facadelogin.matchEmployee(dto) == true){
+        if(facadelogin.login(dto) == true){
             Employee employee = facadelogin.findEmployee(dto.getId()); 
             System.out.println("empleado encontrado: "+ employee.toString());
             if(employee.getRol() == EEmployeeRol.ASSINTANT || employee.getRol() == EEmployeeRol.CORDINATOR || employee.getRol() == EEmployeeRol.HEADMASTER || employee.getRol() == EEmployeeRol.PROFESSOR){

@@ -13,38 +13,19 @@ import model.Employee;
  * @author Ximena
  */
 public class FacadeLogin {
-    private School school; 
+    private AbstractBridge abstractBridge;
     
     public FacadeLogin() {
-        school= School.getInstance();
+        abstractBridge = new AbstractBridge(); 
     }
     
     
     public  Employee findEmployee(String id){
-        return school.findEmployee(id);
+        return abstractBridge.findEmployee(id); 
     }
     
-    public boolean matchEmployee(DTOEmployee dto){
-        System.out.println("ni entra?");
-        String id = dto.getId(); 
-        String password = dto.getPassword(); 
-        System.out.println("id: " + dto.getId() + ", password: " + dto.getPassword());
-        ArrayList<Object> elements = school.selectAllEmployee(); 
-        System.out.println("empleados obtenidos: " + elements.toString());
-        int len = elements.size();
-        for (int i = 0; i < len; i++) {
-            Employee employee = (Employee) elements.get(i); 
-            if (employee.getId().equals(id)){
-                System.out.println("empleado encontrado: " + employee.toString());
-                if(employee.getPassword().equals(password)){
-                    System.out.println("si es igual en la contraseña");
-                    return true; 
-                }
-                System.out.println("no es igual en la contraseña");
-                return false; 
-            }
-        }
-        return false; 
+    public boolean login(DTOEmployee dto){
+        return abstractBridge.login(dto); 
     }
     
 }

@@ -141,7 +141,7 @@ public class FrLogin extends javax.swing.JFrame {
 
     private void ButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIngresarActionPerformed
         // TODO add your handling code here:
-        uilogin.matchEmployee(this); 
+        uilogin.login(this); 
     }//GEN-LAST:event_ButtonIngresarActionPerformed
 
     /**
