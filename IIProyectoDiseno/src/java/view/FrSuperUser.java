@@ -427,6 +427,9 @@ public class FrSuperUser extends javax.swing.JFrame {
         ComboBoxRol = new javax.swing.JComboBox<>();
         ButtonAddUser = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        btnExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -696,6 +699,20 @@ public class FrSuperUser extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar", jPanel1);
 
+        jMenu1.setText("Archivo");
+
+        btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnExit);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -784,6 +801,13 @@ public class FrSuperUser extends javax.swing.JFrame {
          uiSuperuser.selectEmployee(this,jComboBoxDelUsuario.getSelectedItem().toString());
     }//GEN-LAST:event_jComboBoxDelUsuarioActionPerformed
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        FrLogin fr=new FrLogin();
+        fr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -828,6 +852,7 @@ public class FrSuperUser extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldAddName;
     private javax.swing.JTextField TextFieldAddPhone;
     private javax.swing.JTextField TextFieldAddUsername;
+    private javax.swing.JMenuItem btnExit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonDelUsuario;
     private javax.swing.JCheckBox jCheckBoxModEmail;
@@ -861,6 +886,8 @@ public class FrSuperUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

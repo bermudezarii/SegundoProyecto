@@ -120,7 +120,7 @@ public class UIAssistant implements  UIBase, UIViewRequest{
             Request r=facade.selectRequest(frviewrequest.getCdRequest().getSelectedItem().toString());
             switch(frviewrequest.getCbtyperequest().getSelectedIndex()){
                 case 0:
-                     frviewrequest.getLbCategory().setText(r.getInconsistencie().toString());
+                     frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
                      frviewrequest.getLbdescription().setText(r.getDescription());
@@ -134,8 +134,7 @@ public class UIAssistant implements  UIBase, UIViewRequest{
                      break;
                 case 1:
 
-                     frviewrequest.getLbCategory().setText(r.getInconsistencie().toString());
-                     frviewrequest.getLbcarne().setText(r.getAffected().getId());
+                     frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);                     frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
                      frviewrequest.getLbdescription().setText(r.getDescription());
                      frviewrequest.getLbemail().setText(r.getAffected().getEmail());
@@ -149,7 +148,7 @@ public class UIAssistant implements  UIBase, UIViewRequest{
                      break;
                 case 2:
 
-                     frviewrequest.getLbCategory().setText(r.getInconsistencie().toString());
+                     frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
                      frviewrequest.getLbdescription().setText(r.getDescription());
@@ -213,6 +212,8 @@ public class UIAssistant implements  UIBase, UIViewRequest{
             fr.getBtnViewRequest1().setVisible(true);
             fr.getBtnViewResolution().setVisible(true);
             fr.getBtnviewStadistics().setVisible(false);
+            fr.getCbCategory().setEnabled(false);
+            
         }
         
       

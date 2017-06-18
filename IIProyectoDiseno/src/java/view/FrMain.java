@@ -78,6 +78,7 @@ public class FrMain extends javax.swing.JFrame {
         btnexel = new javax.swing.JMenu();
         btnNewRequest = new javax.swing.JMenuItem();
         btnExel = new javax.swing.JMenuItem();
+        btnExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         btnViewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -123,6 +124,14 @@ public class FrMain extends javax.swing.JFrame {
             }
         });
         btnexel.add(btnExel);
+
+        btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        btnexel.add(btnExit);
 
         jMenuBar1.add(btnexel);
 
@@ -194,10 +203,18 @@ public class FrMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnExelActionPerformed
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        FrLogin fr=new FrLogin();
+        fr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem btnExel;
+    private javax.swing.JMenuItem btnExit;
     private javax.swing.JMenuItem btnNewRequest;
     private javax.swing.JMenuItem btnViewRequest;
     private javax.swing.JMenu btnexel;

@@ -251,6 +251,7 @@ public class FrStadistics extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         btnnewRequest = new javax.swing.JMenuItem();
+        btnExit = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         btnviewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -462,6 +463,14 @@ public class FrStadistics extends javax.swing.JFrame {
         });
         jMenu1.add(btnnewRequest);
 
+        btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnExit);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ver ");
@@ -548,10 +557,18 @@ public class FrStadistics extends javax.swing.JFrame {
         uiStadistics.processedRequestsInDateRange(this);
     }//GEN-LAST:event_btnsearchActionPerformed
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        FrLogin fr=new FrLogin();
+        fr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
   
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnExit;
     private javax.swing.JMenuItem btnnewRequest;
     private javax.swing.JButton btnok;
     private javax.swing.JToggleButton btnsearch;

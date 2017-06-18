@@ -196,7 +196,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
             Request r=facade.selectRequest(frviewrequest.getCdRequest().getSelectedItem().toString());
             switch(frviewrequest.getCbtyperequest().getSelectedIndex()){
                 case 0:
-                     frviewrequest.getLbCategory().setText(r.getInconsistencie().toString());
+                     frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
                      frviewrequest.getLbdescription().setText(r.getDescription());
@@ -210,7 +210,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
                      break;
                 case 1:
 
-                     frviewrequest.getLbCategory().setText(r.getInconsistencie().toString());
+                     frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
                      frviewrequest.getLbdescription().setText(r.getDescription());
@@ -225,7 +225,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
                      break;
                 case 2:
 
-                     frviewrequest.getLbCategory().setText(r.getInconsistencie().toString());
+                     frviewrequest.getCbCategory().setSelectedIndex(r.getInconsistencie().ordinal()-1);
                      frviewrequest.getLbcarne().setText(r.getAffected().getId());
                      frviewrequest.getLbcourse().setText(r.getGroup().getCourse().getCode()+" "+r.getGroup().getCourse().getName());
                      frviewrequest.getLbdescription().setText(r.getDescription());
@@ -512,7 +512,13 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
                 
     }
 
-
+    public void changeCategory(FrViewRequest fr){
+        if (fr.getCdRequest().getItemCount()!=0){
+            Request r=facade.selectRequest(fr.getCdRequest().getSelectedItem().toString());
+            r.setInconsistencie(EInconsistencie.values()[fr.getCbCategory().getSelectedIndex()+1]);
+            JOptionPane.showMessageDialog(fr, "Se cambió la categoría con éxito."); 
+        }
+    }
  
 
 }

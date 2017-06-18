@@ -109,6 +109,7 @@ public class FrTemplate extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         btnNewTemplate = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        btnExit = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnViewRequest = new javax.swing.JMenuItem();
         btnviewStadistics = new javax.swing.JMenuItem();
@@ -215,6 +216,14 @@ public class FrTemplate extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem1);
 
+        btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jMenu3.add(btnExit);
+
         jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Ver ");
@@ -318,6 +327,13 @@ public class FrTemplate extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        FrLogin fr=new FrLogin();
+        fr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -354,6 +370,7 @@ public class FrTemplate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnExit;
     private javax.swing.JMenuItem btnNewTemplate;
     private javax.swing.JMenuItem btnViewRequest;
     private javax.swing.JMenuItem btnViewResolution;

@@ -71,6 +71,7 @@ public class FrViewRequest extends javax.swing.JFrame {
             uiRequest = (UIViewRequest) ui; 
             uiRequest.setallRequest(this);
         }
+        lbCategory.setVisible(false);
     }
 
     
@@ -344,11 +345,13 @@ public class FrViewRequest extends javax.swing.JFrame {
         lbdescription = new javax.swing.JTextPane();
         spmotivo = new javax.swing.JScrollPane();
         txtMotivo = new javax.swing.JTextPane();
+        cbCategory = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         btnNewRequest1 = new javax.swing.JMenuItem();
         btnNewResolution1 = new javax.swing.JMenuItem();
+        btnExit = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         btnViewRequest1 = new javax.swing.JMenuItem();
         btnViewResolution = new javax.swing.JMenuItem();
@@ -732,6 +735,14 @@ public class FrViewRequest extends javax.swing.JFrame {
 
         getContentPane().add(spmotivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 850, 100));
 
+        cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ERROR DE NOTA", "INCLUSIÓN", "EXCLUSIÓN" }));
+        cbCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCategoryActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 140, 250, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/images/1200-700cowork.jpg"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 640));
 
@@ -752,6 +763,14 @@ public class FrViewRequest extends javax.swing.JFrame {
             }
         });
         jMenu5.add(btnNewResolution1);
+
+        btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jMenu5.add(btnExit);
 
         jMenuBar3.add(jMenu5);
 
@@ -837,6 +856,14 @@ public class FrViewRequest extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnviewStadisticsActionPerformed
 
+    public JComboBox<String> getCbCategory() {
+        return cbCategory;
+    }
+
+    public void setCbCategory(JComboBox<String> cbCategory) {
+        this.cbCategory = cbCategory;
+    }
+
     private void cdRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdRequestActionPerformed
         // TODO add your handling code here:
         uiRequest.setRequest(this);
@@ -874,10 +901,29 @@ public class FrViewRequest extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_btnViewResolutionActionPerformed
 
+    private void cbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoryActionPerformed
+        // TODO add your handling code here:
+        if(ui instanceof UICoordinator){
+          if(cdRequest.getSelectedItem()!=null){ 
+            UICoordinator uiC = (UICoordinator) ui;
+            uiC.changeCategory(this);
+          } 
+         
+        }
+    }//GEN-LAST:event_cbCategoryActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        // TODO add your handling code here:
+        FrLogin fr=new FrLogin();
+        fr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame FrViewRequest;
     private javax.swing.JButton btnCancelRequest;
+    private javax.swing.JMenuItem btnExit;
     private javax.swing.JMenuItem btnNewRequest;
     private javax.swing.JMenuItem btnNewRequest1;
     private javax.swing.JMenuItem btnNewResolution;
@@ -887,6 +933,7 @@ public class FrViewRequest extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnViewResolution;
     private javax.swing.JButton btncancel;
     private javax.swing.JMenuItem btnviewStadistics;
+    private javax.swing.JComboBox<String> cbCategory;
     private javax.swing.JComboBox<String> cbtyperequest;
     private javax.swing.JComboBox<String> cdRequest;
     private javax.swing.JComboBox<String> jComboBox4;
