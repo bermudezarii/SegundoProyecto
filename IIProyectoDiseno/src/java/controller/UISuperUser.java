@@ -62,8 +62,13 @@ public class UISuperUser {
             dto.setRol(identifyEEmployeeRol(rol));
             
             dto.setPassword(password);
-        facadeSuperuser.insertEmployee(dto);
-        JOptionPane.showMessageDialog(frsuper, "Se ha Creado Una Empleado con Éxito.");
+            if(facadeSuperuser.sameEmail(email)||facadeSuperuser.sameUser(id)){
+                JOptionPane.showMessageDialog(frsuper, "Se ha Ingresado un id o correo existente");
+            }
+            else{
+                facadeSuperuser.insertEmployee(dto);
+                JOptionPane.showMessageDialog(frsuper, "Se ha Creado Una Empleado con Éxito.");
+            }
         FrSuperUser fr=new FrSuperUser();
         fr.setVisible(true);
         frsuper.setVisible(false);
@@ -107,42 +112,68 @@ public class UISuperUser {
         dto.setPhone(employee.getPhone());
         dto.setRol(employee.getRol());
         dto.setPassword(employee.getPassword());
-        
-        if(!frsuper.getjTextFieldModId().getText().equals("")){
-        
-            dto.setId(frsuper.getjTextFieldModId().getText());
-        }
-        if(!frsuper.getjTextFieldModName().getText().equals("")){
-           
-            dto.setName(frsuper.getjTextFieldModName().getText());
-        }
-        if(!frsuper.getjTextFieldModPhone().getText().equals("")){
+        try{
+            if(frsuper.getjCheckBoxModId().isSelected()){
+                if(facadeSuperuser.ifEmployeehasGroup(id)){
+                    throw new Exception("No se puede modificar el usuario, ya que tiene grupos."); 
+                }
+                else{
+                    dto.setId(frsuper.getjTextFieldModId().getText());
+                    if(facadeSuperuser.sameUser(dto.getId())){
+                        throw new Exception("No se puede modificar, ya existe un usuario con ese usuario1"); 
+                    }
+                }
+                
+              
+            }
+            if(frsuper.getjCheckBoxModName().isSelected()){
 
-            dto.setPhone(frsuper.getjTextFieldModPhone().getText());
-        }
-        if(frsuper.getjCheckBoxModRol().isSelected() == true){
-            dto.setRol(identifyEEmployeeRol(frsuper.getjComboBoxModRol().getItemAt(frsuper.getjComboBoxModRol().getSelectedIndex())));
-        }
-        if(!frsuper.getjPasswordFieldModPass1().getText().equals("")){
-      
-            dto.setPassword(frsuper.getjPasswordFieldModPass1().getText());
-        }
-        if(!frsuper.getjTextFieldModId().getText().equals("") && !frsuper.getjTextFieldModEmail().getText().equals("")){
-      
+                dto.setName(frsuper.getjTextFieldModName().getText());
+            }
+            if(frsuper.getjCheckBoxModPhone().isSelected()){
+
+                dto.setPhone(frsuper.getjTextFieldModPhone().getText());
+            }
+            if(frsuper.getjCheckBoxModRol().isSelected() == true){
+                dto.setRol(identifyEEmployeeRol(frsuper.getjComboBoxModRol().getItemAt(frsuper.getjComboBoxModRol().getSelectedIndex())));
+            }
+            if(frsuper.getjCheckBoxModPassword().isSelected()){
+
+                dto.setPassword(frsuper.getjPasswordFieldModPass1().getText());
+            }
+            if(frsuper.getjCheckBoxModId().isSelected() && frsuper.getjCheckBoxModEmail().isSelected()){
+                if(facadeSuperuser.sameUser(dto.getId())){
+                    throw new Exception("No se puede modificar, ya existe un usuario con ese usuario2"); 
+                }
+                else{
+                    facadeSuperuser.editEmployee(dto);
+                    dto.setEmail(frsuper.getjTextFieldModEmail().getText());
+                    if(facadeSuperuser.sameEmail(dto.getEmail())){
+                        throw new Exception("No se puede modificar, ya existe un usuario con ese correo3"); 
+                    }
+                }
+                
+
+            }
+            if(!frsuper.getjCheckBoxModId().isSelected() && frsuper.getjCheckBoxModEmail().isSelected()){
+
+                dto.setEmail(frsuper.getjTextFieldModEmail().getText());
+                if(facadeSuperuser.sameEmail(dto.getEmail())){
+                    throw new Exception("No se puede modificar, ya existe un usuario con ese correo4"); 
+                }
+            }
             facadeSuperuser.editEmployee(dto);
-  
-            dto.setEmail(frsuper.getjTextFieldModEmail().getText());
-           
+            JOptionPane.showMessageDialog(frsuper, "Se ha Modificado Una Empleado con Éxito.");
+            FrSuperUser fr=new FrSuperUser();
+            fr.setVisible(true);
+            frsuper.setVisible(false);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(frsuper, e.getMessage());
+            FrSuperUser fr=new FrSuperUser();
+            fr.setVisible(true);
+            frsuper.setVisible(false);
         }
-        if(frsuper.getjTextFieldModId().getText().equals("") && !frsuper.getjTextFieldModEmail().getText().equals("")){
-         
-            dto.setEmail(frsuper.getjTextFieldModEmail().getText());
-        }
-        facadeSuperuser.editEmployee(dto);
-        JOptionPane.showMessageDialog(frsuper, "Se ha Modificado Una Empleado con Éxito.");
-        FrSuperUser fr=new FrSuperUser();
-        fr.setVisible(true);
-        frsuper.setVisible(false);
+
         
     }
     
@@ -168,8 +199,13 @@ public class UISuperUser {
         
         Employee employee = facadeSuperuser.selectEmployee(id); 
         
-        facadeSuperuser.deleteEmployee(employee.getId()); 
-        JOptionPane.showMessageDialog(frsuper, "Se ha Eliminado Una Empleado con Éxito.");
+        if(facadeSuperuser.ifEmployeehasGroup(id)){
+            JOptionPane.showMessageDialog(frsuper, "No se puede eliminar un empleado con un grupo asociado.");
+        }
+        else{
+            facadeSuperuser.deleteEmployee(employee.getId()); 
+            JOptionPane.showMessageDialog(frsuper, "Se ha Eliminado Una Empleado con Éxito.");
+        }
         FrSuperUser fr=new FrSuperUser();
         fr.setVisible(true);
         frsuper.setVisible(false);

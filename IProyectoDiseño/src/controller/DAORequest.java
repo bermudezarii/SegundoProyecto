@@ -199,7 +199,7 @@ public class DAORequest {
     }
         
     public void saveRequest() {
-       
+        System.out.println("problema esq ni entra");
         XSSFSheet sheet = workbook.getSheetAt(0); 
         sheet.getRow(0).createCell(10).setCellValue("Id solicitante"); 
         sheet.getRow(0).createCell(11).setCellValue("Nombre solicitante");
@@ -261,15 +261,30 @@ public class DAORequest {
        
         // Save to excel file 
         try{
+            System.out.println("pinguinito1");
+            System.out.println("FIS ANTES:" + FIS.toString());
             String filePath = getClass().getResource("/files/DatosFormulario.xlsx").getPath();
+            System.out.println("filepath:" + filePath.toString());
+            System.out.println("pinguinito2");
             FileOutputStream out = new FileOutputStream(new File(filePath));
-       
+            System.out.println("out:" + out.toString());
+            System.out.println("pinguinito3");
+            System.out.println("workbook2:" + workbook.toString());
             workbook.write(out);
-         
+            System.out.println("workbook3:" + workbook.toString());
+            System.out.println("pinguinito4");
             workbook.close();
+             
+            System.out.println("pinguinito5");
             out.close();
+            System.out.println("pinguinito6");
+            System.out.println("workbook4:" + workbook.toString());
+            InputStream fis2 = getClass().getResourceAsStream("/files/DatosFormulario.xlsx");
+            this.workbook = new XSSFWorkbook(fis2); 
             saveResolution();
             
+            
+            System.out.println("pinguinito7");
         } catch (FileNotFoundException ex) {
             
             Logger.getLogger(DAORequest.class.getName()).log(Level.SEVERE, null, ex);

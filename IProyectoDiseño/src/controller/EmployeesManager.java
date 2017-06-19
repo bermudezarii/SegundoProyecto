@@ -108,6 +108,28 @@ public final class EmployeesManager extends Manager {
         return null; 
     }
     
+    public boolean sameUser(String id){
+        int len = elements.size();
+        for (int i = 0; i < len; i++) {
+            Employee employee = (Employee) elements.get(i); 
+            if (employee.getId().equals(id)){
+                return true;
+            }
+        }
+        return false; 
+    }
+    
+    public boolean sameEmail(String email){
+        int len = elements.size();
+        for (int i = 0; i < len; i++) {
+            Employee employee = (Employee) elements.get(i); 
+            if (employee.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false; 
+    }
+    
     public void saveEmployees(){
         data.saveEmployee();
     }

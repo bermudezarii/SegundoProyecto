@@ -77,7 +77,7 @@ public class UICoordinator implements  UIBase, UIStadistics, UIViewRequest{
         dtoRequest.setDescription(frrequest.getTxtdescription().getText());
         dtoRequest.setEmail(frrequest.getTxtemail().getText());
         dtoRequest.setIdStudent(frrequest.getTxtcarne().getText());
-        dtoRequest.setInconsistence(EInconsistencie.values()[frrequest.getCbcategory().getSelectedIndex()]);
+        dtoRequest.setInconsistence(EInconsistencie.values()[frrequest.getCbcategory().getSelectedIndex() +1]);
         dtoRequest.setNameStudent(frrequest.getTxtname().getText());
         dtoRequest.setNumGroup(Integer.parseInt(frrequest.getCbgroup().getSelectedItem().toString()));
         dtoRequest.setPeriod(frrequest.getCbperiod().getSelectedItem().toString());

@@ -437,6 +437,7 @@ public class FrResolution extends javax.swing.JFrame {
         
        
         uiC.createResolutionDoc(format);
+        JOptionPane.showMessageDialog(this, "Resolucion guardada.");
         }
     }//GEN-LAST:event_btnSaveAsActionPerformed
 

@@ -76,5 +76,17 @@ public final class GroupsManager extends Manager {
         elements = data.readGroups();
     }
 
+    public boolean findIfEmployeeHasGroup(String id){
+        Group g;
+        System.out.println("");
+        for(Object o : elements) {
+            
+            g = (Group) o;
+            if(g.getProfessor().getId().equals(id))
+                
+                    return true; 
+            }
+        return false;
+    }
   
 }

@@ -105,6 +105,18 @@ public class School  {
         employeesManager.delete(id);
     }
     
+    public boolean ifEmployeehasGroup(String id){
+        return groupsManager.findIfEmployeeHasGroup(id); 
+    }
+    
+    public boolean sameEmail(String email){
+        return employeesManager.sameEmail(email); 
+    }
+    
+     public boolean sameUser(String id){
+        return employeesManager.sameUser(id); 
+    }
+    
     public Request selectRequest(String id) {
         return (Request) requestsManager.select(id);
     }

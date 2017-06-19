@@ -47,4 +47,16 @@ public class FacadeSuperuser {
      public Employee selectEmployee(String id){
          return school.selectEmployee(id);
      }
+     
+     public boolean ifEmployeehasGroup(String id){
+         return school.ifEmployeehasGroup(id); 
+     }
+     
+     public boolean sameUser(String id){
+        return school.sameUser(id); 
+     }
+     
+     public boolean sameEmail(String email){
+        return school.sameEmail(email); 
+     }
 }
