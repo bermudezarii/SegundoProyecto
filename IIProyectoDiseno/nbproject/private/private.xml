@@ -4,28 +4,42 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/web/index.jsp</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrTemplate.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrSuperUser.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletConsultUI.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/FacadeHeadMaster.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrResolution.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/FacadeAssistant.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletGroups.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UILogin.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/RecordInclusionResolutionTemplate.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UISuperUser.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrStadistics.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ExtendedSchool.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletPeriods.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/TemplateResolution.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/FacadeSuperuser.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrLogin.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/FileTypeFilter.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrRequest.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletResolution.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletFormUI.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrTemplate.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/NewTemplate.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UIStadistics.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrSuperUser.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletConsultUI.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/AbstractBridge.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/model/Template.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/web/WEB-INF/web.xml</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/FacadeLogin.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UIViewRequest.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/FacadeCoordinator.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrViewRequest.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UISuperUser.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UIHeadmaster.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletPeriods.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/FacadeSuperuser.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/web/assets/js/services.js</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrLogin.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrRequest.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletResolution.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/view/FrMain.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UIAssistant.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletCourses.java</file>
+            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UIBase.java</file>
             <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/UICoordinator.java</file>
-            <file>file:/home/ximeb/Documentos/SegundoProyecto/IIProyectoDiseno/src/java/controller/ServletFormUI.java</file>
         </group>
     </open-files>
 </project-private>
